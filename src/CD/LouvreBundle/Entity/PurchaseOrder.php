@@ -14,6 +14,8 @@ use Doctrine\Common\Collections\ArrayCollection;
  */
 class PurchaseOrder
 {
+	const MAX_PLACES_PER_DAY = 10;
+
     /**
      * @var int
      *
@@ -29,6 +31,13 @@ class PurchaseOrder
      * @ORM\Column(name="visitType", type="boolean")
      */
     private $visitType;
+
+	/**
+	 * @var \DateTime
+	 *
+	 * @ORM\Column(name="visitDate", type="datetime")
+	 */
+    private $visitDate;
 
     /**
      * @var \DateTime
@@ -317,5 +326,29 @@ class PurchaseOrder
     public function getTicketDescription()
     {
         return $this->ticketDescription;
+    }
+
+    /**
+     * Set visitDate
+     *
+     * @param \DateTime $visitDate
+     *
+     * @return PurchaseOrder
+     */
+    public function setVisitDate($visitDate)
+    {
+        $this->visitDate = $visitDate;
+
+        return $this;
+    }
+
+    /**
+     * Get visitDate
+     *
+     * @return \DateTime
+     */
+    public function getVisitDate()
+    {
+        return $this->visitDate;
     }
 }

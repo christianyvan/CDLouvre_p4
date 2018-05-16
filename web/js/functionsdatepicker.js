@@ -13,7 +13,7 @@ $(document).ready(function(){
         $.ajax({
             type: 'get',
             format: 'json',
-            url: "http://localhost/Louvre_a_comprendre/web/app_dev.php/disponibilityDay",
+            url: "http://localhost/CDLouvre_p4/web/app_dev.php/disponibilityDay",
            // url:"{{path('cd_louvre_recovery_disponibilityDay')}}",
             success: function (data) {
                 // on récupère les dates excluses et on les ajoutes au tableau excludeDates
@@ -71,7 +71,7 @@ $(document).ready(function(){
            // data : 'numberTicketsDesired='+ numberTicketsDesired,
             // url: 'numberPlaces/'+ dateTab,
             // url:"{{path('numberPlaces')}}"/+ dateTab,
-            url: "http://localhost/Louvre_a_comprendre/web/app_dev.php/numberPlaces/" +dateTab,
+            url: "http://localhost/CDLouvre_p4/web/app_dev.php/numberPlaces/" +dateTab,
             // url:"cd_louvre_recovery_numberPlaces"/+ dateTab,
             success: function (avalaiblePlaces) {
                 afficher(avalaiblePlaces);

@@ -40,7 +40,7 @@ $(document).ready(function () {
             //data : 'numberTicketsDesired='+ numberTicketsDesired,
             // url: 'numberPlaces/'+ dateTab,
             // url:"{{path('numberPlaces')}}"/+ dateTab,
-            url: "http://localhost/Louvre/web/app_dev.php/numberPlaces" / +dateTab,
+            url: "http://localhost/CDLouvre_p4/web/app_dev.php/numberPlaces/" +dateTab,
             // url:"cd_louvre_recovery_numberPlaces"/+ dateTab,
             success: function (data) {
                 afficher(data);
