@@ -1,4 +1,9 @@
-cd_louvre_homepage:
-    path:     /
-    defaults: { _controller: CDLouvreBundle:Default:index }
+#cd_louvre_homepage:
+ #   path:     /
+ #   defaults: { _controller: CDLouvreBundle:Default:index }
 
+#******************** Route HomeController *****************************************************************#
+
+louvre_home:
+    path:     /
+    defaults: { _controller: CDLouvreBundle:Home:home }

@@ -1,12 +1,7 @@
-cd_louvre:
+#cd_louvre:
+ #   resource: "@CDLouvreBundle/Resources/config/routing.yml"
+  #  prefix:   /
+louvre_home:
     resource: "@CDLouvreBundle/Resources/config/routing.yml"
     prefix:   /
 
-app:
-    resource: '@AppBundle/Controller/'
-    type: annotation
-#******************** Route HomeController *****************************************************************#
-
-cd_louvre_home:
-    path:     /
-    defaults: { _controller: CDLouvreBundle:Home:home }
