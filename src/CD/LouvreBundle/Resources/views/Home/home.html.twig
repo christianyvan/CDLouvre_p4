@@ -14,62 +14,63 @@
 <div class="container">
     <h4 id="reserBillet">Achat de billet(s) pour visiter le Musée du Louvre <span class="glyphicon glyphicon-shopping-cart" id="tarif"></span></h4>
 </div>
-    <div class="container">
-        <section class="  jumbotron col-lg-9">
+<div class="container">
+   <section class="well col-md-8 col-lg-8">
                     {{ form_start(form, {'attr': {'class':'form-horizontal'}}) }}
                     {{ form_errors(form) }}
-            <div class="row">
-                <div class="col-md-3">
+        <div class="row">
+             <div class="col-md-3 col-lg-3">
                     {{ form_label(form.visitType) }}
                     {{ form_errors(form.visitType) }}
                     {{ form_widget(form.visitType) }}
-                </div>
+             </div>
 
-                <div class="col-md-3">
-                        {{ form_label(form.visitDate) }}
-                        {{ form_errors(form.visitDate) }}
-                        {{ form_widget(form.visitDate) }}
+             <div class="col-md-3 col-lg-3">
+                     {{ form_label(form.visitDate) }}
+                     {{ form_errors(form.visitDate) }}
+                     {{ form_widget(form.visitDate) }}
                         Demi-Journée à partir de 14h. <span id="infotype"></span>
-                </div>
+             </div>
 
-                <div class="col-md-3">
-                        {{ form_label(form.numberTicketsDesired) }}
-                        {{ form_errors(form.numberTicketsDesired) }}
-                        {{ form_widget(form.numberTicketsDesired) }}
-                        <div class="help-block">
-                            Disponibilité :<span class="new badge" data-badge-caption="places" id="nbPlaces"></span>
-                        </div>
-                </div>
+             <div class="col-md-3 col-lg-3">
+                     {{ form_label(form.numberTicketsDesired) }}
+                     {{ form_errors(form.numberTicketsDesired) }}
+                     {{ form_widget(form.numberTicketsDesired) }}
+                   <div class="help-block">
+                        Disponibilité :<span class="new badge" data-badge-caption="places" id="nbPlaces"></span>
+                   </div>
+             </div>
 
-                <div class="col-md-3">
-                        {{ form_label(form.customerEmail, 'Email') }}
-                        {{ form_errors(form.customerEmail) }}
-                        {{ form_widget(form.customerEmail) }}
-                </div>
+             <div class="col-md-3 col-lg-3">
+                     {{ form_label(form.customerEmail, 'Email') }}
+                     {{ form_errors(form.customerEmail) }}
+                     {{ form_widget(form.customerEmail) }}
+             </div>
 
             </div><!-- end row -->
-            <div class="row">
+
                 <div class="">
                     {{ form_widget(form.ticketDescription) }}
                 </div>
-            </div><!-- end row -->
 
-            <div class="row ">
 
+            <div class="row">
+                <div class="col-md-3 col-lg-3">
                 {{ form_widget(form.Continuer, {'attr': {
                     'class': 'btn-primary'
                 }}) }}
+                </div>
             </div>
 
             {{ form_end(form) }}
-        </section>
-        <aside class=" col-md-3 ">
+   </section>
+   <aside class=" col-md-4 col-lg-4">
 
             {% include "CDLouvreBundle:Home:tabPrice.html.twig" %}
             {% include "CDLouvreBundle:Home:tabSchedule.html.twig" %}
 
-        </aside>
-    </div><!-- fin div class row-->
+   </aside>
+</div><!-- fin div class container-->
 
     </div><!-- container -->
     <div class="modal fade" id="myModal" role="dialog">

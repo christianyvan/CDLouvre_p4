@@ -86,6 +86,7 @@ class PurchaseOrder
 		$this->visitDate = new \DateTime();
 		$this->visitType = 0;
 		$this->amountOrder = 0;
+		$this->numberTicketsDesired = 1;
 		$this->reservationCode = $this->generateCode(15);
 		$this->orderValidation = 0;
 		$this->ticketDescription = new ArrayCollection();
