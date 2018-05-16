@@ -1,3 +1,4 @@
 cd_louvre_homepage:
     path:     /
     defaults: { _controller: CDLouvreBundle:Default:index }
+

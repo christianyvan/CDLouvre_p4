@@ -5,3 +5,8 @@ cd_louvre:
 app:
     resource: '@AppBundle/Controller/'
     type: annotation
+#******************** Route HomeController *****************************************************************#
+
+cd_louvre_home:
+    path:     /
+    defaults: { _controller: CDLouvreBundle:Home:home }
