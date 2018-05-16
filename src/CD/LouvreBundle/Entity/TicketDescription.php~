@@ -227,52 +227,5 @@ class TicketDescription
     {
         return $this->ticketPrice;
     }
-
-    /**
-     * Set idResa
-     *
-     * @param integer $idResa
-     *
-     * @return TicketDescription
-     */
-    public function setIdResa($idResa)
-    {
-        $this->idResa = $idResa;
-
-        return $this;
-    }
-
-    /**
-     * Get idResa
-     *
-     * @return integer
-     */
-    public function getIdResa()
-    {
-        return $this->idResa;
-    }
-
-    /**
-     * Set purchaseOrder
-     *
-     * @param \CD\LouvreBundle\Entity\PurchaseOrder $purchaseOrder
-     *
-     * @return TicketDescription
-     */
-    public function setPurchaseOrder(\CD\LouvreBundle\Entity\PurchaseOrder $purchaseOrder = null)
-    {
-        $this->purchaseOrder = $purchaseOrder;
-
-        return $this;
-    }
-
-    /**
-     * Get purchaseOrder
-     *
-     * @return \CD\LouvreBundle\Entity\PurchaseOrder
-     */
-    public function getPurchaseOrder()
-    {
-        return $this->purchaseOrder;
-    }
 }
+
