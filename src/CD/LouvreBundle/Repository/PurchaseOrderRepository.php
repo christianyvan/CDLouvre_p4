@@ -2,6 +2,7 @@
 
 namespace CD\LouvreBundle\Repository;
 
+
 /**
  * PurchaseOrderRepository
  *
@@ -10,4 +11,29 @@ namespace CD\LouvreBundle\Repository;
  */
 class PurchaseOrderRepository extends \Doctrine\ORM\EntityRepository
 {
+	public function placesPerDay($date)
+	{
+		$query = $this->createQueryBuilder('q')
+			->select('SUM(q.numberTicketsDesired)')
+			->where('q.visitDate = :date')
+			->andWhere('q.orderValidation = 1')
+			->setParameter('date', $date)
+			->getQuery()
+			->getSingleScalarResult()
+		;
+		return $query;
+	}
+
+	// sélectionne le nombre de commande validé par date de visite
+	public function fullDay()
+	{
+		$query = $this->createQueryBuilder('q')
+			->select('q.visitDate', 'SUM(q.numberTicketsDesired) as Places')
+			->where('q.orderValidation = 1')
+			->groupBy('q.visitDate')
+			->getQuery()
+			->getScalarResult()
+		;
+		return $query;
+	}
 }
