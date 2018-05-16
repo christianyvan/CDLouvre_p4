@@ -1,15 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="9b216db3-ef08-4942-94b5-624de4b5fbcb" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/config/routing.yml" beforeDir="false" afterPath="$PROJECT_DIR$/app/config/routing.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/CD/LouvreBundle/Controller/Home.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/CD/LouvreBundle/Controller/HomeController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/CD/LouvreBundle/Controller/OrderDescription.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/CD/LouvreBundle/Controller/OrderDescriptionController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/CD/LouvreBundle/Controller/OrderPayment.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/CD/LouvreBundle/Controller/OrderPaymentController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/CD/LouvreBundle/Controller/RecoveryDisponibility.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/CD/LouvreBundle/Controller/RecoveryDisponibilityController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/CD/LouvreBundle/Resources/config/routing.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/CD/LouvreBundle/Resources/config/routing.yml" afterDir="false" />
-    </list>
+    <list default="true" id="9b216db3-ef08-4942-94b5-624de4b5fbcb" name="Default" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -36,15 +28,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="187">
               <caret line="11" column="55" selection-start-line="11" selection-start-column="55" selection-end-line="11" selection-end-column="55" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="TicketDescription.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/CD/LouvreBundle/Entity/TicketDescription.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="31">
-              <caret line="57" selection-start-line="57" selection-end-line="57" />
             </state>
           </provider>
         </entry>
@@ -82,13 +65,25 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="HomeController.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="HomeController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/CD/LouvreBundle/Controller/HomeController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="209">
+            <state relative-caret-position="191">
               <caret line="18" lean-forward="true" selection-start-line="18" selection-end-line="18" />
               <folding>
                 <element signature="e#134#175#0#PHP" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CDOrderHandling.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/CD/LouvreBundle/Services/CDOrderHandling.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="301">
+              <caret line="127" column="28" lean-forward="true" selection-start-line="127" selection-start-column="28" selection-end-line="127" selection-end-column="28" />
+              <folding>
+                <element signature="e#129#160#0#PHP" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -151,6 +146,7 @@
         <option value="$PROJECT_DIR$/src/CD/LouvreBundle/Resources/config/routing.yml" />
         <option value="$PROJECT_DIR$/app/config/routing.yml" />
         <option value="$PROJECT_DIR$/src/CD/LouvreBundle/Controller/HomeController.php" />
+        <option value="$PROJECT_DIR$/src/CD/LouvreBundle/Services/CDOrderHandling.php" />
       </list>
     </option>
   </component>
@@ -244,24 +240,7 @@
               <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="CD" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="LouvreBundle" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="Controller" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="CDLouvre_p4" type="b2602c69:ProjectViewProjectNode" />
-              <item name="CDLouvre_p4" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="CD" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="LouvreBundle" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="Resources" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="CDLouvre_p4" type="b2602c69:ProjectViewProjectNode" />
-              <item name="CDLouvre_p4" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="CD" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="LouvreBundle" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="Resources" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="config" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="Services" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
           </expand>
           <select />
@@ -300,12 +279,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1526456402979</updated>
-      <workItem from="1526456404356" duration="8027000" />
+      <workItem from="1526456404356" duration="8924000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="8027000" />
+    <option name="totallyTimeSpent" value="8924000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -313,12 +292,12 @@
     <layout>
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Event Log" side_tool="true" />
-      <window_info anchor="bottom" id="Command Line Tools Console" visible="true" weight="0.060034305" />
+      <window_info active="true" anchor="bottom" id="Command Line Tools Console" visible="true" weight="0.15608919" />
       <window_info anchor="bottom" id="Database Changes" show_stripe_button="false" />
       <window_info anchor="bottom" id="Run" order="2" />
       <window_info anchor="bottom" id="Version Control" />
       <window_info anchor="bottom" id="Terminal" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.23676248" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.23676248" />
       <window_info anchor="bottom" id="Docker" show_stripe_button="false" />
       <window_info anchor="right" id="Database" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -420,10 +399,20 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/CD/LouvreBundle/Controller/HomeController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="209">
+        <state relative-caret-position="191">
           <caret line="18" lean-forward="true" selection-start-line="18" selection-end-line="18" />
           <folding>
             <element signature="e#134#175#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/CD/LouvreBundle/Services/CDOrderHandling.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="301">
+          <caret line="127" column="28" lean-forward="true" selection-start-line="127" selection-start-column="28" selection-end-line="127" selection-end-column="28" />
+          <folding>
+            <element signature="e#129#160#0#PHP" expanded="true" />
           </folding>
         </state>
       </provider>
