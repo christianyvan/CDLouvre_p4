@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="9b216db3-ef08-4942-94b5-624de4b5fbcb" name="Default" comment="" />
+    <list default="true" id="9b216db3-ef08-4942-94b5-624de4b5fbcb" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/src/CD/LouvreBundle/Form/PurchaseOrderType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/CD/LouvreBundle/Form/PurchaseOrderType.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/CD/LouvreBundle/Form/TicketDescriptionType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/CD/LouvreBundle/Form/TicketDescriptionType.php" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -41,11 +44,32 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="TicketDescription.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="TicketDescription.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/CD/LouvreBundle/Entity/TicketDescription.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="94">
+            <state relative-caret-position="31">
               <caret line="57" selection-start-line="57" selection-end-line="57" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="TicketDescriptionType.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/CD/LouvreBundle/Form/TicketDescriptionType.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="187">
+              <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
+              <folding>
+                <element signature="e#40#80#0#PHP" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="PurchaseOrderType.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/CD/LouvreBundle/Form/PurchaseOrderType.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="153">
+              <caret line="9" column="57" lean-forward="true" selection-start-line="9" selection-start-column="57" selection-end-line="9" selection-end-column="57" />
             </state>
           </provider>
         </entry>
@@ -64,6 +88,9 @@
       <command text="s doctrine:database:drop --force" />
       <command text="s doctrine:database:create" />
       <command text="s doctrine:schema:create" />
+      <command text="s doctrine:generate:form PurchaseOrder" />
+      <command text="s doctrine:generate:form CDLouvreBundle:PurchaseOrder" />
+      <command text="s doctrine:generate:form CDLouvreBundle:TicketDescription" />
     </commandsHistory>
   </component>
   <component name="Git.Settings">
@@ -79,6 +106,8 @@
         <option value="$PROJECT_DIR$/app/config/config.yml" />
         <option value="$PROJECT_DIR$/src/CD/LouvreBundle/Entity/PurchaseOrder.php" />
         <option value="$PROJECT_DIR$/src/CD/LouvreBundle/Entity/TicketDescription.php" />
+        <option value="$PROJECT_DIR$/src/CD/LouvreBundle/Form/TicketDescriptionType.php" />
+        <option value="$PROJECT_DIR$/src/CD/LouvreBundle/Form/PurchaseOrderType.php" />
       </list>
     </option>
   </component>
@@ -130,11 +159,11 @@
       <path value="$PROJECT_DIR$/vendor/fig/link-util" />
     </include_path>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="705" />
-    <option name="y" value="56" />
-    <option name="width" value="491" />
-    <option name="height" value="686" />
+  <component name="ProjectFrameBounds">
+    <option name="x" value="-38" />
+    <option name="y" value="52" />
+    <option name="width" value="786" />
+    <option name="height" value="688" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
@@ -185,6 +214,14 @@
               <item name="LouvreBundle" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="Entity" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
+            <path>
+              <item name="CDLouvre_p4" type="b2602c69:ProjectViewProjectNode" />
+              <item name="CDLouvre_p4" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="CD" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="LouvreBundle" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="Form" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -222,24 +259,25 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1526456402979</updated>
-      <workItem from="1526456404356" duration="3486000" />
+      <workItem from="1526456404356" duration="4831000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="3486000" />
+    <option name="totallyTimeSpent" value="4831000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <frame x="-38" y="52" width="786" height="688" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Event Log" side_tool="true" />
-      <window_info anchor="bottom" id="Command Line Tools Console" visible="true" weight="0.15608919" />
+      <window_info anchor="bottom" id="Command Line Tools Console" visible="true" weight="0.06641366" />
       <window_info anchor="bottom" id="Database Changes" show_stripe_button="false" />
       <window_info anchor="bottom" id="Run" order="2" />
       <window_info anchor="bottom" id="Version Control" />
       <window_info anchor="bottom" id="Terminal" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25113463" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.011019284" />
       <window_info anchor="bottom" id="Docker" show_stripe_button="false" />
       <window_info anchor="right" id="Database" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -284,8 +322,25 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/CD/LouvreBundle/Entity/TicketDescription.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="94">
+        <state relative-caret-position="31">
           <caret line="57" selection-start-line="57" selection-end-line="57" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/CD/LouvreBundle/Form/TicketDescriptionType.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
+          <folding>
+            <element signature="e#40#80#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/CD/LouvreBundle/Form/PurchaseOrderType.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="9" column="57" lean-forward="true" selection-start-line="9" selection-start-column="57" selection-end-line="9" selection-end-column="57" />
         </state>
       </provider>
     </entry>
