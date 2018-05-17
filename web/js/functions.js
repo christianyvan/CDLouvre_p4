@@ -22,7 +22,7 @@ $(document).ready(function () {
             }
             else
             {
-                if( $("#cd_louvrebundle_purchaseorder_visitType").length< 2)
+                if( $("#cd_louvrebundle_purchaseorder_visitType").length < 2)
                 {
                     $('#cd_louvrebundle_purchaseorder_visitType').append('<option value="1">Journée</option>');
                 }
