@@ -25,13 +25,13 @@ class RecoveryDisponibilityController extends Controller
 		$result = $em->getRepository('CDLouvreBundle:PurchaseOrder')->placesPerDay($dateTab);
 		$places = PurchaseOrder::MAX_PLACES_PER_DAY - $result;
 		$response = new Response($places);
-		if($places > 0){
+		//if($places > 0){
 			return $response;
-		}
+	//	}
 
-		else{
-			return -1;
-		}
+	//	else{
+		//	return -1;
+		//}
 	}
 
 

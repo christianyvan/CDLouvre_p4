@@ -25,7 +25,8 @@ class TicketDescriptionType extends AbstractType
 			))
 			->add('visitorBirthDate',BirthdayType::class,array(
 				'label' => 'Date de naissance ',
-				'years'     => range(1900, date('Y'))
+				'years'     => range(1900, date('Y')),
+				'format' => 'dd-MM-yyyy',
 			))
 			->add('visitorCountry',CountryType::class,array(
 				'label' => 'Pays',

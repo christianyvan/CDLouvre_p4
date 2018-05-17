@@ -24,8 +24,7 @@ $(document).ready(function () {
             {
                 if( $("#cd_louvrebundle_purchaseorder_visitType").length < 2)
                 {
-                   alert('coucou');
-                    $('#cd_louvrebundle_purchaseorder_visitType').append('<option value="1">Journée</option>');
+                   $('#cd_louvrebundle_purchaseorder_visitType').append('<option value="1">Journée</option>');
                 }
             }
         }
@@ -51,8 +50,7 @@ $(document).ready(function () {
             // url:"cd_louvre_recovery_numberPlaces"/+ dateTab,
             success: function (data) {
                 afficher(data);
-                // $("#nbPlaces").text(dataTab);
-                // $("#maxPlaces").text(dataTab);
+
             },
             error: function (XMLHttpRequest, textStatus, errorThrown) {
                 alert(textStatus);
@@ -65,6 +63,7 @@ $(document).ready(function () {
     function afficher(avalaiblePlaces) {
         $("#nbPlaces").empty();
         $("#maxPlaces").empty();
+        alert(avalaiblePlaces);
 
         if(avalaiblePlaces >=0)
         {
@@ -73,7 +72,7 @@ $(document).ready(function () {
         }
         else
         {
-            $('#myAlert').modal('show');
+            $('#myModal').modal('show');
         }
     }
 
@@ -119,10 +118,12 @@ $(document).ready(function () {
     // au changement du choix du nombre de place
     $placesRequired.on('change', function (e) {
         e.preventDefault();
-        var maxPlacesPerDay = $("#cd_louvrebundle_purchaseorder_numberTicketsDesired").text();
+        var maxPlacesPerDay = $("#nbPlaces").text();
         if (parseInt($placesRequired.val()) > parseInt(maxPlacesPerDay)) {
-            $('#myAlert').modal('show');
-        } else {
+            $('#myModal').modal('show');
+        }
+        else
+        {
             var indice = $("#cd_louvrebundle_purchaseorder_numberTicketsDesired").val() - 1;
             $container.empty();
             index = 0
