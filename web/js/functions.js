@@ -24,8 +24,16 @@ $(document).ready(function () {
             {
                 if( $("#cd_louvrebundle_purchaseorder_visitType").length < 2)
                 {
+                   alert('coucou');
                     $('#cd_louvrebundle_purchaseorder_visitType').append('<option value="1">Journée</option>');
                 }
+            }
+        }
+
+        if($visitDate != dateCurrent){
+            if( $("#cd_louvrebundle_purchaseorder_visitType").length< 2)
+            {
+                $('#cd_louvrebundle_purchaseorder_visitType').append('<option value="j">Journée</option>');
             }
         }
         /**************** on récupère le nombre de places disponibles pour un jour donnée **********************************/

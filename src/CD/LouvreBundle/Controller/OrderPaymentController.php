@@ -81,15 +81,7 @@ class OrderPaymentController extends Controller
 			// on affecte l'id du PurchaseOrder à tout les TicketDescription de la commande
 			$orderHandling->updateIdTicketsDescription($purchaseOrder, $ticketsDescription);
 
-
-
-			//$ticketsDescription = $purchaseOrder->getTicketDescription();
-			//dump($purchaseOrder);
-			//dump($ticketsDescription[0]);
-			//dump($ticketsDescription[1]);
-			//$em->persist($purchaseOrder);
-			//$em->flush();
-			return $this->redirectToRoute('cd_louvre_sendMail', array('code' =>$purchaseOrder->getReservationCode()));
+			return $this->redirectToRoute('louvre_sendMail', array('code' =>$purchaseOrder->getReservationCode()));
 
 		} catch(\Stripe\Error\Card $e) {
 			return $this->redirectToRoute('cd_louvre_view');
@@ -116,7 +108,7 @@ class OrderPaymentController extends Controller
 			->setContentType('text/html')
 			->setBody($this->renderView('CDLouvreBundle:Email:email.html.twig', array(
 				'purchaseOrder'   	  =>$purchaseOrder,
-				'ticketDescription'   =>$ticketsDescription
+				'ticketsDescription'   =>$ticketsDescription
 			)));
 		// Envoi du mail
 		$this->get('mailer')

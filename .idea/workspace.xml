@@ -2,16 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9b216db3-ef08-4942-94b5-624de4b5fbcb" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/CDLouvre_p4.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/CDLouvre_p4.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/CD/LouvreBundle/Controller/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/CD/LouvreBundle/Controller/HomeController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/CD/LouvreBundle/Controller/OrderPaymentController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/CD/LouvreBundle/Controller/OrderPaymentController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/CD/LouvreBundle/Resources/config/routing.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/CD/LouvreBundle/Resources/config/routing.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/CD/LouvreBundle/Resources/views/OrderPayment/orderDescription.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/src/CD/LouvreBundle/Resources/views/OrderPayment/orderDescription.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/CD/LouvreBundle/Services/CDOrderHandling.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/CD/LouvreBundle/Services/CDOrderHandling.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/CD/LouvreBundle/Resources/views/OrderPayment/paymentValided.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/src/CD/LouvreBundle/Resources/views/OrderPayment/paymentValided.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/js/functions.js" beforeDir="false" afterPath="$PROJECT_DIR$/web/js/functions.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -53,8 +48,8 @@
       <file leaf-file-name="OrderPaymentController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/CD/LouvreBundle/Controller/OrderPaymentController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="119">
-              <caret line="12" selection-start-line="12" selection-end-line="12" />
+            <state relative-caret-position="250">
+              <caret line="111" column="16" selection-start-line="111" selection-start-column="16" selection-end-line="111" selection-end-column="16" />
               <folding>
                 <element signature="e#132#177#0#PHP" expanded="true" />
                 <element signature="e#392#439#1#PHP" expanded="true" />
@@ -70,7 +65,16 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="CDOrderHandling.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="email.html.twig" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/CD/LouvreBundle/Resources/views/Email/email.html.twig">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="348">
+              <caret line="39" selection-start-line="39" selection-end-line="39" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CDOrderHandling.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/CD/LouvreBundle/Services/CDOrderHandling.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="388">
@@ -88,11 +92,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="TicketDescription.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/CD/LouvreBundle/Entity/TicketDescription.php">
+      <file leaf-file-name="functions.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/web/js/functions.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="114">
-              <caret line="57" selection-start-line="57" selection-end-line="57" />
+            <state relative-caret-position="388">
+              <caret line="31" lean-forward="true" selection-start-line="31" selection-end-line="31" />
             </state>
           </provider>
         </entry>
@@ -100,22 +104,17 @@
       <file leaf-file-name="orderDescription.html.twig" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/CD/LouvreBundle/Resources/views/OrderPayment/orderDescription.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="245">
-              <caret line="139" column="61" selection-start-line="139" selection-start-column="61" selection-end-line="139" selection-end-column="61" />
+            <state relative-caret-position="450">
+              <caret line="118" column="17" selection-start-line="118" selection-start-column="17" selection-end-line="118" selection-end-column="17" />
             </state>
           </provider>
         </entry>
       </file>
       <file leaf-file-name="paymentValided.html.twig" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/CD/LouvreBundle/Resources/views/OrderPayment/paymentValided.html.twig">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file leaf-file-name="home.html.twig" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/CD/LouvreBundle/Resources/views/Home/home.html.twig">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="51">
-              <caret line="3" column="61" selection-start-line="3" selection-start-column="61" selection-end-line="3" selection-end-column="61" />
+              <caret line="3" selection-start-line="3" selection-end-line="3" />
             </state>
           </provider>
         </entry>
@@ -123,8 +122,8 @@
       <file leaf-file-name="routing.yml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/CD/LouvreBundle/Resources/config/routing.yml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="281">
-              <caret line="26" column="22" selection-start-line="26" selection-start-column="22" selection-end-line="26" selection-end-column="22" />
+            <state relative-caret-position="467">
+              <caret line="30" column="29" selection-start-line="30" selection-start-column="29" selection-end-line="30" selection-end-column="29" />
             </state>
           </provider>
         </entry>
@@ -182,16 +181,18 @@
         <option value="$PROJECT_DIR$/src/CD/LouvreBundle/Form/PurchaseOrderType.php" />
         <option value="$PROJECT_DIR$/src/CD/LouvreBundle/Form/TicketDescriptionType.php" />
         <option value="$PROJECT_DIR$/web/js/functionsdatepicker.js" />
-        <option value="$PROJECT_DIR$/web/js/functions.js" />
         <option value="$PROJECT_DIR$/src/CD/LouvreBundle/Controller/OrderDescriptionController.php" />
         <option value="$PROJECT_DIR$/app/Resources/views/base.html.twig" />
         <option value="$PROJECT_DIR$/src/CD/LouvreBundle/Resources/views/Home/home.html.twig" />
-        <option value="$PROJECT_DIR$/src/CD/LouvreBundle/Resources/views/OrderPayment/orderDescription.html.twig" />
-        <option value="$PROJECT_DIR$/src/CD/LouvreBundle/Resources/config/routing.yml" />
         <option value="$PROJECT_DIR$/src/CD/LouvreBundle/Controller/HomeController.php" />
         <option value="$PROJECT_DIR$/composer.json" />
-        <option value="$PROJECT_DIR$/src/CD/LouvreBundle/Controller/OrderPaymentController.php" />
         <option value="$PROJECT_DIR$/src/CD/LouvreBundle/Services/CDOrderHandling.php" />
+        <option value="$PROJECT_DIR$/src/CD/LouvreBundle/Resources/views/OrderPayment/orderDescription.html.twig" />
+        <option value="$PROJECT_DIR$/src/CD/LouvreBundle/Resources/config/routing.yml" />
+        <option value="$PROJECT_DIR$/src/CD/LouvreBundle/Resources/views/Email/email.html.twig" />
+        <option value="$PROJECT_DIR$/src/CD/LouvreBundle/Controller/OrderPaymentController.php" />
+        <option value="$PROJECT_DIR$/src/CD/LouvreBundle/Resources/views/OrderPayment/paymentValided.html.twig" />
+        <option value="$PROJECT_DIR$/web/js/functions.js" />
       </list>
     </option>
   </component>
@@ -384,6 +385,16 @@
               <item name="LouvreBundle" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="Resources" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="views" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="Email" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="CDLouvre_p4" type="b2602c69:ProjectViewProjectNode" />
+              <item name="CDLouvre_p4" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="CD" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="LouvreBundle" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="Resources" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="views" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="Home" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
             <path>
@@ -440,11 +451,11 @@
       <recent name="C:\wamp64\www\CDLouvre_p4\web\js" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\wamp64\www\CDLouvre_p4\src\CD\LouvreBundle\Resources\views\Email" />
       <recent name="C:\wamp64\www\CDLouvre_p4\src\CD\LouvreBundle\Resources\views\OrderPayment" />
       <recent name="C:\wamp64\www\CDLouvre_p4\web\css" />
       <recent name="C:\wamp64\www\CDLouvre_p4\web\js" />
       <recent name="C:\wamp64\www\CDLouvre_p4\web\images" />
-      <recent name="C:\wamp64\www\CDLouvre_p4\src\CD\LouvreBundle\Resources\views\Home" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -474,12 +485,12 @@
       <workItem from="1526483475971" duration="79000" />
       <workItem from="1526483628378" duration="641000" />
       <workItem from="1526490631091" duration="1336000" />
-      <workItem from="1526545242115" duration="10154000" />
+      <workItem from="1526545242115" duration="12465000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="36259000" />
+    <option name="totallyTimeSpent" value="38570000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -487,12 +498,12 @@
     <layout>
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
-      <window_info anchor="bottom" id="Command Line Tools Console" order="7" visible="true" weight="0.19382504" />
+      <window_info anchor="bottom" id="Command Line Tools Console" order="7" weight="0.19382504" />
       <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="7" />
       <window_info anchor="bottom" id="Run" order="2" />
       <window_info anchor="bottom" id="Terminal" order="7" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24054463" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2473525" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="right" id="Database" order="3" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -506,6 +517,28 @@
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Find" order="1" />
     </layout>
+    <layout-to-restore>
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Run" order="2" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24054463" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Command Line Tools Console" order="9" visible="true" weight="0.19382504" />
+      <window_info anchor="right" id="Database" order="3" />
+      <window_info anchor="bottom" id="Terminal" order="10" />
+      <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="Version Control" order="12" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info id="Favorites" order="2" side_tool="true" />
+    </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
@@ -514,13 +547,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/web/js/functions.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="714">
-          <caret line="42" column="77" selection-start-line="42" selection-start-column="77" selection-end-line="42" selection-end-column="77" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/web/js/functionsdatepicker.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="238">
@@ -812,13 +838,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/js/functions.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="241">
-          <caret line="20" column="18" selection-start-line="20" selection-start-column="18" selection-end-line="20" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/web/css/style.css">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -850,23 +869,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/CD/LouvreBundle/Resources/views/OrderPayment/paymentValided.html.twig">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/CD/LouvreBundle/Resources/views/OrderPayment/orderDescription.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="245">
-          <caret line="139" column="61" selection-start-line="139" selection-start-column="61" selection-end-line="139" selection-end-column="61" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/CD/LouvreBundle/Resources/config/routing.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="281">
-          <caret line="26" column="22" selection-start-line="26" selection-start-column="22" selection-end-line="26" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/CD/LouvreBundle/Controller/HomeController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="266">
@@ -895,10 +897,31 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/CD/LouvreBundle/Services/CDOrderHandling.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="388">
+          <caret line="158" column="5" selection-start-line="158" selection-start-column="5" selection-end-line="158" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/CD/LouvreBundle/Resources/config/routing.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="467">
+          <caret line="30" column="29" selection-start-line="30" selection-start-column="29" selection-end-line="30" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/CD/LouvreBundle/Resources/views/Email/email.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="348">
+          <caret line="39" selection-start-line="39" selection-end-line="39" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/CD/LouvreBundle/Controller/OrderPaymentController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="12" selection-start-line="12" selection-end-line="12" />
+        <state relative-caret-position="250">
+          <caret line="111" column="16" selection-start-line="111" selection-start-column="16" selection-end-line="111" selection-end-column="16" />
           <folding>
             <element signature="e#132#177#0#PHP" expanded="true" />
             <element signature="e#392#439#1#PHP" expanded="true" />
@@ -913,10 +936,24 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/CD/LouvreBundle/Services/CDOrderHandling.php">
+    <entry file="file://$PROJECT_DIR$/src/CD/LouvreBundle/Resources/views/OrderPayment/orderDescription.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="450">
+          <caret line="118" column="17" selection-start-line="118" selection-start-column="17" selection-end-line="118" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/CD/LouvreBundle/Resources/views/OrderPayment/paymentValided.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" selection-start-line="3" selection-end-line="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/js/functions.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="388">
-          <caret line="158" column="5" selection-start-line="158" selection-start-column="5" selection-end-line="158" selection-end-column="5" />
+          <caret line="31" lean-forward="true" selection-start-line="31" selection-end-line="31" />
         </state>
       </provider>
     </entry>

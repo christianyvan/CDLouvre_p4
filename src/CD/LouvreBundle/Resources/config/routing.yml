@@ -26,3 +26,7 @@ louvre_description:
 louvre_paymentStrype:
     path:    /paiement
     defaults:  {_controller: CDLouvreBundle:OrderPayment:paymentStripe}
+#************* Route controller
+louvre_sendMail:
+    path:     /checked/{code}
+    defaults: { _controller: CDLouvreBundle:OrderPayment:sendMail }

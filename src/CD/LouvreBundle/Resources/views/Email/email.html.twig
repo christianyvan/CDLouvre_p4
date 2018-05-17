@@ -1,0 +1,45 @@
+<div class="container">
+
+    <h4>Détails billets :</h4>
+    <table class="table table-bordered table-responsive">
+        <thead>
+        <tr  w-100>
+            <th>Billet</th>
+            <th>Nom</th>
+            <th>Prenom</th>
+            <th>Date de Naissance</th>
+            <th>Pays</th>
+            <th>Tarif Réduit</th>
+            <th>Prix billet</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for ticketDescription in ticketsDescription %}
+            <tr>
+                <th>Visiteur n° {{ loop.index }}</th>
+                <td>{{  ticketDescription.visitorLastName }}</td>
+                <td>{{  ticketDescription.visitorFirstName}}</td>
+                <td>{{  ticketDescription.visitorBirthDate | date('d/m/Y') }}</td>
+                <td>{{  ticketDescription.visitorCountry }}</td>
+
+                <td>
+                    {% if ticketDescription.reducedPrice == 1 %}
+                        Oui
+                    {% else %}
+                        Non
+                    {% endif %}
+                </td>
+                <td>{{ ticketDescription.ticketPrice }}€</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
+<br>
+
+
+    <div>
+        <h4><strong>Montant total de votre commande : {{ purchaseOrder.getAmountOrder }}€</strong></h4>
+    </div>
+    <br>
+</div>
