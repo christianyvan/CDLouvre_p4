@@ -327,4 +327,28 @@ class PurchaseOrder
     {
         return $this->ticketDescription;
     }
+
+    /**
+     * Set visitDate
+     *
+     * @param \DateTime $visitDate
+     *
+     * @return PurchaseOrder
+     */
+    public function setVisitDate($visitDate)
+    {
+        $this->visitDate = $visitDate;
+
+        return $this;
+    }
+
+    /**
+     * Get visitDate
+     *
+     * @return \DateTime
+     */
+    public function getVisitDate()
+    {
+        return $this->visitDate;
+    }
 }
