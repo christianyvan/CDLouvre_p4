@@ -45,22 +45,26 @@ class CDOrderHandling
 
 		$price = 0;
 
+		if ($age < 4)
+		{
+			$price = 0;          // tarif gratuit visiteur de moins de 4 ans
+			return $price;
+		}
+
+
 		if($reducePrice == 0)
 		{
-			if ($age < 4)
-			{
-				$price = 0;          // tarif gratuit visiteur de moins de 4 ans
-			}
-
-			elseif ($age >= 12 && $age < 60)
+			if ($age >= 12 && $age < 60)
 			{
 				if ($visitType == 1)
 				{
 					$price = 16;    //tarif normal à la journée à partir de 12 ans
+					return $price;
 				}
 				else
 				{
 					$price = 8;     // tarif normal à la demi-journée à partir de 12 ans
+					return $price;
 				}
 			}
 
@@ -69,8 +73,13 @@ class CDOrderHandling
 				if ($visitType == 1)
 				{
 					$price = 8;         // tarif enfant à la journée de 4ans inclus à 12 ans exlus
+					return $price;
 				}
-				else $price = 4;        // tarif enfant à la demi-journée de 4 ans inclus à 12 ans exclus
+				else
+				{
+					$price = 4;        // tarif enfant à la demi-journée de 4 ans inclus à 12 ans exclus
+					return $price;
+				}
 			}
 
 			elseif ($age >= 60)
@@ -78,19 +87,30 @@ class CDOrderHandling
 				if ($visitType == 1)
 				{
 					$price = 12;        // tarif sénior à la journée à partir de 60 ans inclus
+					return $price;
 				}
-				else $price = 6;        // tarif sénior à la demi-journéé à partir de 60 ans inclus
+				else
+				{
+					$price = 6;        // tarif sénior à la demi-journéé à partir de 60 ans inclus
+					return $price;
+				}
 			}
 		}
-		elseif($age < 4) {
-			$price = 0;
-		}
-		else
-			if($visitType == 0)
+
+		if($reducePrice == 1)
+		{
+			if ($visitType == 0)
 			{
-				$price = 5;
-			}else $price = 10;
-		return $price;
+				$price=5;
+				return $price;
+			}
+			else
+			{
+				$price=10;
+				return $price;
+			}
+		}
+
 	}
 
 	// fonction qui renvoi le montant totale de la commande en fonction des valeurs renseignées à partir du formulaire
