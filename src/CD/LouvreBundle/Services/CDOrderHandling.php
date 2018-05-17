@@ -43,7 +43,6 @@ class CDOrderHandling
 		$visitor_year = $visitorBirthDate;
 		$age = $current_year - $visitor_year;
 
-		$price = 0;
 
 		if ($age < 4)
 		{

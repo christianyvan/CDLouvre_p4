@@ -13,21 +13,20 @@ $(document).ready(function () {
 
         if ($visitDate == dateCurrent) {
             if (currentHour >= 14) {
-                // $('#cd_louvrebundle_purchaseorder_visitType option:eq(0)').prop('selected', true);
-                // $('#cd_louvrebundle_purchaseorder_visitType option:eq(1)').prop('disabled', true);
 
                 $('#cd_louvrebundle_purchaseorder_visitType').val(0);
-                $('#cd_louvrebundle_purchaseorder_visitType').attr('disabled', true);
+                $('#cd_louvrebundle_purchaseorder_visitType option').each(function () {
+                    if ($(this).attr("value") == 1)
+                        $(this).remove();
+                })
             }
-            else {
-                $('#cd_louvrebundle_purchaseorder_visitType').val(1);
-                $('#cd_louvrebundle_purchaseorder_visitType').attr('disabled', false);
+            else
+            {
+                if( $("#cd_louvrebundle_purchaseorder_visitType").length< 2)
+                {
+                    $('#cd_louvrebundle_purchaseorder_visitType').append('<option value="1">Journée</option>');
+                }
             }
-        }
-        else {
-            // $('#cd_louvrebundle_purchaseorder_visitType option:eq(1)').prop('disabled', false);
-            // $('#cd_louvrebundle_purchaseorder_visitType option:eq(0)').prop('disabled', false);
-            $('#cd_louvrebundle_purchaseorder_visitType').attr('disabled', false);
         }
         /**************** on récupère le nombre de places disponibles pour un jour donnée **********************************/
         var dateSplit = $visitDate.split("/");
