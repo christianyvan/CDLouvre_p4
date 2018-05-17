@@ -17,8 +17,12 @@ louvre_recovery_numberPlaces:
     defaults: { _controller: CDLouvreBundle:RecoveryDisponibility:numberPlaces }
 
 #******************* Route controller OrderDescriptionController***********************************************
-cd_louvre_description:
+louvre_description:
     path:    /description
     defaults: {_controller: CDLouvreBundle:OrderDescription:description }
     requirements:
         id: \d+
+#**************** Route controller OrderPaymentController ***********************************
+louvre_paymentStrype:
+    path:    /paiement
+    defaults:  {_controller: CDLouvreBundle:OrderPayment:paymentStripe}

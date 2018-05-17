@@ -54,7 +54,7 @@ class HomeController extends Controller
 
 // Redirection vers la page de description de la commande
 
-			return $this->redirectToRoute('cd_louvre_description');
+			return $this->redirectToRoute('louvre_description');
 		}
 
 		return $this->render('CDLouvreBundle:Home:home.html.twig', array(

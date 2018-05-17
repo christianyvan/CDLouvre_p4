@@ -147,4 +147,15 @@ class CDOrderHandling
 		return $amountOrder;
 	}
 
+	public function updateIdTicketsDescription($purchaseOrder,$ticketsDescription)
+	{
+
+		foreach ($ticketsDescription as $key=>$value)
+		{
+			$ticketsDescription[$key]->setIdResa($purchaseOrder->getId());
+			$this->em->persist($ticketsDescription[$key]);
+		}
+		$this->em->flush();
+	}
+
 }
