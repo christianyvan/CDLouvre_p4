@@ -12,14 +12,16 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 
+
+
 class OrderPaymentController extends Controller
 {
-	public function prepareAction()
+/*	public function prepareAction()
 	{
 		return $this->render('CDLouvreBundle:OrderPayment:prepare.html.twig');
 	}
-
-
+*/
+/*
 	public function viewAction($id)
 	{
 		// On redirige vers la page Order pour l'instant avec le contenu de la réservation
@@ -34,7 +36,7 @@ class OrderPaymentController extends Controller
 			'ticketsDescription' => $ticketsDescription
 		));
 	}
-
+*/
 
 	public function paymentStripeAction(Request $request)
 	{
@@ -84,7 +86,7 @@ class OrderPaymentController extends Controller
 			return $this->redirectToRoute('louvre_sendMail', array('code' =>$purchaseOrder->getReservationCode()));
 
 		} catch(\Stripe\Error\Card $e) {
-			return $this->redirectToRoute('cd_louvre_view');
+			return $this->redirectToRoute('louvre_paymentDeclined');
 			// The card has been declined
 		}
 	}
@@ -123,6 +125,7 @@ class OrderPaymentController extends Controller
 
 
 	// test du mail a
+	/*
 	public function mailTestAction($code)
 	{
 		// On réaffiche l'ensemble de la réservation avec le détail
@@ -138,6 +141,6 @@ class OrderPaymentController extends Controller
 			'purchaseOrder' => $purchaseOrder,
 			'ticketsDescription' => $ticketsDescription
 		));
-	}
+	}*/
 
 }

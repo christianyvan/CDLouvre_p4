@@ -62,3 +62,41 @@ code { background: #F5F5F5; max-width: 100px; padding: 2px 6px; word-wrap: break
     .sf-toolbar { opacity: 0; -webkit-animation: fade-in 1s .2s forwards; animation: fade-in 1s .2s forwards;}
 }
 
+/************* CSS logo ******************************************************************************/
+
+
+/* CSS barre navigation */
+
+img {
+    padding: 7px 14px;
+    width: 25%;
+}
+
+
+.navbar-header a {
+    color:white;
+    font-size: 1.75em;
+    margin-left: 4em;
+}
+.navbar-header{
+    width: 70%;
+}
+
+#myNavbar a{
+    color: white;
+}
+
+/******************* CSS titre ************************************************************************/
+#reserBillet{
+    margin-top: 2em;
+}
+
+#footer{
+    background-color: darkslategrey;
+}
+/********************************* Média queries ***************************************************************/
+@media screen and (max-width: 1097px) {
+    .navbar-header a {
+        font-size: 1em;
+    }
+}

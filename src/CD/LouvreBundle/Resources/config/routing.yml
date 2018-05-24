@@ -24,9 +24,21 @@ louvre_description:
         id: \d+
 #**************** Route controller OrderPaymentController ***********************************
 louvre_paymentStrype:
-    path:    /paiement
+    path:    /payment
     defaults:  {_controller: CDLouvreBundle:OrderPayment:paymentStripe}
 #************* Route controller
 louvre_sendMail:
     path:     /checked/{code}
     defaults: { _controller: CDLouvreBundle:OrderPayment:sendMail }
+#********************* Route
+louvre_paymentDeclined:
+    path:     /paymentDeclined
+    defaults: { _controller: CDLouvreBundle:OrderPayment:paymentDeclined }
+#*****************************************
+louvre_informations:
+           path:     /informations
+           defaults: { _controller: CDLouvreBundle:Informations:informations }
+
+louvre_legalNotice:
+    path:     /mentions
+    defaults: { _controller: CDLouvreBundle:LegalNotice:legalNotice }
