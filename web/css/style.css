@@ -61,7 +61,10 @@ code { background: #F5F5F5; max-width: 100px; padding: 2px 6px; word-wrap: break
     @keyframes fade-in { 0% { opacity: 0; } 100% { opacity: 1; } }
     .sf-toolbar { opacity: 0; -webkit-animation: fade-in 1s .2s forwards; animation: fade-in 1s .2s forwards;}
 }
-
+/*************************** css mentions légales ****************************************************************/
+a{
+    color:black;
+}
 /************* CSS barre de navigation ******************************************************************************/
 
 
@@ -93,21 +96,18 @@ img {
 #cd_louvrebundle_purchaseorder_visitDate{
     width: 145px;
 }
-#cd_louvrebundle_purchaseorder_numberTicketsDesired{
+/*#cd_louvrebundle_purchaseorder_numberTicketsDesired{
     margin-left: 1.75em;
-}
+}*//*
 section .ticketDescription{
     background-color: lightgreen;
     margin-top: 10px;
     padding-top: 5px;
     padding-bottom: 5px;
-}
-
-.form-group{
-    margin-left: 50px;
-    margin-right: 50px;
-    padding-bottom: 5px;
-    border-bottom: 4px dashed black;
+   }*/
+.form-horizontal .checkbox{
+    border-bottom: 4px dashed darkslategrey;
+    margin-top: 0.5em;
 }
 
 /**************************** css vue paymentValided.html.twig **************************************************/
@@ -124,6 +124,14 @@ footer p,a {
     color: white;
     padding-top: 0.5em;
     margin-left: 2em;
+}
+/********************* css legalNotice **********************************************************************/
+body a{
+    color:black;
+}
+
+#legalNotice{
+    margin-top: 5em;
 }
 
 /********************************* Média queries ***************************************************************/

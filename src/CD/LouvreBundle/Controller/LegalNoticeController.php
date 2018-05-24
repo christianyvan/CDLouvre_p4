@@ -9,9 +9,11 @@
 namespace CD\LouvreBundle\Controller;
 
 
-class LegalNoticeController
+use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+
+class LegalNoticeController extends Controller
 {
 	public function legalNoticeAction(){
-
+		return $this->render('CDLouvreBundle:LegalNotice:legalNotice.html.twig');
 	}
 }
