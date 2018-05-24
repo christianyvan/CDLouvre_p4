@@ -62,10 +62,8 @@ code { background: #F5F5F5; max-width: 100px; padding: 2px 6px; word-wrap: break
     .sf-toolbar { opacity: 0; -webkit-animation: fade-in 1s .2s forwards; animation: fade-in 1s .2s forwards;}
 }
 
-/************* CSS logo ******************************************************************************/
+/************* CSS barre de navigation ******************************************************************************/
 
-
-/* CSS barre navigation */
 
 img {
     padding: 7px 14px;
@@ -79,21 +77,55 @@ img {
     margin-left: 4em;
 }
 .navbar-header{
-    width: 70%;
+    width: 60%;
 }
 
 #myNavbar a{
     color: white;
 }
 
-/******************* CSS titre ************************************************************************/
 #reserBillet{
     margin-top: 2em;
 }
 
+
+/******************* CSS formulaire ************************************************************************/
+#cd_louvrebundle_purchaseorder_visitDate{
+    width: 145px;
+}
+#cd_louvrebundle_purchaseorder_numberTicketsDesired{
+    margin-left: 1.75em;
+}
+section .ticketDescription{
+    background-color: lightgreen;
+    margin-top: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.form-group{
+    margin-left: 50px;
+    margin-right: 50px;
+    padding-bottom: 5px;
+    border-bottom: 4px dashed black;
+}
+
+/**************************** css vue paymentValided.html.twig **************************************************/
+#div_1{
+    margin-top: 6em;
+}
+
+/************************* css footer *************************************************************************/
 #footer{
     background-color: darkslategrey;
 }
+
+footer p,a {
+    color: white;
+    padding-top: 0.5em;
+    margin-left: 2em;
+}
+
 /********************************* Média queries ***************************************************************/
 @media screen and (max-width: 1097px) {
     .navbar-header a {

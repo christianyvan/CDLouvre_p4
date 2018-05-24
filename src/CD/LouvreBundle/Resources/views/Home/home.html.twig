@@ -9,7 +9,7 @@
     <h4 id="reserBillet">Achat de billet(s) pour visiter le Musée du Louvre <span class="glyphicon glyphicon-shopping-cart" id="tarif"></span></h4>
 </div>
 <div class="container">
-   <section class="jumbotro col-md-9 col-lg-9">
+   <section class="jumbotron col-md-9 col-lg-9">
                     {{ form_start(form, {'attr': {'class':'form-horizontal'}}) }}
                     {{ form_errors(form) }}
         <div class="row">
@@ -42,17 +42,20 @@
              </div>
 
             </div><!-- end row -->
-            <div class="row">
-                <div class="">
-                    {{ form_widget(form.ticketDescription) }}
-                </div>
+
+             <div class="row">
+                 <div class="well form-group ticketDescription">
+                        {{ form_widget(form.ticketDescription) }}
+                 </div>
             </div>
 
-            <div class="row">
+
+            <div >
                {{ form_widget(form.Continuer, {'attr': {
                     'class': 'btn-primary'
                 }}) }}
             </div>
+
 
             {{ form_end(form) }}
    </section>
