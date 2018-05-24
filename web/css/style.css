@@ -119,6 +119,11 @@ section .ticketDescription{
 #footer{
     background-color: darkslategrey;
 }
+/************************ css page Informations ***********************************************************/
+
+#informations{
+    margin-top: 6em;
+}
 
 footer p,a {
     color: white;

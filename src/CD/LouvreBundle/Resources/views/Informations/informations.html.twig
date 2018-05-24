@@ -1,0 +1,27 @@
+{% extends '::base.html.twig' %}
+
+{% block body %}
+
+<div class="container" id="informations">
+
+  <div class="row">
+      <div class="col-lg-6">
+          {% include '@CDLouvre/Home/tabPrice.html.twig' %}
+
+      </div>
+      <div class="col-lg-6">
+          {% include '@CDLouvre/Home/tabSchedule.html.twig' %}
+
+      </div>
+
+
+
+  </div>
+
+
+
+
+
+</div>
+
+{% endblock %}
