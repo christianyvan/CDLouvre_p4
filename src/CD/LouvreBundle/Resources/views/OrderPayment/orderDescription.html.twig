@@ -5,10 +5,8 @@
     <h4 id="achatBillet">Achat de billet(s) pour le Musée du Louvre <span class="glyphicon glyphicon-info-sign" id="tarif"></span></h4>
     <br>
     <div class="row">
-        <section class="well col-lg-7">
-
-
-                <h4>Votre commande <span class="glyphicon glyphicon-shopping-cart"></span></h4><br>
+        <section class="col-lg-7">
+            <h4>Votre commande <span class="glyphicon glyphicon-shopping-cart"></span></h4><br>
                  <ul>
                      <li><strong>Code de la commmande :</strong> {{ purchaseOrder.reservationCode }}</li>
                      <li><strong>Date de la commande :</strong> {{ purchaseOrder.orderDate | date('d/m/Y') }}</li>
@@ -66,83 +64,76 @@
            </div>
        </aside>
 
-       </div><!-- end container -->
+       </div><!-- end row -->
       <!-- </div>-->
 
 
-<div class="container">
+    <div class="container">
+        <h4>Détails billets :</h4>
+        <table class="table table-bordered table-responsive">
+            <thead>
+                <tr  w-100>
+                    <th>Billet</th>
+                    <th>Nom</th>
+                    <th>Prenom</th>
+                    <th>Date de Naissance</th>
+                    <th>Pays</th>
+                    <th>Tarif Réduit</th>
+                    <th>Prix billet</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for ticketDescription in ticketsDescription %}
+                <tr>
+                    <th>Visiteur n° {{ loop.index }}</th>
+                    <td>{{  ticketDescription.visitorLastName }}</td>
+                    <td>{{  ticketDescription.visitorFirstName}}</td>
+                    <td>{{  ticketDescription.visitorBirthDate | date('d/m/Y') }}</td>
+                    <td>{{  ticketDescription.visitorCountry }}</td>
 
-    <h4>Détails billets :</h4>
-    <table class="table table-bordered table-responsive">
-        <thead>
-        <tr  w-100>
-            <th>Billet</th>
-            <th>Nom</th>
-            <th>Prenom</th>
-            <th>Date de Naissance</th>
-            <th>Pays</th>
-            <th>Tarif Réduit</th>
-            <th>Prix billet</th>
-        </tr>
-        </thead>
-        <tbody>
-        {% for ticketDescription in ticketsDescription %}
-            <tr>
-                <th>Visiteur n° {{ loop.index }}</th>
-                <td>{{  ticketDescription.visitorLastName }}</td>
-                <td>{{  ticketDescription.visitorFirstName}}</td>
-                <td>{{  ticketDescription.visitorBirthDate | date('d/m/Y') }}</td>
-                <td>{{  ticketDescription.visitorCountry }}</td>
-
-                <td>
-                    {% if ticketDescription.reducedPrice == 1 %}
-                        Oui
-                    {% else %}
-                        Non
-                    {% endif %}
-                </td>
-                <td>{{ ticketDescription.ticketPrice }}€</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
-</div>
+                    <td>
+                        {% if ticketDescription.reducedPrice == 1 %}
+                            Oui
+                        {% else %}
+                            Non
+                        {% endif %}
+                    </td>
+                    <td>{{ ticketDescription.ticketPrice }}€</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div><!-- end container -->
     <br>
-
-</div>
-
     <div class="container">
         <div>
-            <h4><strong>Montant total de votre commande : {{ purchaseOrder.getAmountOrder }}€</strong></h4>
+             <h4><strong>Montant total de votre commande : {{ purchaseOrder.getAmountOrder }}€</strong></h4>
         </div>
-        <br>
-<div class="row">
-    <div class="col-lg-7">
-        <form action="{{ path('louvre_paymentStrype') }}" method="POST">
-            <div class="field">
-                <input type="text" name="amount" value="{{ purchaseOrder.getAmountOrder }}" style="display: none">
-                <input type="text" name="idRes" value="{{ purchaseOrder.id}}" style="display: none">
+            <br>
+        <div class="row">
+            <div class="col-lg-7">
+                <form action="{{ path('louvre_paymentStrype') }}" method="POST">
+                    <div class="field">
+                        <input type="text" name="amount" value="{{ purchaseOrder.getAmountOrder }}" style="display: none">
+                        <input type="text" name="idRes" value="{{ purchaseOrder.id}}" style="display: none">
+                    </div>
+                    <script
+                            src="https://checkout.stripe.com/checkout.js"
+                            class="stripe-button"
+                            data-key="pk_test_ozP0xZ4sPghJjXA6rNwtvmFz" class="stripe-button"
+                            data-amount="{{ purchaseOrder.getAmountOrder * 100 }}"
+                            data-name="Module de Paiement"
+                            data-description="Paiement Musée Louvre"
+                            data-locale="auto"
+                            data-currency="eur">
+                    </script>
+                </form>
             </div>
-            <script
-                    src="https://checkout.stripe.com/checkout.js"
-                    class="stripe-button"
-                    data-key="pk_test_ozP0xZ4sPghJjXA6rNwtvmFz" class="stripe-button"
-                    data-amount="{{ purchaseOrder.getAmountOrder * 100 }}"
-                    data-name="Module de Paiement"
-                    data-description="Paiement Musée Louvre"
-                    data-locale="auto"
-                    data-currency="eur">
-            </script>
-        </form>
-    </div>
-    <div class="col-lg-5">
-        
-        <button class="btn btn-lg bg-info"><a href="{{ path('louvre_home') }}">Retour accueil</a></button>
-    </div>
-</div><!-- end row -->
+            <div class="col-lg-5">
+                <button class="btn btn-lg bg-info"><a href="{{ path('louvre_home') }}">Retour accueil</a></button>
+            </div>
+        </div><!-- end row -->
     </div>
 </div>
        <br><br>
-
-
-   {% endblock %}
+{% endblock %}
