@@ -26,7 +26,7 @@
                 <span class="icon-bar"></span>
             </button>
             <img  src="{{ asset('images/logo-louvre.jpg') }}" alt="Logo Louvre" class=" hidden-xs">
-            <a  href="/">Billetterie du Musée du Louvre</a>
+            <a  href="{{ path('louvre_home') }}">Billetterie du Musée du Louvre</a>
         </div>
         <div class="collapse navbar-collapse" id="myNavbar">
             <ul class="nav navbar-nav navbar-right">
@@ -44,7 +44,7 @@
 
 {% block body %}{% endblock %}
 
-<div class="row navbar-fixed-bottom " id="footer">
+<div class="row" id="footer">
     <footer>
         <p>© 2018 Site créé par :<a href="mailto:christian.yvan@gmail.com">Christian Yvan</a> &nbsp; pour le musée du Louvre</p>
     </footer>
