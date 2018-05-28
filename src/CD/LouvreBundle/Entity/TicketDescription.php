@@ -3,6 +3,7 @@
 namespace CD\LouvreBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * TicketDescription
@@ -23,28 +24,30 @@ class TicketDescription
 
     /**
      * @var string
-     *
+     * @Assert\NotBlank()
+	 * @Assert\Length(min=2)
      * @ORM\Column(name="visitorLastName", type="string", length=255)
      */
     private $visitorLastName;
 
     /**
      * @var string
-     *
+     * @Assert\NotBlank()
+	 * @Assert\Length(min=2)
      * @ORM\Column(name="visitorFirstName", type="string", length=255)
      */
     private $visitorFirstName;
 
     /**
      * @var \DateTime
-     *
+     * @Assert\DateTime()
      * @ORM\Column(name="visitorBirthDate", type="datetime")
      */
     private $visitorBirthDate;
 
     /**
      * @var string
-     *
+     * @Assert\Country()
      * @ORM\Column(name="visitorCountry", type="string", length=255)
      */
     private $visitorCountry;
