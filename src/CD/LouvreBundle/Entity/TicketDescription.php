@@ -25,7 +25,7 @@ class TicketDescription
     /**
      * @var string
      * @Assert\NotBlank()
-	 * @Assert\Length(min=2)
+	 * @Assert\Length(min=2,minMessage="Deux caractères minimum")
      * @ORM\Column(name="visitorLastName", type="string", length=255)
      */
     private $visitorLastName;
@@ -33,7 +33,7 @@ class TicketDescription
     /**
      * @var string
      * @Assert\NotBlank()
-	 * @Assert\Length(min=2)
+	 * @Assert\Length(min=2,minMessage="Deux caractères minimum")
      * @ORM\Column(name="visitorFirstName", type="string", length=255)
      */
     private $visitorFirstName;

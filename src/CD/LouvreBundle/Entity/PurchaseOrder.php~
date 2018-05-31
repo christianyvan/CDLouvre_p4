@@ -27,28 +27,27 @@ class PurchaseOrder
 
     /**
      * @var bool
-     *
      * @ORM\Column(name="visitType", type="boolean")
      */
     private $visitType;
 
 	/**
 	 * @var \DateTime
-	 *
+	 * @Assert\DateTime()
 	 * @ORM\Column(name="visitDate", type="datetime")
 	 */
     private $visitDate;
 
     /**
      * @var \DateTime
-     *
+	 * @Assert\DateTime()
      * @ORM\Column(name="orderDate", type="datetime")
      */
     private $orderDate;
 
     /**
      * @var string
-     *
+	 * @Assert\Email(message="Cet email est invalide.",checkMX=true)
      * @ORM\Column(name="customerEmail", type="string", length=255)
      */
     private $customerEmail;
@@ -62,14 +61,13 @@ class PurchaseOrder
 
     /**
      * @var int
-     *
+     * @Assert\Range(min=1,max=15,minMessage="Vous devez commander au moins une place.",maxMessage="Vous ne pouvez pas commander plus de 15 places à la fois.")
      * @ORM\Column(name="numberTicketsDesired", type="integer")
      */
     private $numberTicketsDesired;
 
     /**
-     * @var string
-     *
+     * @var double
      * @ORM\Column(name="amountOrder", type="decimal", precision=3, scale=0)
      */
     private $amountOrder;
@@ -84,6 +82,7 @@ class PurchaseOrder
 	/**
 	 * @ORM\OneToMany (targetEntity="CD\LouvreBundle\Entity\TicketDescription", mappedBy="purchaseOrder", cascade={"persist"})
 	 * Assert\Type(type="CDLouvreBundle\Entity\TicketDescription")
+	 * @Assert\Valid()
 	 */
 	private $ticketDescription;
 

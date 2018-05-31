@@ -10,20 +10,22 @@ namespace CD\LouvreBundle\Services;
 use Doctrine\ORM\EntityManager;
 use CD\LouvreBundle\Entity\PurchaseOrder;
 
+
 class CDOrderHandling
 {
 
 // Récupération du nombre de billets Max par jour via
 // le parametre mis dans le fichier app/config/parameters.yml
-	public $maxPlacesPerDay ;
+	const  MAX_PLACES_PER_DAY = 15 ;
+	private $maxPlacesPerDay;
 
 // Utilisation d'EntityManager dans les méthodes de la class CDOrderHandling
-	public $em;
+	private $em;
 
-	public function __construct(EntityManager $em,$maxPlacesPerDay)
+	public function __construct(EntityManager $em)
 	{
 		$this->em = $em;
-		$this->maxPlacesPerDay = $maxPlacesPerDay;
+		$this->maxPlacesPerDay = self::MAX_PLACES_PER_DAY;
 
 	}
 

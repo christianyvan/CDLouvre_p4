@@ -8,6 +8,7 @@
 
 namespace CD\LouvreBundle\Controller;
 
+use CD\LouvreBundle\Services\CDOrderHandling;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
@@ -74,10 +75,12 @@ class OrderPaymentController extends Controller
 			$purchaseOrder = $session->get('purchaseOrder');
 			$ticketsDescription = $purchaseOrder->getTicketDescription();
 
-			// on récupère les services du CDOrderHandling
-			$orderHandling = $this->container->get('cd_louvre.services.cdorder_handling');
-			$purchaseOrder->setOrderValidation(true);
 			$em = $this->getDoctrine()->getManager();
+			// on récupère les services du CDOrderHandling
+			$orderHandling = new CDOrderHandling($em);
+			//$orderHandling = $this->container->get('cd_louvre.services.cdorder_handling');
+			$purchaseOrder->setOrderValidation(true);
+
 			$em->persist($purchaseOrder);
 			$em->flush();
 			// on affecte l'id du PurchaseOrder à tout les TicketDescription de la commande

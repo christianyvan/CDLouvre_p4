@@ -22,35 +22,35 @@
 
 
         <h4>Détails billets :</h4>
-        <table class="table table-bordered table-responsive">
+        <table style="border-collapse: collapse">
             <thead>
             <tr>
-                <th>Billet</th>
-                <th>Nom</th>
-                <th>Prenom</th>
-                <th>Date de Naissance</th>
-                <th>Pays</th>
-                <th>Tarif Réduit</th>
-                <th>Prix billet</th>
+                <th style="border:2px solid black">Billet</th>
+                <th style="border:2px solid black">Nom</th>
+                <th style="border:2px solid black">Prenom</th>
+                <th style="border:2px solid black">Date de Naissance</th>
+                <th style="border:2px solid black">Pays</th>
+                <th style="border:2px solid black">Tarif Réduit</th>
+                <th style="border:2px solid black">Prix billet</th>
             </tr>
             </thead>
             <tbody>
             {% for ticketDescription in ticketsDescription %}
                 <tr>
-                    <th>Visiteur n° {{ loop.index }}</th>
-                    <td>{{  ticketDescription.visitorLastName }}</td>
-                    <td>{{  ticketDescription.visitorFirstName}}</td>
-                    <td>{{  ticketDescription.visitorBirthDate | date('d/m/Y') }}</td>
-                    <td>{{  ticketDescription.visitorCountry }}</td>
+                    <th style="border:2px solid black">Visiteur n° {{ loop.index }}</th>
+                    <td style="border:2px solid black">{{  ticketDescription.visitorLastName }}</td>
+                    <td style="border:2px solid black">{{  ticketDescription.visitorFirstName}}</td>
+                    <td style="border:2px solid black">{{  ticketDescription.visitorBirthDate | date('d/m/Y') }}</td>
+                    <td style="border:2px solid black">{{  ticketDescription.visitorCountry }}</td>
 
-                    <td>
+                    <td style="border:2px solid black">
                         {% if ticketDescription.reducedPrice == 1 %}
                             Oui
                         {% else %}
                             Non
                         {% endif %}
                     </td>
-                    <td>{{ ticketDescription.ticketPrice }}€</td>
+                    <td style="border:2px solid black">{{ ticketDescription.ticketPrice }}€</td>
                 </tr>
             {% endfor %}
             </tbody>

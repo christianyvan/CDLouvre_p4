@@ -38,7 +38,7 @@ $(document).ready(function () {
         /**************** on récupère le nombre de places disponibles pour un jour donnée **********************************/
         var dateSplit = $visitDate.split("/");
         var dateTab = dateSplit[2] + "-" + dateSplit[1] + "-" + dateSplit[0];
-        var numberTicketsDesired = $('#cd_louvrebundle_purchaseorder_numberTicketsDesired').val();
+       // var numberTicketsDesired = $('#cd_louvrebundle_purchaseorder_numberTicketsDesired').val();
 
         $.ajax({
             type: 'get',
@@ -63,7 +63,7 @@ $(document).ready(function () {
     function afficher(avalaiblePlaces) {
         $("#nbPlaces").empty();
         $("#maxPlaces").empty();
-        alert(avalaiblePlaces);
+       // alert(avalaiblePlaces);
 
         if(avalaiblePlaces >=0)
         {
@@ -119,7 +119,7 @@ $(document).ready(function () {
     $placesRequired.on('change', function (e) {
         e.preventDefault();
         var maxPlacesPerDay = $("#nbPlaces").text();
-        if (parseInt($placesRequired.val()) > parseInt(maxPlacesPerDay)) {
+        if (parseInt($placesRequired.val()) > (parseInt(maxPlacesPerDay))) {
             $('#myModal').modal('show');
         }
         else

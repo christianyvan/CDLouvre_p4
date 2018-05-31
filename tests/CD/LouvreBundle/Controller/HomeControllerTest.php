@@ -24,16 +24,8 @@ class HomeControllerTest extends WebTestCase
 		$client = static::createClient();
 		$client->request('GET','/');
 		$this->assertTrue($client->getResponse()->isSuccessful());
-	}
-
-	/**
-	 * test de contenu de la page
-	 * @test
-	 */
-	public function home_contain()
-	{
-		$client = static::createClient();
-		$client->request('GET','/');
 		$this->assertContains('Billetterie du Musée du Louvre', $client->getResponse()->getContent());
 	}
+
+
 }

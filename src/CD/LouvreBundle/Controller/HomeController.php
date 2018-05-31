@@ -10,24 +10,30 @@ namespace CD\LouvreBundle\Controller;
 
 use CD\LouvreBundle\Entity\PurchaseOrder;
 use CD\LouvreBundle\Form\PurchaseOrderType;
+use CD\LouvreBundle\Services\CDOrderHandling;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+//use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 class HomeController extends Controller
 {
+
 
 	/**
 	 * @param Request $request
 	 * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
 	 */
 	public function homeAction(Request $request){
-
+	//public function homeAction(Request $request,CDOrderHandling $orderHandling){
+	$em = $this->getDoctrine()->getManager();
+	$orderHandling = new CDOrderHandling($em);
 
 // on crée un bon de commande
 		$purchaseOrder = new PurchaseOrder();
 
 // on récupère les services du CDOrderHandling
-		$orderHandling = $this->container->get('cd_louvre.services.cdorder_handling');
+	//	$orderHandling = $this->container->get('cd_louvre.services.cdorder_handling');
+
 
 // on récupère le formulaire associé à l'entité PurchaseOrder dans la variable $form
 		$form = $this->createForm(PurchaseOrderType::class,$purchaseOrder);
@@ -45,6 +51,7 @@ class HomeController extends Controller
 			$purchaseOrder = $data;
 // calcul du montant de la commande en utilisant la fonction setOrderAmount du service CDOrderHandling
 			$amountOrder = $orderHandling->setOrderAmount($purchaseOrder, $ticketsDescription);
+			//$amountOrder = $cdOrderHandling->setOrderAmount($purchaseOrder, $ticketsDescription);
 
 // on met à jour $data avec le nouveau montant de la commande
 			$data->setAmountOrder($amountOrder);
