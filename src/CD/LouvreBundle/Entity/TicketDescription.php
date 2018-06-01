@@ -62,7 +62,7 @@ class TicketDescription
     /**
      * @var int
      *
-     * @ORM\Column(name="ticketPrice", type="integer")
+     * @ORM\Column(name="ticketPrice", type="integer",nullable=true)
      */
     private $ticketPrice;
 

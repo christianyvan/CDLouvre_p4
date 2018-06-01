@@ -18,7 +18,7 @@ louvre_recovery_numberPlaces:
 
 #******************* Route controller OrderDescriptionController***********************************************
 louvre_description:
-    path:    /description
+    path:    /description/{id}
     defaults: {_controller: CDLouvreBundle:OrderDescription:description }
     requirements:
         id: \d+

@@ -69,10 +69,10 @@ class OrderPaymentController extends Controller
 			//$logger->addNotice('Contenu de la charge : ' . $charge);
 
 			// MAJ du Montant total de la réservation
-			//$purchaseOrder = $em->getRepository('CDLouvreBundle:PurchaseOrder')->find($id);*/
+			$purchaseOrder = $em->getRepository('CDLouvreBundle:PurchaseOrder')->find($id);
 
-			$session = $request->getSession();
-			$purchaseOrder = $session->get('purchaseOrder');
+			//$session = $request->getSession();
+			//$purchaseOrder = $session->get('purchaseOrder');
 			$ticketsDescription = $purchaseOrder->getTicketDescription();
 
 			$em = $this->getDoctrine()->getManager();
@@ -84,7 +84,7 @@ class OrderPaymentController extends Controller
 			$em->persist($purchaseOrder);
 			$em->flush();
 			// on affecte l'id du PurchaseOrder à tout les TicketDescription de la commande
-			$orderHandling->updateIdTicketsDescription($purchaseOrder, $ticketsDescription);
+			//$orderHandling->updateIdTicketsDescription($purchaseOrder, $ticketsDescription);
 
 			return $this->redirectToRoute('louvre_sendMail', array('code' =>$purchaseOrder->getReservationCode()));
 

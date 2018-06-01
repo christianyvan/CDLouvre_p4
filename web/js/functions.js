@@ -1,7 +1,7 @@
 $(document).ready(function () {
 
 
-    $('#cd_louvrebundle_purchaseorder_visitDate').change(function () {
+    $('#cd_louvrebundle_purchaseorder_visitDate').click(function () {
 
 
         var $visitDate = $('#cd_louvrebundle_purchaseorder_visitDate').val();
@@ -72,7 +72,10 @@ $(document).ready(function () {
         }
         else
         {
+
             $('#myModal').modal('show');
+          //  document.getElementById(cd_louvrebundle_purchaseorder_numberTicketsDesired).val= $("#nbPlaces").text(avalaiblePlaces);
+           //$("#maxPlaces").text(avalaiblePlaces);
         }
     }
 

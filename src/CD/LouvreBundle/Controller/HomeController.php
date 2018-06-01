@@ -44,24 +44,51 @@ class HomeController extends Controller
 //À partir de maintenant, la variable $data contient les valeurs entrées dans le formulaire par le visiteur
 
 			$form->handleRequest($request);
-			$data = $form->getData();
+			//$data = $form->getData();
+			if ($form->isSubmitted() && $form->isValid())
+			{
+				$em=$this->getDoctrine()->getManager();
+				$em->persist($purchaseOrder);
+				$em->flush();
 
-// récupération de la description des tickets commander par le visiteur
-			$ticketsDescription = $data->getTicketDescription();
-			$purchaseOrder = $data;
-// calcul du montant de la commande en utilisant la fonction setOrderAmount du service CDOrderHandling
-			$amountOrder = $orderHandling->setOrderAmount($purchaseOrder, $ticketsDescription);
-			//$amountOrder = $cdOrderHandling->setOrderAmount($purchaseOrder, $ticketsDescription);
+				// récupération de la description des tickets commander par le visiteur
+				$ticketsDescription=$purchaseOrder->getTicketDescription();
 
-// on met à jour $data avec le nouveau montant de la commande
+
+				/* récupération de la description des tickets commander par le visiteur
+				$ticketsDescription = $data->getTicketDescription();
+				$purchaseOrder = $data;*/
+
+				// calcul du montant de la commande en utilisant la fonction setOrderAmount du service CDOrderHandling
+				$amountOrder=$orderHandling->setOrderAmount($purchaseOrder,$ticketsDescription);
+
+				// on renseigne le montant de la commande de l'entité PurchaseOrder $purchaseOrder
+				$purchaseOrder->setAmountOrder($amountOrder);
+
+				$em->persist($purchaseOrder);
+				$em->flush();
+
+				// Redirection vers la page de description de la commande
+				return $this->redirectToRoute('louvre_description',array(
+					'id'=>$purchaseOrder->getId()
+				));
+
+
+			}
+
+
+			/*
+			 on met à jour $data avec le nouveau montant de la commande
 			$data->setAmountOrder($amountOrder);
 			$session = $request->getSession();
-// mise en session de la variable $data contenant les données du formulaire et sous formulaire
+			 mise en session de la variable $data contenant les données du formulaire et sous formulaire
 			$session->set('purchaseOrder',$data);
 
-// Redirection vers la page de description de la commande
+			 Redirection vers la page de description de la commande
 
 			return $this->redirectToRoute('louvre_description');
+			}*/
+
 		}
 
 		return $this->render('CDLouvreBundle:Home:home.html.twig', array(

@@ -158,6 +158,7 @@ class CDOrderHandling
 			$this->em->persist($ticketsDescription[$key]);
 		}
 		$this->em->flush();
+
 	}
 
 }

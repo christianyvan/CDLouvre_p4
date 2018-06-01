@@ -82,8 +82,8 @@ class PurchaseOrder
 	/**
 	 * @ORM\OneToMany (targetEntity="CD\LouvreBundle\Entity\TicketDescription", mappedBy="purchaseOrder", cascade={"persist"})
 	 * Assert\Type(type="CDLouvreBundle\Entity\TicketDescription")
-	 * @Assert\Valid()
-	 * @Assert\Collection(
+	 * Assert\Valid()
+	 * Assert\Collection(
 	 *     fields = {
 	 *                  "visitorLastName" = {
 	 *           		 	 @Assert\NotBlank(),
