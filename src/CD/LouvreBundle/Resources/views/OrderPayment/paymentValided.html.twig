@@ -16,13 +16,13 @@
             <div class="alert alert-warning" role="alert">
                 <h4>Merci pour votre visite.</h4>
             </div>
-            <a href="{{ path("louvre_home") }}">Retour accueil</a>
+            <a class="btn btn-info" href="{{ path("louvre_home") }}">Retour accueil Billetterie</a>
         </div>
     </div>
 
 
         <h4>Détails billets :</h4>
-        <table class="table-responsive table-bordered">
+        <table class="table-responsive table-bordered tab_">
             <thead>
             <tr>
                 <th>Billet</th>
@@ -37,7 +37,7 @@
             <tbody>
             {% for ticketDescription in ticketsDescription %}
                 <tr>
-                    <th>Visiteur n° {{ loop.index }}</th>
+                    <td>Visiteur n° {{ loop.index }}</td>
                     <td>{{  ticketDescription.visitorLastName }}</td>
                     <td>{{  ticketDescription.visitorFirstName}}</td>
                     <td>{{  ticketDescription.visitorBirthDate | date('d/m/Y') }}</td>
@@ -62,4 +62,9 @@
 
     <br>
 </div>
+{% endblock %}
+
+{% block javascripts %}
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 {% endblock %}

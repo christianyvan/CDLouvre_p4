@@ -18,7 +18,7 @@
         <nav class="navbar navbar-default navbar-fixed-top">
             <div class="container-fluid">
                 <div class="navbar-header">
-                    <button type="button" class="navbar-toggle navbar-toggler-right" data-toggle="collapse" data-target="#myNavbar" aria-expanded="false">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#myNavbar" aria-expanded="false">
                         <span class="sr-only">Toggle navigation</span>
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
@@ -40,34 +40,32 @@
     {% block body %}{% endblock %}
 
 
-        <footer>
-            <div class="row" >
-                <div class="col-lg-5">
-                    <p>© 2018 Site créé par :<a href="mailto:christian.yvan@gmail.com">Christian Yvan</a> &nbsp; pour le musée du Louvre</p>
-                </div>
-                <div class="col-lg-7">
-                    <div class="row">
-                        <div class="col-md-3 col-sm-6">
-                            <span>Instagram</span>
-                            <a href="http://www.instagram.com/museelouvre"><img src="{{ asset('images/instagram.png') }}" class="rs" alt="instagram"></a>
-                        </div>
-                        <div class="col-md-3 col-sm-6 ">
-                            <span>Facebook</span>
-                            <a href="https://www.facebook.com/museedulouvre"><img src="{{ asset('images/facebook.png') }}" class="rs" alt="instagram"></a>
-                        </div>
-                        <div class="col-md-3 col-sm-6">
-                            <span>Twitter</span>
-                            <a href="http://twitter.com/MuseeLouvre"><img src="{{ asset('images/twitter.png') }}" class="rs" alt="instagram"></a>
-                        </div>
-                        <div class="col-md-3 col-sm-6">
-                            <span>Youtube</span>
-                            <a href="https://www.youtube.com/watch?v=7wXwwGXUMgE"><img src="{{ asset('images/youtube.png') }}" class="rs" alt="instagram"></a>
-                        </div>
+        <footer class="navbar navbar-default navbar-fixed-bottom">
+            <div class="row col-sm-12">
 
+                    <div class="col-md-4 col-sm-0 hidden-xs">
+                        <p class="">© 2018 Site créé par :<a href="mailto:christian.yvan@gmail.com">Christian Yvan</a></p>
                     </div>
 
-                </div>
+                    <div class="col-md-2 col-sm-3">
+                         <span class="social hidden-xs">Instagram</span>
+                         <a href="http://www.instagram.com/museelouvre"><img src="{{ asset('images/instagram.png') }}" class="rs" alt="instagram"></a>
+                    </div>
+                    <div class="col-md-2 col-sm-3 ">
+                        <span class="social hidden-xs">Facebook</span>
+                        <a href="https://www.facebook.com/museedulouvre"><img src="{{ asset('images/facebook.png') }}" class="rs" alt="instagram"></a>
+                    </div>
+                    <div class="col-md-2 col-sm-3">
+                          <span class="social hidden-xs">Twitter</span>
+                           <a href="http://twitter.com/MuseeLouvre"><img src="{{ asset('images/twitter.png') }}" class="rs" alt="instagram"></a>
+                    </div>
+                    <div class="col-md-2 col-sm-3">
+                        <span class="social hidden-xs">Youtube</span>
+                         <a href="https://www.youtube.com/watch?v=7wXwwGXUMgE"><img src="{{ asset('images/youtube.png') }}" class="rs" alt="instagram"></a>
+                    </div>
+
             </div>
+
         </footer>
 
 

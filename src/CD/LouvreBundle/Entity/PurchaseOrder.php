@@ -47,6 +47,7 @@ class PurchaseOrder
 
     /**
      * @var string
+	 * @Assert\NotBlank()
 	 * @Assert\Email(message="Cet email est invalide.",checkMX=true)
      * @ORM\Column(name="customerEmail", type="string", length=255)
      */
@@ -82,26 +83,7 @@ class PurchaseOrder
 	/**
 	 * @ORM\OneToMany (targetEntity="CD\LouvreBundle\Entity\TicketDescription", mappedBy="purchaseOrder", cascade={"persist"})
 	 * Assert\Type(type="CDLouvreBundle\Entity\TicketDescription")
-	 * Assert\Valid()
-	 * Assert\Collection(
-	 *     fields = {
-	 *                  "visitorLastName" = {
-	 *           		 	 @Assert\NotBlank(),
-	 *            			 @Assert\Length(
-	 *                				 min = 2,
-	 *                 				minMessage = "Le nom doit avoir au moins deux lettres")
-	 * 					},
-	 *
-	 * 					"visitorFirstName" = {
-	 *           		 	 @Assert\NotBlank(),
-	 *            			 @Assert\Length(
-	 *                				 min = 2,
-	 *                 				minMessage = "Le Prénom doit avoir au moins deux lettres")
-	 * 					}
-	 * 				}
-	 * )
-	 *
-	 *
+	 * @Assert\Valid()
 	 */
 	private $ticketDescription;
 

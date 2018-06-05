@@ -35,7 +35,7 @@ class TicketDescriptionType extends AbstractType
 				)
 			))
 			->add('reducedPrice',CheckboxType::class,array(
-				'label' => 'Tarif réduit',
+				'label' => 'Tarif réduit (un justificatif pourra être demandé)',
 				'required' => false ))
 		;
 
