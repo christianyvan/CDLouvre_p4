@@ -83,12 +83,13 @@ img {
 .navbar-header a {
     color:white;
     font-size: 1.75em;
-    margin-left: 4em;
+  /* margin-left: 4em;*/
 }
+/*
 .navbar-header{
     width: 60%;
 }
-
+*/
 #myNavbar a{
     color: white;
 }
@@ -154,11 +155,12 @@ body a{
 /************************ css error404 ********************************************************************/
 
 /*************************Réseaux sociaux*****************************************************************************/
+/*
 .rs{
     width: 50px;
     height: 32px;
     vertical-align: center;
-}
+}*/
 /*
 span{
     color:white;
@@ -174,4 +176,14 @@ span{
     #reserBillet {
         font-size: 1em;
     }
+}
+
+@media screen and (max-width: 768px) {
+    .rs,.social {
+        display: inline-block;
+        width: 50px;
+        height: 32px;
+        vertical-align: center;
+    }
+
 }

@@ -15,7 +15,6 @@ class OrderDescriptionController extends Controller
 {
 
 	public function descriptionAction($id){
-	//public function descriptionAction(Request $request){
 
 		// on récupère la commande grace à son id
 		$purchaseOrder = $this->getDoctrine()
@@ -34,14 +33,6 @@ class OrderDescriptionController extends Controller
 		if ($ticketsDescription === null) {
 			throw new NotFoundHttpException("Pas de visiteurs associés à la commande n° ".$id);
 		}
-
-/* on récupère la variable de session 'purchaseOrder'
-		$session = $request->getSession();
-		$purchaseOrder = $session->get('purchaseOrder');*/
-
-
-	// si aucun visiteurs associé à la commande on lève une exception
-
 
 			return $this->render('@CDLouvre/OrderPayment/orderDescription.html.twig', array(
 				'purchaseOrder' => $purchaseOrder,

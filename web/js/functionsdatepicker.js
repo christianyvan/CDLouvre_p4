@@ -39,6 +39,9 @@ $(document).ready(function(){
         var currentDate = new Date();
         var currentHour = currentDate.getHours();
 
+
+
+
         if ($visitDate == dateCurrent) {
             if (currentHour >= 14) {
                  $('#cd_louvrebundle_purchaseorder_visitType').val(0);

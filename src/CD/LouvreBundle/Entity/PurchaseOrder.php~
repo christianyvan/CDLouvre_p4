@@ -6,6 +6,7 @@ use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 use Doctrine\Common\Collections\ArrayCollection;
 
+
 /**
  * PurchaseOrder
  *
@@ -47,6 +48,7 @@ class PurchaseOrder
 
     /**
      * @var string
+	 * @Assert\NotBlank()
 	 * @Assert\Email(message="Cet email est invalide.",checkMX=true)
      * @ORM\Column(name="customerEmail", type="string", length=255)
      */
