@@ -90,10 +90,13 @@ class OrderPaymentController extends Controller
 			->setTo($purchaseOrder->getCustomerEmail())
 			->setCharset('utf-8')
 			->setContentType('text/html')
+			->attach(\Swift_Attachment::fromPath('images/logo-louvre.png')->setDisposition('inline'))
 			->setBody($this->renderView('CDLouvreBundle:Email:email.html.twig', array(
 				'purchaseOrder'   	  =>$purchaseOrder,
 				'ticketsDescription'   =>$ticketsDescription
+
 			)));
+		//->attach(\Swift_Attachment::newInstance($img, 'Photo.jpg', 'image/jpg'));
 		// Envoi du mail
 		$this->get('mailer')
 			->send($message);
