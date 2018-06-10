@@ -2,6 +2,7 @@
 
 namespace CD\LouvreBundle\Entity;
 
+use DateInterval;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 use Doctrine\Common\Collections\ArrayCollection;
@@ -89,11 +90,16 @@ class PurchaseOrder
 	private $ticketDescription;
 
 
-
+	/**
+	 * PurchaseOrder constructor.
+	 * @throws \Exception
+	 */
 	public function __construct()
 	{
 		$this->orderDate = new \DateTime('NOW');
-		$this->visitDate = new \DateTime();
+		//$this->visitDate = $this->setVisitDate($this->orderDate);
+		$this->setVisitDate($this->orderDate);
+		$this->visitDate = $this->getVisitDate();
 		$this->visitType = 0;
 		$this->amountOrder = 0;
 		$this->numberTicketsDesired = 1;
@@ -329,15 +335,33 @@ class PurchaseOrder
         return $this->ticketDescription;
     }
 
-    /**
-     * Set visitDate
-     *
-     * @param \DateTime $visitDate
-     *
-     * @return PurchaseOrder
-     */
+	/**
+	 * fonction qui permet de positionner au jour ouvré suivant le datepicker lorsque le jour courant est un jour de
+	 * fermeture
+	 * @param $visitDate
+	 * @return $this
+	 * @throws \Exception
+	 */
     public function setVisitDate($visitDate)
     {
+		$currentDay = date_format($visitDate,'N');
+		$visitDateWithoutYear = date_format($visitDate,"m-d");
+		//var_dump($temp);die('coucou');
+
+		//$visitDateWithoutYear = substr($visitDate["date"],5,5);
+
+       if($currentDay == 1 || $currentDay == 7)
+       { 										// 7 pour dimanche et 1 pour mardi
+		    $this->visitDate = $visitDate->add(new DateInterval('P1D'));
+
+			return $this;
+	   }
+	   else if($visitDateWithoutYear == "05-01" ||$visitDateWithoutYear ="11-01" || $visitDateWithoutYear ="12-25")
+	   {
+		   $this->visitDate = $visitDate->add(new DateInterval('P1D'));
+	   	   return $this;
+	   }
+	   else
         $this->visitDate = $visitDate;
 
         return $this;
