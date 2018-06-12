@@ -1,25 +1,17 @@
 {% extends '::base.html.twig' %}
 
 {% block body %}
-    <div class="container" id="error404">
-
-
-        <div >
-            <img class="img-responsive pull-right" src="{{ asset('images/error404.jpg') }}" alt="Error">
+    <div class="container bg-danger" id="error404">
+        <div class="row">
+            <div class="col-md-4">
+                <img class="img-responsive" id="img404" src="{{ asset('images/error404.png') }}" alt="Error">
+            </div>
+            <div class="col-md-8">
+                <h1>Whoops...404...<br><small>Page non trouvée !!</small></h1>
+                <a href="{{ path('louvre_home') }}"><button type="button" class="btn btn-primary"><span class="glyphicon glyphicon-play"></span> Retour à la page d'accueil</button></a>
+            </div>
         </div>
-        <div >
-            <h1>Whoops...404...<br><small>Page non trouvée !!</small></h1>
-            <a href="{{ path('louvre_home') }}"><button type="button" class="btn btn-primary"><span class="glyphicon glyphicon-play"></span> Retour à la page d'accueil</button></a>
-        </div>
-
-
     </div>
 {% endblock %}
 
 
-{% block javascripts %}
-
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
-{% endblock %}

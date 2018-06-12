@@ -14,9 +14,9 @@
     </head>
 
     <body>
-
+    <div class="container-fluid">
         <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
-            <div class="container-fluid">
+
                 <div class="navbar-header">
                     <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#myNavbar" aria-expanded="false" aria-controls="navbar">
                         <span class="sr-only">Toggle navigation</span>
@@ -29,37 +29,38 @@
                 </div>
                 <div class="collapse navbar-collapse navbar-right" id="myNavbar">
                     <ul class="nav navbar-nav">
-                        <li><a href="{{ path('louvre_home') }}" >Billetterie</a></li>
-                        <li><a href="{{ path('louvre_informations') }}">Infomations</a></li>
-                        <li><a href="{{ path('louvre_legalNotice') }}">Mentions Légales</a></li>
+                        <li class="col-offset-1"><a href="{{ path('louvre_home') }}" >Billetterie</a></li>
+                        <li class="col-offset-1"><a href="{{ path('louvre_informations') }}">Infomations</a></li>
+                        <li class="col-offset-1"><a href="{{ path('louvre_legalNotice') }}">Mentions Légales</a></li>
                     </ul>
                 </div>
-            </div>
+
         </nav>
+    </div>
 
     {% block body %}{% endblock %}
 
-
+<div class="container-fluid">
         <footer class="navbar navbar-default navbar-fixed-bottom">
             <div class="row">
 
-                    <div class="col-md-4  hidden-xs">
+                    <div class="col-md-4 col-sm-0 hidden-xs">
                         <p class="">© 2018 Site créé par :<a href="mailto:christian.yvan@gmail.com">Christian Yvan</a></p>
                     </div>
 
-                    <div class="col-md-2 rs">
+                    <div class="col-md-2 col-sm-3 rs">
                          <span class="social hidden-xs">Instagram</span>
                          <a href="http://www.instagram.com/museelouvre"><img src="{{ asset('images/instagram.png') }}" class="rs" alt="instagram"></a>
                     </div>
-                    <div class="col-md-2 rs ">
+                    <div class="col-md-2 col-sm-3 rs ">
                         <span class="social hidden-xs">Facebook</span>
                         <a href="https://www.facebook.com/museedulouvre"><img src="{{ asset('images/facebook.png') }}" class="rs" alt="instagram"></a>
                     </div>
-                    <div class="col-md-2 rs">
+                    <div class="col-md-2 col-sm-3 rs">
                           <span class="social hidden-xs">Twitter</span>
                            <a href="http://twitter.com/MuseeLouvre"><img src="{{ asset('images/twitter.png') }}" class="rs" alt="instagram"></a>
                     </div>
-                    <div class="col-md-2 rs">
+                    <div class="col-md-2 col-sm-3 rs">
                         <span class="social hidden-xs">Youtube</span>
                          <a href="https://www.youtube.com/watch?v=7wXwwGXUMgE"><img src="{{ asset('images/youtube.png') }}" class="rs" alt="instagram"></a>
                     </div>
@@ -67,7 +68,7 @@
             </div>
 
         </footer>
-
+</div>
 
         {% block javascripts %}
             <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>

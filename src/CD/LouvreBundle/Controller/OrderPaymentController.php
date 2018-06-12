@@ -11,6 +11,8 @@ namespace CD\LouvreBundle\Controller;
 use CD\LouvreBundle\Services\CDOrderHandling;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Monolog\Logger;
+use Monolog\Handler\StreamHandler;
 
 
 
@@ -41,23 +43,22 @@ class OrderPaymentController extends Controller
 				"description" => 'Paiement Stripe de : '. $amount . '€ pour la commande de l\'adresse Email : ' . $email
 			));
 			// Inscription de l'échange dans le fichier log
-			//$logger = new Logger('charge');
+			$logger = new Logger('charge');
 			// Création du channel
-			//$logger->pushHandler(new StreamHandler('./var/logs/charges.log', Logger::NOTICE));
+			$logger->pushHandler(new StreamHandler('./var/logs/charges.log', Logger::NOTICE));
 			// Enregistrement dans la log
-			//$logger->addNotice('Contenu de la charge : ' . $charge);
+			$logger->addNotice('Contenu de la charge : ' . $charge);
 
 			// MAJ du Montant total de la réservation
 			$purchaseOrder = $em->getRepository('CDLouvreBundle:PurchaseOrder')->find($id);
 
 
-			$ticketsDescription = $purchaseOrder->getTicketDescription();
+			//$ticketsDescription = $purchaseOrder->getTicketDescription();
 
-			$em = $this->getDoctrine()->getManager();
+			//$em = $this->getDoctrine()->getManager();
 			// on récupère les services du CDOrderHandling
-			$orderHandling = new CDOrderHandling($em);
+			//$orderHandling = new CDOrderHandling($em);
 
-			//$orderHandling = $this->container->get('cd_louvre.services.cdorder_handling');
 			$purchaseOrder->setOrderValidation(true);
 
 			$em->persist($purchaseOrder);
@@ -90,7 +91,7 @@ class OrderPaymentController extends Controller
 			->setTo($purchaseOrder->getCustomerEmail())
 			->setCharset('utf-8')
 			->setContentType('text/html')
-			->attach(\Swift_Attachment::fromPath('images/logo-louvre.png')->setDisposition('inline'))
+			->attach(\Swift_Attachment::fromPath('images/louvre.jpg')->setDisposition('inline'))
 			->setBody($this->renderView('CDLouvreBundle:Email:email.html.twig', array(
 				'purchaseOrder'   	  =>$purchaseOrder,
 				'ticketsDescription'   =>$ticketsDescription

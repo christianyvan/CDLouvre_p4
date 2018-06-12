@@ -24,7 +24,7 @@ class HomeController extends Controller
 	 * @param Request $request
 	 * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
 	 */
-	public function homeAction(Request $request){
+	public function homeAction(Request $request/*,EntityManager $em*/){
 
 	$em = $this->getDoctrine()->getManager();
 	$orderHandling = new CDOrderHandling($em);

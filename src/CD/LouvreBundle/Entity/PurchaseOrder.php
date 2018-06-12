@@ -346,25 +346,26 @@ class PurchaseOrder
     {
 		$currentDay = date_format($visitDate,'N');
 		$visitDateWithoutYear = date_format($visitDate,"m-d");
-		//var_dump($temp);die('coucou');
+		//var_dump($visitDateWithoutYear);die('coucou');
 
-		//$visitDateWithoutYear = substr($visitDate["date"],5,5);
 
-       if($currentDay == 1 || $currentDay == 7)
-       { 										// 7 pour dimanche et 1 pour mardi
+       if($currentDay == 2 || $currentDay == 7)
+       { 										// 7 pour dimanche et 2 pour mardi
 		    $this->visitDate = $visitDate->add(new DateInterval('P1D'));
 
 			return $this;
 	   }
-	   else if($visitDateWithoutYear == "05-01" ||$visitDateWithoutYear ="11-01" || $visitDateWithoutYear ="12-25")
+	   else if($visitDateWithoutYear == "05-01" ||$visitDateWithoutYear =="11-01" || $visitDateWithoutYear =="12-25")
 	   {
 		   $this->visitDate = $visitDate->add(new DateInterval('P1D'));
-	   	   return $this;
+		   return $this;
 	   }
-	   else
-        $this->visitDate = $visitDate;
+	   else{
+		   $this->visitDate = $visitDate;
+		}
+		return $this;
 
-        return $this;
+
     }
 
     /**
