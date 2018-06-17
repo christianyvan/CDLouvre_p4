@@ -145,10 +145,11 @@ class CDOrderHandling
 			$this->em->persist($ticketsDescription[$key]);
 		}
 		$this->em->flush();
+
 		// on retourne le montant total de la commande
 		return $amountOrder;
 	}
-
+/*
 	public function updateIdTicketsDescription($purchaseOrder,$ticketsDescription)
 	{
 
@@ -159,6 +160,6 @@ class CDOrderHandling
 		}
 		$this->em->flush();
 
-	}
+	}*/
 
 }

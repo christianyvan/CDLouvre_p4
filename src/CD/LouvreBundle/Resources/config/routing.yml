@@ -33,7 +33,7 @@ louvre_sendMail:
     defaults: { _controller: CDLouvreBundle:OrderPayment:sendMail }
 #********************* Route
 louvre_paymentDeclined:
-    path:     /paymentDeclined
+    path:     /paymentDeclined/{id}
     defaults: { _controller: CDLouvreBundle:OrderPayment:paymentDeclined }
 #*****************************************
 louvre_informations:

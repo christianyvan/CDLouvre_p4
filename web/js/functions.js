@@ -1,7 +1,7 @@
 $(document).ready(function () {
 
 
-    $('#cd_louvrebundle_purchaseorder_visitDate').click(function () {
+    $('#cd_louvrebundle_purchaseorder_visitDate').change(function () {
 
 
         var $visitDate = $('#cd_louvrebundle_purchaseorder_visitDate').val();
@@ -24,15 +24,17 @@ $(document).ready(function () {
             {
                 if( $("#cd_louvrebundle_purchaseorder_visitType").length < 2)
                 {
-                   $('#cd_louvrebundle_purchaseorder_visitType').append('<option value="1">Journée</option>');
+
+                    $('#cd_louvrebundle_purchaseorder_visitType').append('<option value="1">Journée</option>');// à modifier
                 }
             }
         }
 
         if($visitDate != dateCurrent){
-            if( $("#cd_louvrebundle_purchaseorder_visitType").length< 2)
+            if( $("#cd_louvrebundle_purchaseorder_visitType>option").length< 2)
+
             {
-                $('#cd_louvrebundle_purchaseorder_visitType').append('<option value="j">Journée</option>');
+               $('#cd_louvrebundle_purchaseorder_visitType').append('<option value="1">Journée</option>');
             }
         }
         /**************** on récupère le nombre de places disponibles pour un jour donnée **********************************/
@@ -43,10 +45,10 @@ $(document).ready(function () {
         $.ajax({
             type: 'get',
             format: 'json',
-            //data : 'numberTicketsDesired='+ numberTicketsDesired,
-            // url: 'numberPlaces/'+ dateTab,
+
+             url: 'numberPlaces/'+ dateTab,
             // url:"{{path('numberPlaces')}}"/+ dateTab,
-            url: "http://localhost/CDLouvre_p4/web/app_dev.php/numberPlaces/" +dateTab,
+           // url: "http://localhost/CDLouvre_p4/web/app_dev.php/numberPlaces/" +dateTab, !!!!!!!bon
             // url:"cd_louvre_recovery_numberPlaces"/+ dateTab,
             success: function (data) {
                 afficher(data);

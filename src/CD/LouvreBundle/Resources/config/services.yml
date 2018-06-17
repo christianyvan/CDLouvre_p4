@@ -1,8 +1,9 @@
 services:
+
 #    cd_louvre.example:
 #        class: CD\LouvreBundle\Example
 #        arguments: ["@service_id", "plain_value", "%parameter%"]
-    #cd_louvre.services.cdorder_handling:
-       # public: true
-        #class: CD\LouvreBundle\Services\CDOrderHandling
-        #arguments: ["@doctrine.orm.entity_manager",maxPlacesPerDay]
+    louvre.cdorder_handling:
+        public: true
+        class: CD\LouvreBundle\Services\CDOrderHandling
+        arguments: ["@doctrine.orm.entity_manager"]

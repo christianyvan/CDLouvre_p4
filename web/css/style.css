@@ -77,14 +77,14 @@ a{
 
 img {
     padding: 7px 14px;
-    width: 25%;
+   /* width: 25%;*/
 }
 
 
 .navbar-header a {
     color:white;
     font-size: 1.75em;
-  /* margin-left: 4em;*/
+
 }
 /*
 .navbar-header{
@@ -93,6 +93,7 @@ img {
 */
 #myNavbar a{
     color: white;
+    margin-right: 2em;
 }
 
 #reserBillet{

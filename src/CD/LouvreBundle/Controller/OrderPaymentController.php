@@ -8,17 +8,16 @@
 
 namespace CD\LouvreBundle\Controller;
 
-use CD\LouvreBundle\Services\CDOrderHandling;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Monolog\Logger;
-use Monolog\Handler\StreamHandler;
-
-
-
 
 class OrderPaymentController extends Controller
 {
+	/**
+	 * @param Request $request
+	 * @return \Symfony\Component\HttpFoundation\RedirectResponse
+	 * @throws \Exception
+	 */
 	public function paymentStripeAction(Request $request)
 	{
 
@@ -33,8 +32,9 @@ class OrderPaymentController extends Controller
 
 		$amount = $request->request->get('amount');
 		$id = $request->request->get('idRes');
+		//var_dump($id);die('valeur id');
 
-		// Créer une charge: cela facturera la carte de l'utilisateur
+		// Créer une charge: cela permettra de facturer la carte de l'utilisateur
 		try {
 			$charge = \Stripe\Charge::create(array(
 				"amount" => $amount * 100, // Montant en centimes
@@ -42,35 +42,24 @@ class OrderPaymentController extends Controller
 				"source" => $token,
 				"description" => 'Paiement Stripe de : '. $amount . '€ pour la commande de l\'adresse Email : ' . $email
 			));
-			// Inscription de l'échange dans le fichier log
-			$logger = new Logger('charge');
-			// Création du channel
-			$logger->pushHandler(new StreamHandler('./var/logs/charges.log', Logger::NOTICE));
-			// Enregistrement dans la log
-			$logger->addNotice('Contenu de la charge : ' . $charge);
 
-			// MAJ du Montant total de la réservation
+
+			// Mise à jour du Montant total de la réservation
 			$purchaseOrder = $em->getRepository('CDLouvreBundle:PurchaseOrder')->find($id);
 
-
-			//$ticketsDescription = $purchaseOrder->getTicketDescription();
-
-			//$em = $this->getDoctrine()->getManager();
-			// on récupère les services du CDOrderHandling
-			//$orderHandling = new CDOrderHandling($em);
-
 			$purchaseOrder->setOrderValidation(true);
-
 			$em->persist($purchaseOrder);
 			$em->flush();
-			// on affecte l'id du PurchaseOrder à tout les TicketDescription de la commande
-			//$orderHandling->updateIdTicketsDescription($purchaseOrder, $ticketsDescription);
 
 			return $this->redirectToRoute('louvre_sendMail', array('code' =>$purchaseOrder->getReservationCode()));
 
 		} catch(\Stripe\Error\Card $e) {
-			return $this->redirectToRoute('louvre_paymentDeclined');
-			// The card has been declined
+			$id = $request->request->get('idRes');
+
+			// Si le paiement est refusé , on redirige vers la page paymentDeclined via la méthode paymentDeclined
+			// du controller OrderPaymentController
+			return $this->redirectToRoute('louvre_paymentDeclined',array('id'=> $id/*$purchaseOrder->getId()*/));
+
 		}
 	}
 
@@ -97,12 +86,30 @@ class OrderPaymentController extends Controller
 				'ticketsDescription'   =>$ticketsDescription
 
 			)));
-		//->attach(\Swift_Attachment::newInstance($img, 'Photo.jpg', 'image/jpg'));
+
 		// Envoi du mail
 		$this->get('mailer')
 			->send($message);
 
 		// Retourne la vue de validation
+		return $this->render('CDLouvreBundle:OrderPayment:paymentValided.html.twig', array(
+			'purchaseOrder'			 => $purchaseOrder,
+			'ticketsDescription'	 => $ticketsDescription
+		));
+	}
+
+
+	public function paymentDeclinedAction($id){
+
+		$em = $this->getDoctrine()->getManager();
+		$purchaseOrder = $this->getDoctrine()
+			->getManager()
+			->getRepository('CDLouvreBundle:PurchaseOrder')
+			->find($id);
+		$ticketsDescription = $purchaseOrder->getTicketDescription();
+		// on supprime la commande dont le paiement a été refusé de la bdd
+		$em->remove($purchaseOrder);
+
 		return $this->render('CDLouvreBundle:OrderPayment:paymentValided.html.twig', array(
 			'purchaseOrder'			 => $purchaseOrder,
 			'ticketsDescription'	 => $ticketsDescription

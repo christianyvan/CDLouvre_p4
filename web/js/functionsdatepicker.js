@@ -11,14 +11,7 @@ $(document).ready(function(){
             type: 'get',
             format: 'json',
             url: "disponibilityDay",
-          //  url: "http://localhost/CDLouvre_p4/web/app_dev.php/disponibilityDay", bon!!!!!!!!!!!!!!!!
-
             success: function (data) {
-
-              //  var day = $visitDate.substring(0,$visitDate.indexOf('/'));
-              //  var month = $visitDate.substring($visitDate.indexOf('/')+1, $visitDate.indexOf('/')+$visitDate.indexOf('/')+1);
-              //  var year = $visitDate.substring($visitDate.indexOf('/')+$visitDate.indexOf('/')+2,$visitDate.length);
-
 
                 // on récupère les dates excluses et on les ajoutes au tableau excludeDates
                 $.each(data,function(key,value){
@@ -72,8 +65,6 @@ $(document).ready(function(){
             type: 'get',
             format: 'json',
             url: 'numberPlaces/'+ dateTab,
-            // url: "http://localhost/CDLouvre_p4/web/app_dev.php/numberPlaces/" +dateTab, bon !!!!!!!!!!!!
-
             success: function (avalaiblePlaces) {
                 afficher(avalaiblePlaces);
 
@@ -112,10 +103,10 @@ $(document).ready(function(){
             return new Date(d.getTime() + (1000 * 60 * 60 * 24 * 1));
         }
         if(d.getDay() == 2){
-           //alert(d.getDay());
+
             return new Date(d.getTime() + (1000 * 60 * 60 * 24 * 1));
         }
-       // return new Date(d.getTime() + (1000 * 60 * 60 * 24 * j));
+
     }
 
    // var date=document.getElementById('cd_louvrebundle_purchaseorder_visitDate').value;

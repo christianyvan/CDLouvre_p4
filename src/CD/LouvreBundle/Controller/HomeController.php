@@ -23,11 +23,13 @@ class HomeController extends Controller
 	/**
 	 * @param Request $request
 	 * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
+	 * @throws \Exception
 	 */
-	public function homeAction(Request $request/*,EntityManager $em*/){
+	public function homeAction(Request $request){
 
 	$em = $this->getDoctrine()->getManager();
-	$orderHandling = new CDOrderHandling($em);
+	//$orderHandling = new CDOrderHandling($em);
+		$orderHandling = $this->get('louvre.cdorder_handling');
 
 		// on crée un bon de commande
 		$purchaseOrder = new PurchaseOrder();
@@ -38,13 +40,12 @@ class HomeController extends Controller
 		if ($request->isMethod('POST'))
 		{
 		// on hydrate l'entité PurchaseOrder avec les donnée transmise via la méthode POST
-		//À partir de maintenant, la variable $data contient les valeurs entrées dans le formulaire par le visiteur
-
+		// $purchaseOrder contient maintenant les données du formulaire
 			$form->handleRequest($request);
 
 			if ($form->isSubmitted() && $form->isValid())
 			{
-				$em=$this->getDoctrine()->getManager();
+
 				$em->persist($purchaseOrder);
 				$em->flush();
 
