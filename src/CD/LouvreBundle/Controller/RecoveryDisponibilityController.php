@@ -35,8 +35,6 @@ class RecoveryDisponibilityController extends Controller
 		}
 	}
 
-
-
 	public function disponibilityDayAction()
 	{
 

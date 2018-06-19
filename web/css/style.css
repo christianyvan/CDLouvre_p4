@@ -156,6 +156,15 @@ body a{
 
 /************************ css error404 ********************************************************************/
 
+#img404{
+    margin:auto ;
+}
+/**************************css error500 ***********************************************************************/
+#img500{
+    margin:auto ;
+}
+
+
 /*************************Réseaux sociaux*****************************************************************************/
 /*
 .rs{
@@ -168,11 +177,7 @@ span{
     color:white;
 }*/
 /********************************* Média queries ***************************************************************/
-@media screen and (max-width: 1097px) {
-    .navbar-header a {
-        font-size: 1em;
-    }
-}
+
 
 @media screen and (max-width: 576px) {
     #reserBillet {
@@ -186,6 +191,12 @@ span{
         width: 50px;
         height: 32px;
         vertical-align: center;
+    }
+
+@media screen and (max-width: 1097px) {
+        .navbar-header a {
+            font-size: 1em;
+        }
     }
 
 }

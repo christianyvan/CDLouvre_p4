@@ -27,8 +27,8 @@ class HomeController extends Controller
 	 */
 	public function homeAction(Request $request){
 
-	$em = $this->getDoctrine()->getManager();
-	//$orderHandling = new CDOrderHandling($em);
+		$em = $this->getDoctrine()->getManager();
+
 		$orderHandling = $this->get('louvre.cdorder_handling');
 
 		// on crée un bon de commande

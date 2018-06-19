@@ -43,7 +43,6 @@ class OrderPaymentController extends Controller
 				"description" => 'Paiement Stripe de : '. $amount . '€ pour la commande de l\'adresse Email : ' . $email
 			));
 
-
 			// Mise à jour du Montant total de la réservation
 			$purchaseOrder = $em->getRepository('CDLouvreBundle:PurchaseOrder')->find($id);
 
@@ -109,8 +108,8 @@ class OrderPaymentController extends Controller
 		$ticketsDescription = $purchaseOrder->getTicketDescription();
 		// on supprime la commande dont le paiement a été refusé de la bdd
 		$em->remove($purchaseOrder);
-
-		return $this->render('CDLouvreBundle:OrderPayment:paymentValided.html.twig', array(
+		$em->flush();
+		return $this->render('CDLouvreBundle:OrderPayment:paymentDeclined.html.twig', array(
 			'purchaseOrder'			 => $purchaseOrder,
 			'ticketsDescription'	 => $ticketsDescription
 		));

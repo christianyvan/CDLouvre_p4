@@ -150,10 +150,16 @@ class CDOrderHandling
 		return $amountOrder;
 	}
 /*
-	public function updateIdTicketsDescription($purchaseOrder,$ticketsDescription)
+	public function removeOldPurchaseOrderNoValided()
 	{
+		$currentDate = new \DateTime();
+		$current_year = $currentDate->format('Y');
+		$visitor_year = $visitorBirthDate;
+		$age = $current_year - $visitor_year;
 
-		foreach ($ticketsDescription as $key=>$value)
+
+
+		foreach ($purchaseOrder as $key=>$value)
 		{
 			$ticketsDescription[$key]->setIdResa($purchaseOrder->getId());
 			$this->em->persist($ticketsDescription[$key]);

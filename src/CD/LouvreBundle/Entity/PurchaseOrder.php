@@ -83,7 +83,7 @@ class PurchaseOrder
     private $reservationCode;
 
 	/**
-	 * @ORM\OneToMany (targetEntity="CD\LouvreBundle\Entity\TicketDescription", mappedBy="purchaseOrder", cascade={"persist"})
+	 * @ORM\OneToMany (targetEntity="CD\LouvreBundle\Entity\TicketDescription", mappedBy="purchaseOrder", cascade={"persist","remove"})
 	 * Assert\Type(type="CDLouvreBundle\Entity\TicketDescription")
 	 * @Assert\Valid()
 	 */
