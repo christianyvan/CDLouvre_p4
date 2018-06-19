@@ -40,16 +40,11 @@ $(document).ready(function () {
         /**************** on récupère le nombre de places disponibles pour un jour donnée **********************************/
         var dateSplit = $visitDate.split("/");
         var dateTab = dateSplit[2] + "-" + dateSplit[1] + "-" + dateSplit[0];
-       // var numberTicketsDesired = $('#cd_louvrebundle_purchaseorder_numberTicketsDesired').val();
 
         $.ajax({
             type: 'get',
             format: 'json',
-
-             url: 'numberPlaces/'+ dateTab,
-            // url:"{{path('numberPlaces')}}"/+ dateTab,
-           // url: "http://localhost/CDLouvre_p4/web/app_dev.php/numberPlaces/" +dateTab, !!!!!!!bon
-            // url:"cd_louvre_recovery_numberPlaces"/+ dateTab,
+            url: 'numberPlaces/'+ dateTab,
             success: function (data) {
                 afficher(data);
 
@@ -65,7 +60,6 @@ $(document).ready(function () {
     function afficher(avalaiblePlaces) {
         $("#nbPlaces").empty();
         $("#maxPlaces").empty();
-       // alert(avalaiblePlaces);
 
         if(avalaiblePlaces >=0)
         {
@@ -76,8 +70,6 @@ $(document).ready(function () {
         {
 
             $('#myModal').modal('show');
-          //  document.getElementById(cd_louvrebundle_purchaseorder_numberTicketsDesired).val= $("#nbPlaces").text(avalaiblePlaces);
-           //$("#maxPlaces").text(avalaiblePlaces);
         }
     }
 
@@ -85,9 +77,11 @@ $(document).ready(function () {
     /*********************************Création d'un sous formulaire par défaut ****************************************/
         // On récupère la balise <div> qui contient l'attribut « data-prototype »
     var $container = $('div#cd_louvrebundle_purchaseorder_ticketDescription');
+
     if (document.getElementById('cd_louvrebundle_purchaseorder_ticketDescription')) {
         // On définit un compteur unique pour nommer les champs qu'on va ajouter dynamiquement
         var index = $container.find(':input').length;
+
         // On ajoute un premier champ automatiquement.
         if (index == 0) {
             addDescription($container);
@@ -95,6 +89,7 @@ $(document).ready(function () {
     }
 
     /*************** Fonction qui permet d'ajouter un sous formulaire TicketDescriptionType **************************/
+
     function addDescription($container) {
         // Dans le contenu de l'attribut « data-prototype », on remplace
         // - le texte "__name__label__" qu'il contient par le label du champ
@@ -105,8 +100,10 @@ $(document).ready(function () {
         ;
         // On crée un objet jquery qui contient ce template
         var $prototype = $(template);
+
         // Augmente l'index de 1 pour l'élément suivant
         $container.data('index', index + 1);
+
         // On ajoute le prototype modifié à la fin de la balise <div>
         $container.append($prototype);
 
@@ -136,9 +133,6 @@ $(document).ready(function () {
                 addDescription($container);
             }
         }
-
     });
-
-
 })
 

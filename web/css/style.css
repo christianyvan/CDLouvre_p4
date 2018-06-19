@@ -15,6 +15,12 @@ span{
 #informations{
     margin-bottom: 3em;
 }
+/****************************** image plan du louvre page Informations *************************************/
+#plan
+{
+    cursor: zoom-in;
+}
+
 
 /********************************* Tableau tarifaire ******************************************************************/
 

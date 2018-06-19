@@ -15,10 +15,7 @@ $(document).ready(function(){
 
                 // on récupère les dates excluses et on les ajoutes au tableau excludeDates
                 $.each(data,function(key,value){
-
-
                     excludeDates.push(moment.unix(value).format('DD-MM-Y'));
-
                 });
 
                 $("#cd_louvrebundle_purchaseorder_visitDate").datepicker({
@@ -36,21 +33,22 @@ $(document).ready(function(){
         moment.locale('fr');
 
         var dateCurrent = moment().format('L');
-
         var currentDate = new Date();
         var currentHour = currentDate.getHours();
 
-
-
-
-        if ($visitDate == dateCurrent) {
-            if (currentHour >= 14) {
+        if ($visitDate == dateCurrent)
+        {
+            if (currentHour >= 14)
+            {
                  $('#cd_louvrebundle_purchaseorder_visitType').val(0);
-                 $('#cd_louvrebundle_purchaseorder_visitType option').each(function () {
+                 $('#cd_louvrebundle_purchaseorder_visitType option').each(function ()
+                 {
                         if ($(this).attr("value") == 1)
+                        {
                             $(this).remove();
-                    })
-             }
+                        }
+                 })
+            }
         }
 
 
@@ -58,8 +56,6 @@ $(document).ready(function(){
         /**************** on récupère le nombre de places disponibles pour un jour donnée **********************************/
         var dateSplit = $visitDate.split("/");
         var dateTab = dateSplit[2] + "-" + dateSplit[1] + "-" + dateSplit[0];
-      //  var numberTicketsDesired = $('#cd_louvrebundle_purchaseorder_numberTicketsDesired').val();
-
 
         $.ajax({
             type: 'get',
@@ -87,7 +83,6 @@ $(document).ready(function(){
         }
         else
         {
-            // $("#nbPlaces").text("Capacité d'accueil dépassé");
             $('#myAlert').modal('show');
         }
     }
@@ -106,36 +101,7 @@ $(document).ready(function(){
 
             return new Date(d.getTime() + (1000 * 60 * 60 * 24 * 1));
         }
-
     }
-
-   // var date=document.getElementById('cd_louvrebundle_purchaseorder_visitDate').value;
-    //alert(date);
-  //  var day = date.substring(0,date.indexOf('/'));
-  //  alert(day);
-  //  var month = date.substring(date.indexOf('/')+1, date.indexOf('/')+date.indexOf('/')+1);
-  //  alert(month);
-   // var year = date.substring(date.indexOf('/')+date.indexOf('/')+2,date.length);
-   // alert(year);
-
-   // var laDate=new Date();
-   // alert(laDate);
-
-  //  var temp = addDays(currentDate);
-   // var day = temp.getDate();
-   // alert(day);
-   // var month = temp.getMonth()+1;
-   // alert(month);
-   // var year = temp.getFullYear();
-    //alert(year);
-  //  var next_date = (day+'/'+month+'/'+year);
-   // alert(next_date);
-   // $('#cd_louvrebundle_purchaseorder_visitDate').attr("value",next_date);
-   // document.getElementById('cd_louvrebundle_purchaseorder_visitDate').innerText = next_date;
-
-
-
-
 });
 
 
