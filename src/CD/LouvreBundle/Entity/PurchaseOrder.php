@@ -16,7 +16,7 @@ use Doctrine\Common\Collections\ArrayCollection;
  */
 class PurchaseOrder
 {
-	const MAX_PLACES_PER_DAY = 10;
+	const MAX_PLACES_PER_DAY = 2;
 
     /**
      * @var int
@@ -49,8 +49,8 @@ class PurchaseOrder
 
     /**
      * @var string
-	 * @Assert\NotBlank()
-	 * @Assert\Email(message="Cet email est invalide.",checkMX=true)
+	 * @Assert\NotBlank(message="Ce champ est obligatoire")
+	 * @Assert\Email(message="Cet email n'est pas valide.",checkMX=true)
      * @ORM\Column(name="customerEmail", type="string", length=255)
      */
     private $customerEmail;
@@ -72,6 +72,7 @@ class PurchaseOrder
     /**
      * @var double
      * @ORM\Column(name="amountOrder", type="decimal", precision=3, scale=0)
+	 *
      */
     private $amountOrder;
 
@@ -97,9 +98,9 @@ class PurchaseOrder
 	public function __construct()
 	{
 		$this->orderDate = new \DateTime('NOW');
-		//$this->visitDate = $this->setVisitDate($this->orderDate);
-		$this->setVisitDate($this->orderDate);
-		$this->visitDate = $this->getVisitDate();
+
+		//$this->setVisitDate($this->orderDate);
+		$this->visitDate = new \DateTime('NOW');
 		$this->visitType = 0;
 		$this->amountOrder = 0;
 		$this->numberTicketsDesired = 1;

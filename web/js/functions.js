@@ -60,6 +60,7 @@ $(document).ready(function () {
     function afficher(avalaiblePlaces) {
         $("#nbPlaces").empty();
         $("#maxPlaces").empty();
+        alert(text(avalaiblePlaces));
 
         if(avalaiblePlaces >=0)
         {

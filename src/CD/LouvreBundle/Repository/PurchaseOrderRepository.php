@@ -11,6 +11,7 @@ namespace CD\LouvreBundle\Repository;
  */
 class PurchaseOrderRepository extends \Doctrine\ORM\EntityRepository
 {
+	// Sélectionne le nombre de place commandé pour un jour donné et retourne ce nombre.
 	public function placesPerDay($date)
 	{
 		$query = $this->createQueryBuilder('q')
@@ -24,7 +25,8 @@ class PurchaseOrderRepository extends \Doctrine\ORM\EntityRepository
 		return $query;
 	}
 
-	// sélectionne le nombre de commande validé par date de visite
+	// sélectionne le nombre de commande validé par date de visite et retourne le nombre de commande pour chaque date de
+	// visite.
 	public function fullDay()
 	{
 		$query = $this->createQueryBuilder('q')

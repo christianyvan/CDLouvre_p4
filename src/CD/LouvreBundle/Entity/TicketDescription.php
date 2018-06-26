@@ -24,7 +24,7 @@ class TicketDescription
 
     /**
      * @var string
-     * @Assert\NotBlank()
+     * @Assert\NotBlank(message="Le nom est obligatoire")
 	 * @Assert\Length(min=2,minMessage="Deux caractères minimum")
      * @ORM\Column(name="visitorLastName", type="string", length=255)
      */
@@ -32,7 +32,7 @@ class TicketDescription
 
     /**
      * @var string
-     * @Assert\NotBlank()
+     * @Assert\NotBlank(message="Le prénom est obligatoire")
 	 * @Assert\Length(min=2,minMessage="Deux caractères minimum")
      * @ORM\Column(name="visitorFirstName", type="string", length=255)
      */

@@ -11,36 +11,37 @@
     </head>
     <body>
         <div class="container">
-            <h4>Détails billets :</h4>
-            <table style="border-collapse: collapse">
+            <table class=" tab_ " style = "border-collapse:collapse" >
+                <caption>Détails commande :</caption>
                 <thead>
+
                 <tr >
-                    <th style="border:1px solid black">Billet</th>
-                    <th style="border:1px solid black">Nom</th>
-                    <th style="border:1px solid black">Prenom</th>
-                    <th style="border:1px solid black">Date de Naissance</th>
-                    <th style="border:1px solid black">Pays</th>
-                    <th style="border:1px solid black">Tarif Réduit</th>
-                    <th style="border:1px solid black">Prix billet</th>
+                    <th style=" border:1px solid #ddd;padding: 8px;text-align: center" >Billet</th>
+                    <th style=" border:1px solid #ddd;padding: 8px;text-align: center" >Nom</th>
+                    <th style=" border:1px solid #ddd;padding: 8px;text-align: center">Prenom</th>
+                    <th style=" border:1px solid #ddd;padding: 8px;text-align: center">Date de Naissance</th>
+                    <th style=" border:1px solid #ddd;padding: 8px;text-align: center">Pays</th>
+                    <th style=" border:1px solid #ddd;padding: 8px;text-align: center">Tarif Réduit</th>
+                    <th style=" border:1px solid #ddd;padding: 8px;text-align: center">Prix billet</th>
                 </tr>
                 </thead>
                 <tbody>
                 {% for ticketDescription in ticketsDescription %}
                         <tr>
-                        <td style="border:1px solid black">Visiteur n° {{ loop.index }}</td>
-                        <td style="border:1px solid black">{{  ticketDescription.visitorLastName }}</td>
-                        <td style="border:1px solid black">{{  ticketDescription.visitorFirstName}}</td>
-                        <td style="border:1px solid black">{{  ticketDescription.visitorBirthDate | date('d/m/Y') }}</td>
-                        <td style="border:1px solid black">{{  ticketDescription.visitorCountry }}</td>
+                        <td style="border:1px solid #ddd;padding: 8px;text-align: center">Visiteur n° {{ loop.index }}</td>
+                        <td style="border:1px solid #ddd;padding: 8px;text-align: center">{{  ticketDescription.visitorLastName }}</td>
+                        <td style="border:1px solid #ddd;padding: 8px;text-align: center">{{  ticketDescription.visitorFirstName}}</td>
+                        <td style="border:1px solid #ddd;padding: 8px;text-align: center">{{  ticketDescription.visitorBirthDate | date('d/m/Y') }}</td>
+                        <td style="border:1px solid #ddd;padding: 8px;text-align: center">{{  ticketDescription.visitorCountry }}</td>
 
-                        <td style="border:1px solid black">
+                        <td style="border:1px solid #ddd;padding: 8px;text-align: center">
                             {% if ticketDescription.reducedPrice == 1 %}
                                 Oui
                             {% else %}
                                 Non
                             {% endif %}
                         </td >
-                        <td style="border:1px solid black">{{ ticketDescription.ticketPrice }}€</td>
+                        <td style="border:1px solid #ddd;padding: 8px;text-align: center">{{ ticketDescription.ticketPrice }}€</td>
                     </tr>
                 {% endfor %}
                 </tbody>

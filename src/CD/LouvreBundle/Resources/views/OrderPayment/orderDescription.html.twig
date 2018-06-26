@@ -4,75 +4,73 @@
 <div class="container">
     <h4 id="achatBillet">Achat de billet(s) pour le Musée du Louvre <span class="glyphicon glyphicon-info-sign" id="tarif"></span></h4>
     <br>
-    <div class="row">
-        <section class="col-lg-7">
-            <h4>Votre commande <span class="glyphicon glyphicon-shopping-cart"></span></h4><br>
-                 <ul>
-                     <li><strong>Code de la commmande :</strong> {{ purchaseOrder.reservationCode }}</li>
-                     <li><strong>Date de la commande :</strong> {{ purchaseOrder.orderDate | date('d/m/Y') }}</li>
-                     <li><strong>Email Client :</strong> {{ purchaseOrder.customerEmail }}</li>
+    <div class="row well">
 
-                     <li><strong>Type de billet :</strong>
-                    {% if purchaseOrder.visitType == 1 %}
-                        Journée
-                    {% else %}
-                        Demi-Journée
-                    {% endif %}
-                     </li>
-                    <li><strong>Date de votre visite :</strong> {{ purchaseOrder.visitDate | date('d/m/Y') }}</li>
-                    <li><strong>Nombre de place(s) :</strong> {{ purchaseOrder.numberTicketsDesired }}</li>
+            <section class="col-md-6">
+                <h4>Votre commande <span class="glyphicon glyphicon-shopping-cart"></span></h4><br>
+                     <ul>
+                         <li><strong>Code de la commmande :</strong> {{ purchaseOrder.reservationCode }}</li>
+                         <li><strong>Date de la commande :</strong> {{ purchaseOrder.orderDate | date('d/m/Y') }}</li>
+                         <li><strong>Email Client :</strong> {{ purchaseOrder.customerEmail }}</li>
 
-                 </ul>
+                         <li><strong>Type de billet :</strong>
+                        {% if purchaseOrder.visitType == 1 %}
+                            Journée
+                        {% else %}
+                            Demi-Journée
+                        {% endif %}
+                         </li>
+                        <li><strong>Date de votre visite :</strong> {{ purchaseOrder.visitDate | date('d/m/Y') }}</li>
+                        <li><strong>Nombre de place(s) :</strong> {{ purchaseOrder.numberTicketsDesired }}</li>
+                     </ul>
+            </section>
 
-        </section>
+            <aside class="col-md-6">
+               <table class="tab_" >
+                   <caption>Notre grille tarifaire</caption>
+                   <tr>
+                       <th>Tarif</th>
+                       <th>Enfant</th>
+                       <th>Normal</th>
+                       <th>Sénior</th>
+                       <th>Réduit</th>
+                   </tr>
+                   <tr>
+                       <td>Journée</td>
+                       <td>8 Euros</td>
+                       <td>16 Euros</td>
+                       <td>12 Euros</td>
+                       <td>10 Euros</td>
+                   </tr>
+                   <tr>
+                       <td>Demi-Journée</td>
+                       <td>4 Euros</td>
+                       <td>8 Euros</td>
+                       <td>6 Euros</td>
+                       <td>5 Euros</td>
+                   </tr>
+               </table>
+               <div>
+                   <p>
+                       - L'entrée est gratuite pour les enfants de moins de 4 ans<br>
+                       - Tarif enfant à partir de 4 ans et jusqu'à 12 ans (exlus)<br>
+                       - Tarif normal à partir de 12 ans<br>
+                       - Tarif sénior à partir de 60 ans<br>
+                       - Tarif réduit dans certaine condition (étudiant,employé du musée,d'un service du ministère de la culture,
+                       militaire...)
+                   </p>
+               </div>
+           </aside>
 
-        <aside class=" col-lg-5">
-
-           <table class="tab_" >
-               <caption>Notre grille tarifaire</caption>
-               <tr>
-                   <th>Tarif</th>
-                   <th>Enfant</th>
-                   <th>Normal</th>
-                   <th>Sénior</th>
-                   <th>Réduit</th>
-               </tr>
-               <tr>
-                   <td>Journée</td>
-                   <td>8 Euros</td>
-                   <td>16 Euros</td>
-                   <td>12 Euros</td>
-                   <td>10 Euros</td>
-               </tr>
-               <tr>
-                   <td>Demi-Journée</td>
-                   <td>4 Euros</td>
-                   <td>8 Euros</td>
-                   <td>6 Euros</td>
-                   <td>5 Euros</td>
-               </tr>
-           </table>
-           <div>
-               <p>
-                   - L'entrée est gratuite pour les enfants de moins de 4 ans<br>
-                   - Tarif enfant à partir de 4 ans et jusqu'à 12 ans (exlus)<br>
-                   - Tarif normal à partir de 12 ans<br>
-                   - Tarif sénior à partir de 60 ans<br>
-                   - Tarif réduit dans certaine condition (étudiant,employé du musée,d'un service du ministère de la culture,
-                   militaire...)
-               </p>
-           </div>
-       </aside>
-
-       </div><!-- end row -->
+    </div><!-- end row -->
       <!-- </div>-->
 
 
     <div class="container">
         <h4>Détails billets :</h4>
-        <table class="table table-bordered table-responsive">
+        <table class="table table-bordered table-responsive tab_">
             <thead>
-                <tr  w-100>
+                <tr>
                     <th>Billet</th>
                     <th>Nom</th>
                     <th>Prenom</th>
@@ -85,7 +83,7 @@
             <tbody>
             {% for ticketDescription in ticketsDescription %}
                 <tr>
-                    <th>Visiteur n° {{ loop.index }}</th>
+                    <td>Visiteur n° {{ loop.index }}</td>
                     <td>{{  ticketDescription.visitorLastName }}</td>
                     <td>{{  ticketDescription.visitorFirstName}}</td>
                     <td>{{  ticketDescription.visitorBirthDate | date('d/m/Y') }}</td>

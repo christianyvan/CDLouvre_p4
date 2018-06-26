@@ -1,3 +1,9 @@
+
+body{
+    padding-top: 3em;
+    padding-bottom: 3em;
+}
+
 h1{
     font-size: 2em;
 }
@@ -9,16 +15,28 @@ span{
 }
 
 .img-thumbnail.click-image{
-    transform: scale(6,6);
+   transform: scale(2,2);
+    position: fixed;
+    background-color: black;
+   /* width: 80%;
+    height: 80%;*/
+  /* margin-bottom: 5em;*/
+
+    opacity: 1;
+
 }
 
 #informations{
-    margin-bottom: 3em;
+  /*  margin-bottom: 3em;*/
+}
+#caroussel{
+    color: black;
+
 }
 /****************************** image plan du louvre page Informations *************************************/
 #plan
 {
-    cursor: zoom-in;
+   /* cursor: zoom-in;*/
 }
 
 
@@ -33,6 +51,7 @@ span{
 .tab_ td, #price th {
     border: 1px solid #ddd;
     padding: 8px;
+    text-align: center;
 }
 
 .tab_ tr:nth-child(even){background-color: #f2f2f2;}
@@ -42,7 +61,7 @@ span{
 .tab_ th {
     padding-top: 12px;
     padding-bottom: 12px;
-    text-align: left;
+    text-align: center;
     background-color: #4CAF50;
     color: white;
 }
@@ -67,7 +86,7 @@ span{
 
 /*************** css vue orderDescription.html.twig ************************************************************/
 #achatBillet{
-    margin-top: 2em;
+    /*margin-top: 2em;*/
 }
 
 .btn{
@@ -75,9 +94,7 @@ span{
 }
 
 /*************************** css mentions légales ****************************************************************/
-a{
-    color:black;
-}
+
 /************* CSS barre de navigation ******************************************************************************/
 
 
@@ -127,7 +144,7 @@ section .ticketDescription{
 
 /**************************** css vue paymentValided.html.twig **************************************************/
 #div_1{
-    margin-top: 6em;
+   /* margin-top: 6em;*/
 }
 
 /************************* css footer *************************************************************************/
@@ -141,7 +158,7 @@ footer{
 /************************ css page Informations ***********************************************************/
 
 #informations{
-    margin-top: 6em;
+   /* margin-top: 6em;*/
 }
 
 footer p,a {
@@ -149,14 +166,20 @@ footer p,a {
     padding-top: 0.5em;
     margin-left: 2em;
 }
-/********************* css legalNotice **********************************************************************/
-body a{
-    color:black;
+a:hover{
+    font-weight: bolder;
 }
 
+footer a:hover{
+    color:red;
+    font-weight: bolder;
+
+}
+/********************* css legalNotice **********************************************************************/
+
 #legalNotice{
-    margin-top: 5em;
-    margin-bottom: 5em;
+   /* margin-top: 5em;
+    margin-bottom: 5em;*/
    }
 
 

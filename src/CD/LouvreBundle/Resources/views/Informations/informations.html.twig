@@ -13,30 +13,28 @@
           {% include '@CDLouvre/Home/tabSchedule.html.twig' %}
       </div>
    </div>
-   <div class="row">
+   <div class="row well">
       <div class="col-md-6">
 
                <pre>
                  <h2>Adresse Musée du Louvre</h2><br>
       <span><i class="glyphicon glyphicon-earphone"></i></span><span>01 40 20 50 50</span><br>
-     <span><i class="glyphicon glyphicon-map-marker"></i><a href="https://www.pagesjaunes.fr/carte?bloc_id=8N2X32BC0001&no_sequence=1&code_rubrique=44203300" target="_blank">Place du Caroussel</a></span>
+     <span><i class="glyphicon glyphicon-map-marker"></i><a href="https://www.pagesjaunes.fr/carte?bloc_id=8N2X32BC0001&no_sequence=1&code_rubrique=44203300" target="_blank" id="caroussel">Place du Caroussel</a></span>
                             <br><p>            75058 Paris Cedex 01</p>
                </pre>
 
 
       </div>
-       <div class="col-md-6 well">
+       <div class="col-md-6 img-responsive">
           <div>
-               <img src="{{ asset('images/plan_louvre.jpg') }}" class="img-thumbnail img-responsive" id="plan" alt="plan Louvre">
+               <img src="{{ asset('images/large_plan_louvre.jpg') }}"  class="img-thumbnail img-responsive" id="plan" alt="plan Louvre">
 
-              <label for="plan">Cliquer sur le plan pour l'agrandir</label>
+
           </div>
        </div>
    </div>
 </div>
 
-    <div id="id_view_image_body"></div>
-    <div id="id_view_image"></div>
 
 {% endblock %}
 

@@ -1,5 +1,64 @@
 $(document).ready(function(){
 
+    moment.locale('fr');
+    var  currentDate = moment().format('L'); // renvoie la date courante sous la forme jj/mm/yyyy
+  //  alert( currentDate);
+  //  var currentDate = moment.unix(now).format('DD/MM/Y');
+
+    var today = new Date();
+    var now = new Date();
+    var currentDay = today.getDay();
+    now.setDate(today.getDate()+1);
+    var tomorrow = moment(now).format('DD/MM/Y');
+   // alert(tomorrow);
+    //var dateSplit = tomorrow.split("/");
+    //alert(dateSplit);
+
+   // var dateJourMois = dateSplit[0] + "/" + dateSplit[1]; // 26/06
+
+
+    // si le jour courant est un mardi ou un dimanche, on positionne le champ du datepicker au jour suivant
+    while((currentDay === 2) ||(currentDay === 0) || currentDate === '01/05/2018' || currentDate === '01/11/2018' || '25/12/2018' ){
+
+        var value = $("#cd_louvrebundle_purchaseorder_visitDate").val(tomorrow);
+       // var dateSplit = value.split("/");
+
+        if (currentDay === 2){
+            currentDay = 3;
+            break;
+        }
+
+
+        if (currentDay === 0){
+            currentDay = 1;
+            break;
+        }
+
+        if (currentDate === '01/05/2018'){
+            currentDate = '02/05/2018';
+            break;
+        }
+
+        if (currentDate === '01/11/2018'){
+            currentDate = '02/11/2018';
+            break;
+        }
+
+        if (currentDate === '25/12/2018'){
+            currentDate = '26/12/2018';
+            break;
+        }
+    }
+
+  //  if(currentDate === '01/05/2018' || currentDate === '01/11/2018' || '25/12/2018' || currentDate === '01/05/2018' || currentDate === '01/11/2018' || '25/12/2018'){
+   //     $("#cd_louvrebundle_purchaseorder_visitDate").val(tomorrow);
+  //  }
+
+
+
+
+
+
     /**************** on récupère le nombre de places disponibles pour un jour donnée **********************************/
 
     var excludeDates = [];
@@ -56,6 +115,7 @@ $(document).ready(function(){
         /**************** on récupère le nombre de places disponibles pour un jour donnée **********************************/
         var dateSplit = $visitDate.split("/");
         var dateTab = dateSplit[2] + "-" + dateSplit[1] + "-" + dateSplit[0];
+        alert(dateTab);
 
         $.ajax({
             type: 'get',
@@ -87,21 +147,7 @@ $(document).ready(function(){
         }
     }
 
-    /**
-     * Fonction qui initialise le datepicker au jour courant plus un si le jour courant est un jour de fermeture
-     * @param d
-     * @param j
-     * @returns {Date}
-     */
-    addDays = function(d){
-        if(d.getDay()== 0){
-            return new Date(d.getTime() + (1000 * 60 * 60 * 24 * 1));
-        }
-        if(d.getDay() == 2){
 
-            return new Date(d.getTime() + (1000 * 60 * 60 * 24 * 1));
-        }
-    }
 });
 
 

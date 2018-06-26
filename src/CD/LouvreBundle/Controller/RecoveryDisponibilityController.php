@@ -16,6 +16,10 @@ use Symfony\Component\HttpFoundation\JsonResponse;
 
 class RecoveryDisponibilityController extends Controller
 {
+	/**
+	 * @param $dateTab
+	 * @return int|Response
+	 */
 	public function numberPlacesAction($dateTab)
 	{
 
@@ -25,13 +29,15 @@ class RecoveryDisponibilityController extends Controller
 		$result = $em->getRepository('CDLouvreBundle:PurchaseOrder')->placesPerDay($dateTab);
 		$places = PurchaseOrder::MAX_PLACES_PER_DAY - $result;
 		$response = new Response($places);
-
+		var_dump($response);die('hello');
 		if($places > 0){
 			return $response;
 		}
 
 		else{
-			return -1;
+			$response = 0;
+
+			return $response;
 		}
 	}
 
@@ -54,16 +60,17 @@ class RecoveryDisponibilityController extends Controller
 		// Pour chaque enregistrement de la liste
 		foreach ($datesList as $key => $value)
 		{
-			// Test du Nbre de places total
+			// Test du Nbre de places total pour chaque date de la liste
 			if ($value['Places'] == PurchaseOrder::MAX_PLACES_PER_DAY)
 			{
 
 				// Si le nombre de place pour une date est égal au nombre max de place autorisé par jour, on ajoute la date
-				// au tableau des dates qui n'ont plus de places disponible
+				// au tableau des dates qui n'ont plus de places disponibles.
 				array_push($excludedDate, strtotime($value['visitDate']));
 			};
 		}
 		$response = new JsonResponse($excludedDate);
+		var_dump($response);die('coucou');
 		return $response;
 	}
 }
