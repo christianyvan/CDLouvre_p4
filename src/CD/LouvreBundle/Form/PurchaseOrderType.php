@@ -27,7 +27,7 @@ class PurchaseOrderType extends AbstractType
 		))
 			->add('visitDate', DateType::class, array(
 					'attr' => array('class' => 'datepicker'),
-					'label' => 'Date',
+					'label' => 'Date visite',
 					'widget' => 'single_text',
 					'input' => 'datetime',
 					'format' => 'dd/MM/yyyy')

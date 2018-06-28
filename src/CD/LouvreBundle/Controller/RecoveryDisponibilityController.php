@@ -16,6 +16,9 @@ use Symfony\Component\HttpFoundation\JsonResponse;
 
 class RecoveryDisponibilityController extends Controller
 {
+
+
+
 	/**
 	 * @param $dateTab
 	 * @return int|Response
@@ -29,16 +32,7 @@ class RecoveryDisponibilityController extends Controller
 		$result = $em->getRepository('CDLouvreBundle:PurchaseOrder')->placesPerDay($dateTab);
 		$places = PurchaseOrder::MAX_PLACES_PER_DAY - $result;
 		$response = new Response($places);
-		var_dump($response);die('hello');
-		if($places > 0){
-			return $response;
-		}
-
-		else{
-			$response = 0;
-
-			return $response;
-		}
+		return $response;
 	}
 
 	public function disponibilityDayAction()
@@ -70,7 +64,7 @@ class RecoveryDisponibilityController extends Controller
 			};
 		}
 		$response = new JsonResponse($excludedDate);
-		var_dump($response);die('coucou');
+
 		return $response;
 	}
 }

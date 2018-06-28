@@ -11,6 +11,47 @@ $(document).ready(function () {
         var currentDate = new Date();
         var currentHour = currentDate.getHours();
 
+        $.ajax({
+            type: 'get',
+            format: 'json',
+            url: "disponibilityDay",
+            success: function (data) {
+
+                // on récupère les dates excluses et on les ajoutes au tableau excludeDates
+                $.each(data,function(key,value){
+                    excludeDates.push(moment.unix(value).format('DD-MM-Y'));
+                });
+                alert(excludeDates);
+                $("#cd_louvrebundle_purchaseorder_visitDate").datepicker({
+                    language: 'fr',
+                    autoclose: true,
+                    daysOfWeekDisabled: "0,2",
+                    datesDisabled: excludeDates,
+                    startDate: '0d',
+                }).on('changeDate', function (ev) {
+                    $(this).datepicker('hide');
+                })
+            }
+        });
+
+        var dateSplit = $visitDate.split("/");
+        var dateTab = dateSplit[2] + "-" + dateSplit[1] + "-" + dateSplit[0];
+
+        $.ajax({
+            type: 'get',
+            format: 'json',
+            url: 'numberPlaces/'+ dateTab,
+            success: function (data) {
+                afficher(data);
+
+            },
+            error: function (XMLHttpRequest, textStatus, errorThrown) {
+                alert(textStatus);
+                alert(XMLHttpRequest);
+                alert(errorThrown);
+            }
+        });
+
         if ($visitDate == dateCurrent) {
             if (currentHour >= 14) {
 
@@ -37,6 +78,8 @@ $(document).ready(function () {
                $('#cd_louvrebundle_purchaseorder_visitType').append('<option value="1">Journée</option>');
             }
         }
+
+
         /**************** on récupère le nombre de places disponibles pour un jour donnée **********************************/
         var dateSplit = $visitDate.split("/");
         var dateTab = dateSplit[2] + "-" + dateSplit[1] + "-" + dateSplit[0];

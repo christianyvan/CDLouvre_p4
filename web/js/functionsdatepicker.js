@@ -6,49 +6,69 @@ $(document).ready(function(){
   //  var currentDate = moment.unix(now).format('DD/MM/Y');
 
     var today = new Date();
+    var today_2 = moment(today).format('DD/MM');
     var now = new Date();
     var currentDay = today.getDay();
     now.setDate(today.getDate()+1);
     var tomorrow = moment(now).format('DD/MM/Y');
+
    // alert(tomorrow);
     //var dateSplit = tomorrow.split("/");
     //alert(dateSplit);
 
    // var dateJourMois = dateSplit[0] + "/" + dateSplit[1]; // 26/06
 
+    function changeDate(currentDay,today_2) {
+        // si le jour courant est un mardi ou un dimanche, on positionne le champ du datepicker au jour suivant
+        while((currentDay === 2) ||(currentDay === 0) || today_2 === '01/05' || today_2 === '01/11' || today_2 === '25/12' ){
 
-    // si le jour courant est un mardi ou un dimanche, on positionne le champ du datepicker au jour suivant
-    while((currentDay === 2) ||(currentDay === 0) || currentDate === '01/05/2018' || currentDate === '01/11/2018' || '25/12/2018' ){
+            var value = $("#cd_louvrebundle_purchaseorder_visitDate").val(tomorrow);
+            alert('value est '+ value);
 
-        var value = $("#cd_louvrebundle_purchaseorder_visitDate").val(tomorrow);
-       // var dateSplit = value.split("/");
+            if (currentDay === 2){
 
-        if (currentDay === 2){
-            currentDay = 3;
-            break;
+               return 3;
+
+            }
+
+
+            if (currentDay === 0){
+                return 1
+            }
+
+            if (today_2 === '01/05'){
+                return '02/05';
+
+
+            }
+
+            if (today_2 === '01/11'){
+                return '02/11';
+
+            }
+
+            if (today_2 === '25/12'){
+               return '26/12';
+
+            }
         }
 
 
-        if (currentDay === 0){
-            currentDay = 1;
-            break;
-        }
 
-        if (currentDate === '01/05/2018'){
-            currentDate = '02/05/2018';
-            break;
-        }
-
-        if (currentDate === '01/11/2018'){
-            currentDate = '02/11/2018';
-            break;
-        }
-
-        if (currentDate === '25/12/2018'){
-            currentDate = '26/12/2018';
-            break;
-        }
     }
+
+    changeDate(currentDay,today_2);
+/*
+    function dump(currentDate) {
+        var out = '';
+        for (var i in currentDate) {
+            out += i + ": " + currentDate[i] + "\n";
+        }
+
+        return out;
+    }
+        alert(dump(currentDate));
+   */
 
   //  if(currentDate === '01/05/2018' || currentDate === '01/11/2018' || '25/12/2018' || currentDate === '01/05/2018' || currentDate === '01/11/2018' || '25/12/2018'){
    //     $("#cd_louvrebundle_purchaseorder_visitDate").val(tomorrow);
@@ -122,7 +142,7 @@ $(document).ready(function(){
             format: 'json',
             url: 'numberPlaces/'+ dateTab,
             success: function (avalaiblePlaces) {
-                afficher(avalaiblePlaces);
+                     afficher(avalaiblePlaces);
 
             }
         });
@@ -143,6 +163,7 @@ $(document).ready(function(){
         }
         else
         {
+
             $('#myAlert').modal('show');
         }
     }
