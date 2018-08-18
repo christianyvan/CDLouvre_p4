@@ -12,6 +12,12 @@ namespace CD\LouvreBundle\Repository;
 class PurchaseOrderRepository extends \Doctrine\ORM\EntityRepository
 {
 	// Sélectionne le nombre de place commandé pour un jour donné et retourne ce nombre.
+	/**
+	 * @param $date
+	 * @return mixed
+	 * @throws \Doctrine\ORM\NoResultException
+	 * @throws \Doctrine\ORM\NonUniqueResultException
+	 */
 	public function placesPerDay($date)
 	{
 		$query = $this->createQueryBuilder('q')

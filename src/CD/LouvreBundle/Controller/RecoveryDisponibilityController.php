@@ -18,10 +18,11 @@ class RecoveryDisponibilityController extends Controller
 {
 
 
-
 	/**
 	 * @param $dateTab
 	 * @return int|Response
+	 * @throws \Doctrine\ORM\NoResultException
+	 * @throws \Doctrine\ORM\NonUniqueResultException
 	 */
 	public function numberPlacesAction($dateTab)
 	{
@@ -31,6 +32,7 @@ class RecoveryDisponibilityController extends Controller
 		$em = $this->getDoctrine()->getManager();
 		$result = $em->getRepository('CDLouvreBundle:PurchaseOrder')->placesPerDay($dateTab);
 		$places = PurchaseOrder::MAX_PLACES_PER_DAY - $result;
+
 		$response = new Response($places);
 		return $response;
 	}

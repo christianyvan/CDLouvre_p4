@@ -1,6 +1,6 @@
 
 body{
-    padding-top: 3em;
+    padding-top: 4em;
     padding-bottom: 3em;
 }
 
@@ -211,6 +211,20 @@ span{
 @media screen and (max-width: 576px) {
     #reserBillet {
         font-size: 1em;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    #reserBillet {
+        font-size: 1em;
+    }
+    .form-control{
+        width: 90%;
+        margin: auto;
+    }
+
+    label{
+        margin-left: 1.5em;
     }
 }
 

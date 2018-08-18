@@ -32,11 +32,21 @@ class PurchaseOrderType extends AbstractType
 					'input' => 'datetime',
 					'format' => 'dd/MM/yyyy')
 			)
-			->add('numberTicketsDesired',IntegerType::class, array(
-				'label'   => 'Billets(max 15)',
+		/*	->add('numberTicketsDesired',IntegerType::class, array(
+				'label'   => 'Billets(max 5)',
 				'attr'    =>array(
-					'min' => 1,
-					'max' => 15,
+					'min' => 0,
+					'max' => 5,
+				)*/
+		->add('numberTicketsDesired',ChoiceType::class, array(
+			'label'   => 'Billets(max 5)',
+			'choices'    =>array(
+					'0' => 0,
+					'1' => 1,
+					'2' => 2,
+					'3' => 3,
+					'4' => 4,
+					'5' => 5
 				)
 			))
 			->add('customerEmail',EmailType::class,array(

@@ -21,7 +21,7 @@ $(document).ready(function () {
                 $.each(data,function(key,value){
                     excludeDates.push(moment.unix(value).format('DD-MM-Y'));
                 });
-                alert(excludeDates);
+               // alert(excludeDates);
                 $("#cd_louvrebundle_purchaseorder_visitDate").datepicker({
                     language: 'fr',
                     autoclose: true,
@@ -103,18 +103,26 @@ $(document).ready(function () {
     function afficher(avalaiblePlaces) {
         $("#nbPlaces").empty();
         $("#maxPlaces").empty();
-        alert(text(avalaiblePlaces));
+        //alert(text(avalaiblePlaces));
 
         if(avalaiblePlaces >=0)
         {
+            $('#cd_louvrebundle_purchaseorder_numberTicketsDesired option').each(function(){
+                ($(this).removeAttr('disabled'));
+
             $("#nbPlaces").text(avalaiblePlaces);
             $("#maxPlaces").text(avalaiblePlaces);
-        }
+        })}
         else
         {
 
             $('#myModal').modal('show');
+            $('#cd_louvrebundle_purchaseorder_numberTicketsDesired option').val('');
+
         }
+
+
+
     }
 
 
@@ -127,9 +135,9 @@ $(document).ready(function () {
         var index = $container.find(':input').length;
 
         // On ajoute un premier champ automatiquement.
-        if (index == 0) {
-            addDescription($container);
-        }
+      //  if (index == 0) {
+      //      addDescription($container);
+      //  }
     }
 
     /*************** Fonction qui permet d'ajouter un sous formulaire TicketDescriptionType **************************/

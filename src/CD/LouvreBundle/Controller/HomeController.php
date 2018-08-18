@@ -10,8 +10,8 @@ namespace CD\LouvreBundle\Controller;
 
 use CD\LouvreBundle\Entity\PurchaseOrder;
 use CD\LouvreBundle\Form\PurchaseOrderType;
-use CD\LouvreBundle\Services\CDOrderHandling;
-use Doctrine\ORM\EntityManager;
+//use CD\LouvreBundle\Services\CDOrderHandling;
+//use Doctrine\ORM\EntityManager;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 //use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
