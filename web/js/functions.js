@@ -1,29 +1,36 @@
 $(document).ready(function () {
+   $('.datepicker').change(function () {
+
+        var visitDate = $('.datepicker').val();
+
+   // on récupère la date courante sous la forme jj/mm/aaaa
+        let now = new Date();
+        var year   = now.getFullYear();
+        var month  =('0'+(now.getMonth()+1)).slice(-2);
+        var day    = ('0'+now.getDate()   ).slice(-2);
+        var currentDate = +day+"/"+month+"/"+year;
+
+        let currentHour = ('0'+now.getHours()  ).slice(-2);
 
 
-    $('#cd_louvrebundle_purchaseorder_visitDate').change(function () {
-
-
-        var $visitDate = $('#cd_louvrebundle_purchaseorder_visitDate').val();
-        moment.locale('fr');
-
-        var dateCurrent = moment().format('L');
-        var currentDate = new Date();
-        var currentHour = currentDate.getHours();
 
         $.ajax({
             type: 'get',
             format: 'json',
             url: "disponibilityDay",
             success: function (data) {
+                var excludeDates =[];
 
                 // on récupère les dates excluses et on les ajoutes au tableau excludeDates
                 $.each(data,function(key,value){
-                    excludeDates.push(moment.unix(value).format('DD-MM-Y'));
+
+                  excludeDates.push(moment.unix(value).format('DD-MM-Y'));
+                  console.log(excludeDates);
                 });
-               // alert(excludeDates);
-                $("#cd_louvrebundle_purchaseorder_visitDate").datepicker({
+               // alert(excludeDates+"exludedate");
+                $(".datepicker").datepicker({
                     language: 'fr',
+
                     autoclose: true,
                     daysOfWeekDisabled: "0,2",
                     datesDisabled: excludeDates,
@@ -34,7 +41,7 @@ $(document).ready(function () {
             }
         });
 
-        var dateSplit = $visitDate.split("/");
+        var dateSplit = visitDate.split("/");
         var dateTab = dateSplit[2] + "-" + dateSplit[1] + "-" + dateSplit[0];
 
         $.ajax({
@@ -52,12 +59,14 @@ $(document).ready(function () {
             }
         });
 
-        if ($visitDate == dateCurrent) {
-            if (currentHour >= 14) {
 
-                $('#cd_louvrebundle_purchaseorder_visitType').val(0);
+        if (visitDate === currentDate)
+        {
+            if (currentHour >= 14) {    // si la réservation est pour le jour même et que l'heure en cour est >= 14h,
+                                        // le champs journée est supprimé
+
                 $('#cd_louvrebundle_purchaseorder_visitType option').each(function () {
-                    if ($(this).attr("value") == 1)
+                    if ($(this).attr("value") === "1")
                         $(this).remove();
                 })
             }
@@ -71,8 +80,8 @@ $(document).ready(function () {
             }
         }
 
-        if($visitDate != dateCurrent){
-            if( $("#cd_louvrebundle_purchaseorder_visitType>option").length< 2)
+        if(visitDate !== currentDate){
+            if( $("#cd_louvrebundle_purchaseorder_visitType > option").length< 2)
 
             {
                $('#cd_louvrebundle_purchaseorder_visitType').append('<option value="1">Journée</option>');
@@ -80,14 +89,14 @@ $(document).ready(function () {
         }
 
 
-        /**************** on récupère le nombre de places disponibles pour un jour donnée **********************************/
-        var dateSplit = $visitDate.split("/");
-        var dateTab = dateSplit[2] + "-" + dateSplit[1] + "-" + dateSplit[0];
 
+       // var dateSplit = visitDate.split("/");
+       // var dateTab = dateSplit[2] + "-" + dateSplit[1] + "-" + dateSplit[0];
+       // alert("valeur de visit date = "+visitDate);
         $.ajax({
             type: 'get',
             format: 'json',
-            url: 'numberPlaces/'+ dateTab,
+            url: 'numberPlaces/'+visitDate/*dateTab*/,
             success: function (data) {
                 afficher(data);
 
@@ -135,9 +144,9 @@ $(document).ready(function () {
         var index = $container.find(':input').length;
 
         // On ajoute un premier champ automatiquement.
-      //  if (index == 0) {
-      //      addDescription($container);
-      //  }
+        if (index == 0) {
+            addDescription($container);
+        }
     }
 
     /*************** Fonction qui permet d'ajouter un sous formulaire TicketDescriptionType **************************/
@@ -186,5 +195,5 @@ $(document).ready(function () {
             }
         }
     });
-})
+});
 

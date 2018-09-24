@@ -30,6 +30,7 @@ class HomeController extends Controller
 		$em = $this->getDoctrine()->getManager();
 
 		$orderHandling = $this->get('louvre.cdorder_handling');
+		//dump($orderHandling);
 
 		// on crée un bon de commande
 		$purchaseOrder = new PurchaseOrder();
@@ -39,6 +40,7 @@ class HomeController extends Controller
 
 		if ($request->isMethod('POST'))
 		{
+			//var_dump($_POST);die("test");
 		// on hydrate l'entité PurchaseOrder avec les donnée transmise via la méthode POST
 		// $purchaseOrder contient maintenant les données du formulaire
 			$form->handleRequest($request);

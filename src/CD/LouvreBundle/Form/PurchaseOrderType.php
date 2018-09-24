@@ -4,11 +4,11 @@ namespace CD\LouvreBundle\Form;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
-use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 use Symfony\Component\Form\Extension\Core\Type\CollectionType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 class PurchaseOrderType extends AbstractType
@@ -25,12 +25,10 @@ class PurchaseOrderType extends AbstractType
 				'Journée'		=> 1
 			)
 		))
-			->add('visitDate', DateType::class, array(
-					'attr' => array('class' => 'datepicker'),
-					'label' => 'Date visite',
-					'widget' => 'single_text',
-					'input' => 'datetime',
-					'format' => 'dd/MM/yyyy')
+			->add('visitDate', TextType::class, array(
+					'attr' => array('class' => 'datepicker','placeholder' => "Choisisser une date"),
+					'label' => 'Date visite')
+
 			)
 		/*	->add('numberTicketsDesired',IntegerType::class, array(
 				'label'   => 'Billets(max 5)',
@@ -41,7 +39,6 @@ class PurchaseOrderType extends AbstractType
 		->add('numberTicketsDesired',ChoiceType::class, array(
 			'label'   => 'Billets(max 5)',
 			'choices'    =>array(
-					'0' => 0,
 					'1' => 1,
 					'2' => 2,
 					'3' => 3,

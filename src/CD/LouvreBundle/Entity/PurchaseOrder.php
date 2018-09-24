@@ -34,9 +34,9 @@ class PurchaseOrder
     private $visitType;
 
 	/**
-	 * @var \DateTime
-	 * @Assert\DateTime()
-	 * @ORM\Column(name="visitDate", type="datetime")
+	 * @var string
+	 * Assert\DateTime()
+	 * @ORM\Column(name="visitDate", type="string")
 	 */
     private $visitDate;
 
@@ -100,7 +100,7 @@ class PurchaseOrder
 		$this->orderDate = new \DateTime('NOW');
 
 		//$this->setVisitDate($this->orderDate);
-		$this->visitDate = new \DateTime('NOW');
+		//$this->visitDate = new \DateTime('NOW');
 		$this->visitType = 0;
 		$this->amountOrder = 0;
 		$this->numberTicketsDesired = 0;
@@ -345,7 +345,8 @@ class PurchaseOrder
 	 */
     public function setVisitDate($visitDate)
     {
-		$currentDay = date_format($visitDate,'N');
+    	$this->visitDate = $visitDate;
+	/*	$currentDay = date_format($visitDate,'N');
 		$visitDateWithoutYear = date_format($visitDate,"m-d");
 		//var_dump($visitDateWithoutYear);die('coucou');
 
@@ -363,7 +364,7 @@ class PurchaseOrder
 	   }
 	   else{
 		   $this->visitDate = $visitDate;
-		}
+		}*/
 		return $this;
 
 

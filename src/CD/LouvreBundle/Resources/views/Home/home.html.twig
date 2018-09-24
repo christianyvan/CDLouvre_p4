@@ -1,7 +1,17 @@
 
 {% extends '::base.html.twig' %}
 
-{% block title %}Billetterie du Musée du Louvre{% endblock %}
+{% block title %}Billetterie Musée du Louvre{% endblock %}
+
+{% block css %}
+    <!-- Bootstrap -->
+    <link href="{{ asset('bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
+
+    <link rel="stylesheet" href="{{ asset('bootstrap/css/bootstrap-datepicker.min.css') }}">
+    <!--<link rel="stylesheet" href="{{ asset('bootstrap/css/bootstrap-theme.min.css') }}">-->
+
+    <link rel="stylesheet" href="{{ asset('css/style.css') }}"/>
+{% endblock  %}
 
 {% block body %}
 
@@ -9,7 +19,8 @@
     <h1 id="reserBillet">Achat de billet(s) pour visiter le musée du Louvre <span class="glyphicon glyphicon-shopping-cart hidden-xs" id="tarif"></span></h1>
 </div>
 <div class="container">
-   <section class="jumbotron col-sm-12 col-md-9 col-lg-9">
+    <div class="row">
+         <section class="jumbotron col-sm-12 col-md-9 col-lg-9">
                     {{ form_start(form, {'attr': {'class':'form-horizontal','novalidate':'novalidate'}}) }}
                     {{ form_errors(form) }}
         <div class="row">
@@ -57,14 +68,16 @@
 
             {{ form_end(form) }}
    </section>
-   <aside class=" col-sm-12 col-md-3 col-lg-3">
-
+   <div class="col-md-3 col-lg-3">
+       <aside class=" col-sm-12 col-md-12 col-lg-12">
             {% include "CDLouvreBundle:Home:tabPrice.html.twig" %}
+       </aside>
+       <aside class=" col-sm-12 col-md-12 col-lg-12">
             {% include "CDLouvreBundle:Home:tabSchedule.html.twig" %}
-
-   </aside>
-</div><!-- fin div class container-->
-
+       </aside>
+   </div>
+</div><!-- fin div class row-->
+</div>
 
        {# Fenetre Modale pour alerter du nombre de place restant #}
     <div class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" data-backdrop="static" id="myModal">
@@ -147,9 +160,21 @@
 
    {% block javascripts %}
 
-       {{ parent() }}
-       <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.8.0/js/bootstrap-datepicker.min.js"></script>
 
+
+       <script src="{{ asset('bootstrap/js/jquery-3.3.1.min.js') }}"></script>
+
+       <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+               integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+               crossorigin="anonymous">
+       </script>
+
+
+       <script language="javascript" src="{{ asset('bootstrap/js/bootstrap-datepicker.min.js') }}"></script>
+
+       <script src="{{ asset('bootstrap/js/bootstrap.min.js') }}"></script>
+       <script src="{{ asset('bootstrap/js/moment-min.js') }}"></script>
+       <script src="{{ asset('bootstrap/js/moment-with-locales.js') }}"></script>
        <script> !function(a){a.fn.datepicker.dates.fr={days:["dimanche","lundi","mardi","mercredi","jeudi","vendredi",
                    "samedi"],daysShort:["dim.","lun.","mar.","mer.","jeu.","ven.","sam."],daysMin:["d","l","ma","me","j"
                    ,"v","s"],months:["janvier","février","mars","avril","mai","juin","juillet","août","septembre",
@@ -158,11 +183,10 @@
                weekStart:1,format:"dd/mm/yyyy"}}(jQuery);
        </script>
 
-       <script src="{{ asset('js/moment-min.js') }}"></script>
-       <script src="{{ asset('js/moment-with-locales.js') }}"></script>
-       <script type="text/javascript" src="{{ asset('js/configDatepicker.js') }}"></script>
-       <script type="text/javascript" src="{{ asset('js/functions.js') }}"></script>
        <script type="text/javascript" src="{{ asset('js/functionsdatepicker.js') }}"></script>
+       <script type="text/javascript" src="{{ asset('js/functions.js') }}"></script>
+
+
      {% endblock %}
 
 

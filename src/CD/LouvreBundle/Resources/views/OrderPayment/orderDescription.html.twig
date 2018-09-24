@@ -1,5 +1,15 @@
 {% extends '::base.html.twig' %}
 
+{% block css %}
+    <!-- Bootstrap -->
+    <link href="{{ asset('bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
+
+
+    <!--<link rel="stylesheet" href="{{ asset('bootstrap/css/bootstrap-theme.min.css') }}">-->
+
+    <link rel="stylesheet" href="{{ asset('css/style.css') }}"/>
+{% endblock  %}
+
 {% block body %}
 <div class="container">
     <h4 id="achatBillet">Achat de billet(s) pour le Musée du Louvre <span class="glyphicon glyphicon-info-sign" id="tarif"></span></h4>
@@ -20,7 +30,7 @@
                             Demi-Journée
                         {% endif %}
                          </li>
-                        <li><strong>Date de votre visite :</strong> {{ purchaseOrder.visitDate | date('d/m/Y') }}</li>
+                        <li><strong>Date de votre visite :</strong> {{ purchaseOrder.visitDate  }}</li>
                         <li><strong>Nombre de place(s) :</strong> {{ purchaseOrder.numberTicketsDesired }}</li>
                      </ul>
             </section>
@@ -128,7 +138,7 @@
                 </form>
             </div>
             <div class="col-lg-5">
-                <button class="btn btn-lg bg-info"><a href="{{ path('louvre_home') }}">Retour accueil</a></button>
+                <button class="btn btn-lg bg-green"><a href="{{ path('louvre_home') }}">Retour accueil</a></button>
             </div>
         </div><!-- end row -->
     </div>

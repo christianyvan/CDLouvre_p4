@@ -81,18 +81,15 @@ class OrderPaymentController extends Controller
 			->setCharset('utf-8')
 			->setContentType('text/html')
 
-			//->attach(\Swift_Attachment::fromPath('images/louvre.jpg')->setDisposition('inline'))
+			->attach(\Swift_Attachment::fromPath('images/louvre.jpg')->setDisposition('inline'))
 			->setBody($this->renderView('CDLouvreBundle:Email:email.html.twig', array(
 				'purchaseOrder'   	  =>$purchaseOrder,
 				'ticketsDescription'   =>$ticketsDescription
 
-			/*	$message->setBody('Message avec le texte
-				<img src="' . $message->embed(Swift_Image::fromPath('logo.png')) . '" alt="Logo" />');*/
-
 			)))
 
 		;
-		$cid = $message->embed(Swift_Image::fromPath('images/louvre.jpg'));
+		//$cid = $message->embed(Swift_Image::fromPath('images/louvre.jpg'));
 
 		// Envoi du mail
 		$this->get('mailer')
@@ -101,8 +98,8 @@ class OrderPaymentController extends Controller
 		// Retourne la vue de validation
 		return $this->render('CDLouvreBundle:OrderPayment:paymentValided.html.twig', array(
 			'purchaseOrder'			 => $purchaseOrder,
-			'ticketsDescription'	 => $ticketsDescription,
-			'cid'					 => $cid
+			'ticketsDescription'	 => $ticketsDescription
+			//'cid'					 => $cid
 		));
 	}
 
