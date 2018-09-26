@@ -19,18 +19,18 @@ class RecoveryDisponibilityController extends Controller
 
 
 	/**
-	 * @param $dateTab
+	 *
 	 * @return int|Response
 	 * @throws \Doctrine\ORM\NoResultException
 	 * @throws \Doctrine\ORM\NonUniqueResultException
 	 */
-	public function numberPlacesAction($dateTab)
+	public function numberPlacesAction()
 	{
-
+		$visitDate = $_GET['visitDate'];
 		//if($request->isXmlHttpRequest()){
 
 		$em = $this->getDoctrine()->getManager();
-		$result = $em->getRepository('CDLouvreBundle:PurchaseOrder')->placesPerDay($dateTab);
+		$result = $em->getRepository('CDLouvreBundle:PurchaseOrder')->placesPerDay($visitDate);
 		$places = PurchaseOrder::MAX_PLACES_PER_DAY - $result;
 
 		$response = new Response($places);
@@ -43,9 +43,9 @@ class RecoveryDisponibilityController extends Controller
 		$excludedDate = array();
 
 		// Ajout des dates de fermeture dans la variable $excludedDate
-		array_push($excludedDate, strtotime('2018-05-01'));
-		array_push($excludedDate, strtotime('2018-11-01'));
-		array_push($excludedDate, strtotime('2018-12-25'));
+		//array_push($excludedDate, strtotime('2018-05-01'));
+		//array_push($excludedDate, strtotime('2018-11-01'));
+		//array_push($excludedDate, strtotime('2018-12-25'));
 
 		// Traitement des dates dont le nbre de billets MAX est atteint
 		$em = $this->getDoctrine()->getManager();
@@ -62,7 +62,7 @@ class RecoveryDisponibilityController extends Controller
 
 				// Si le nombre de place pour une date est égal au nombre max de place autorisé par jour, on ajoute la date
 				// au tableau des dates qui n'ont plus de places disponibles.
-				array_push($excludedDate, strtotime($value['visitDate']));
+				array_push($excludedDate,/* strtotime(*/$value['visitDate'])/*)*/;
 			};
 		}
 		$response = new JsonResponse($excludedDate);

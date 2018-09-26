@@ -14,7 +14,7 @@ louvre_recovery_disponibilityDay:
     defaults: { _controller: CDLouvreBundle:RecoveryDisponibility:disponibilityDay }
 
 louvre_recovery_numberPlaces:
-    path:     /numberPlaces/{dateTab}
+    path:     /numberPlaces/
     defaults: { _controller: CDLouvreBundle:RecoveryDisponibility:numberPlaces }
 
 #******************* Route controller OrderDescriptionController***********************************************
