@@ -7,7 +7,6 @@ use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
-use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\CollectionType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
@@ -30,23 +29,18 @@ class PurchaseOrderType extends AbstractType
 					'label' => 'Date visite')
 
 			)
-		/*	->add('numberTicketsDesired',IntegerType::class, array(
+
+			->add('numberTicketsDesired',ChoiceType::class, array(
 				'label'   => 'Billets(max 5)',
-				'attr'    =>array(
-					'min' => 0,
-					'max' => 5,
-				)*/
-		->add('numberTicketsDesired',ChoiceType::class, array(
-			'label'   => 'Billets(max 5)',
-			'choices'    =>array(
-					'0' => 0,
-					'1' => 1,
-					'2' => 2,
-					'3' => 3,
-					'4' => 4,
-					'5' => 5
-				)
-			))
+				'choices'    =>array(
+						'0' => 0,
+						'1' => 1,
+						'2' => 2,
+						'3' => 3,
+						'4' => 4,
+						'5' => 5
+					)
+				))
 			->add('customerEmail',EmailType::class,array(
 				'required' => true))
 			->add('ticketDescription', CollectionType::class, array(

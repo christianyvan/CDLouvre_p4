@@ -15,10 +15,11 @@
 
 {% block body %}
 
+<!--<div class="container">
+
+</div>-->
 <div class="container">
     <h1 id="reserBillet">Achat de billet(s) pour visiter le musée du Louvre <span class="glyphicon glyphicon-shopping-cart hidden-xs" id="tarif"></span></h1>
-</div>
-<div class="container">
     <div class="row">
          <section class="jumbotron col-sm-12 col-md-9 col-lg-9">
                     {{ form_start(form, {'attr': {'class':'form-horizontal','novalidate':'novalidate'}}) }}
@@ -72,7 +73,7 @@
        <aside class=" col-sm-12 col-md-12 col-lg-12">
             {% include "CDLouvreBundle:Home:tabPrice.html.twig" %}
        </aside>
-       <aside class=" col-sm-12 col-md-12 col-lg-12">
+       <aside class=" col-sm-12 col-md-12 col-lg-12" style="width: 100%">
             {% include "CDLouvreBundle:Home:tabSchedule.html.twig" %}
        </aside>
    </div>

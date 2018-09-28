@@ -75,7 +75,12 @@ span{
 /**********************************************************************************************************************/
 
 .container{
-    margin-top: 3em;
+    margin-top: 7em;
+    margin-bottom: 6em;
+}
+#billetterie
+{
+    font-size: 2.5em;
 }
 
 #error404{
@@ -106,7 +111,7 @@ span{
 
 img {
     padding: 7px 14px;
-   /* width: 25%;*/
+
 }
 
 
@@ -115,19 +120,13 @@ img {
     font-size: 1.75em;
 
 }
-/*
-.navbar-header{
-    width: 60%;
-}
-*/
+
 #myNavbar a{
     color: white;
     margin-right: 2em;
 }
 
-#reserBillet{
-    margin-top: 2em;
-}
+
 
 
 /******************* CSS formulaire ************************************************************************/
@@ -213,34 +212,56 @@ span{
 }*/
 /********************************* Média queries ***************************************************************/
 
-
 @media screen and (max-width: 576px) {
     #reserBillet {
         font-size: 1em;
     }
+
+    #billetterie
+    {
+        font-size: 0.3em;
+    }
+    .container
+    {
+        width: 100%;
+    }
+    #foot-name
+    {
+        display: none;
+    }
+
 }
 
 @media screen and (max-width: 768px) {
     #reserBillet {
         font-size: 1em;
     }
-    .form-control{
+
+    .form-control {
         width: 90%;
         margin: auto;
     }
 
-    label{
+    label {
         margin-left: 1.5em;
     }
-}
 
-@media screen and (max-width: 768px) {
-    .rs,.social {
+    #billetterie {
+        font-size: 1.5em;
+    }
+
+    .rs, .social {
         display: inline-block;
         width: 50px;
         height: 32px;
         vertical-align: center;
     }
+
+    .tab
+    {
+        margin-left: 0.1em;
+    }
+}
 
 @media screen and (max-width: 1097px) {
         .navbar-header a {
@@ -248,4 +269,4 @@ span{
         }
     }
 
-}
+

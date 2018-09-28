@@ -2,7 +2,6 @@
 
 namespace CD\LouvreBundle\Entity;
 
-use DateInterval;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 use Doctrine\Common\Collections\ArrayCollection;
@@ -35,7 +34,7 @@ class PurchaseOrder
 
 	/**
 	 * @var string
-	 * Assert\DateTime()
+	 * @Assert\Blank()
 	 * @ORM\Column(name="visitDate", type="string")
 	 */
     private $visitDate;
@@ -64,7 +63,7 @@ class PurchaseOrder
 
     /**
      * @var int
-     * @Assert\Range(min=1,max=15,minMessage="Vous devez commander au moins une place.",maxMessage="Vous ne pouvez pas commander plus de 15 places à la fois.")
+     * @Assert\Range(min=1,max=5,minMessage="Vous devez commander au moins une place.",maxMessage="Vous ne pouvez pas commander plus de 5 places à la fois.")
      * @ORM\Column(name="numberTicketsDesired", type="integer")
      */
     private $numberTicketsDesired;
@@ -85,7 +84,6 @@ class PurchaseOrder
 
 	/**
 	 * @ORM\OneToMany (targetEntity="CD\LouvreBundle\Entity\TicketDescription", mappedBy="purchaseOrder", cascade={"persist","remove"})
-	 * Assert\Type(type="CDLouvreBundle\Entity\TicketDescription")
 	 * @Assert\Valid()
 	 */
 	private $ticketDescription;
@@ -99,8 +97,6 @@ class PurchaseOrder
 	{
 		$this->orderDate = new \DateTime('NOW');
 
-		//$this->setVisitDate($this->orderDate);
-		//$this->visitDate = new \DateTime('NOW');
 		$this->visitType = 0;
 		$this->amountOrder = 0;
 		$this->numberTicketsDesired = 0;
@@ -346,35 +342,12 @@ class PurchaseOrder
     public function setVisitDate($visitDate)
     {
     	$this->visitDate = $visitDate;
-	/*	$currentDay = date_format($visitDate,'N');
-		$visitDateWithoutYear = date_format($visitDate,"m-d");
-		//var_dump($visitDateWithoutYear);die('coucou');
-
-
-       if($currentDay == 2 || $currentDay == 7)
-       { 										// 7 pour dimanche et 2 pour mardi
-		    $this->visitDate = $visitDate->add(new DateInterval('P1D'));
-
-			return $this;
-	   }
-	   else if($visitDateWithoutYear == "05-01" ||$visitDateWithoutYear =="11-01" || $visitDateWithoutYear =="12-25")
-	   {
-		   $this->visitDate = $visitDate->add(new DateInterval('P1D'));
-		   return $this;
-	   }
-	   else{
-		   $this->visitDate = $visitDate;
-		}*/
 		return $this;
-
-
     }
 
-    /**
-     * Get visitDate
-     *
-     * @return \DateTime
-     */
+	/**
+	 * @return string
+	 */
     public function getVisitDate()
     {
         return $this->visitDate;

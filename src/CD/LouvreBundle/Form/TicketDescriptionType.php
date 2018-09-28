@@ -57,6 +57,4 @@ class TicketDescriptionType extends AbstractType
     {
         return 'cd_louvrebundle_ticketdescription';
     }
-
-
 }

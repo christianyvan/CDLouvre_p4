@@ -4,20 +4,12 @@ $(document).ready(function () {
 
         var visitDate = $('.datepicker').val();
 
-
-
-       // var dateSplit = visit.split("/");
-      //  var visitDate = dateSplit[0] + "-" + dateSplit[1] + "-" + dateSplit[2]; //26-09-2018
-
-       // alert("visitDate = "+visitDate);
-
    // on récupère la date courante sous la forme jj/mm/aaaa
         let now = new Date();
         var year   = now.getFullYear();
         var month  =('0'+(now.getMonth()+1)).slice(-2);
         var day    = ('0'+now.getDate()   ).slice(-2);
         var currentDate = +day+"/"+month+"/"+year;
-        alert(currentDate+" et "+ visitDate);
 
         let currentHour = ('0'+now.getHours()  ).slice(-2);
 
@@ -96,6 +88,10 @@ $(document).ready(function () {
 
     $(".btn-danger").click(function () {
         $('#cd_louvrebundle_purchaseorder_numberTicketsDesired').val(0);
+
+
+
+
     });
 
 
@@ -104,16 +100,16 @@ $(document).ready(function () {
 
     var $container = $('div#cd_louvrebundle_purchaseorder_ticketDescription');
 
-    if (document.getElementById('cd_louvrebundle_purchaseorder_ticketDescription')) {
+ //   if (document.getElementById('cd_louvrebundle_purchaseorder_ticketDescription')) {
 
         // On définit un compteur unique pour nommer les champs qu'on va ajouter dynamiquement
-        var index = $container.find(':input').length;
+  //      var index = $container.find(':input').length;
 
         // On ajoute un premier champ automatiquement.
      /*   if (index == 0) {
             addDescription($container);
         }*/
-    }
+ //   }
 
     /*************** Fonction qui permet d'ajouter un sous formulaire TicketDescriptionType **************************/
 
