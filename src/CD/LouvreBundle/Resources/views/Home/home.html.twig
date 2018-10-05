@@ -8,174 +8,151 @@
     <link href="{{ asset('bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
 
     <link rel="stylesheet" href="{{ asset('bootstrap/css/bootstrap-datepicker.min.css') }}">
-    <!--<link rel="stylesheet" href="{{ asset('bootstrap/css/bootstrap-theme.min.css') }}">-->
-
     <link rel="stylesheet" href="{{ asset('css/style.css') }}"/>
 {% endblock  %}
 
 {% block body %}
-
-<!--<div class="container">
-
-</div>-->
-<div class="container">
-    <h1 id="reserBillet">Achat de billet(s) pour visiter le musée du Louvre <span class="glyphicon glyphicon-shopping-cart hidden-xs" id="tarif"></span></h1>
-    <div class="row">
-         <section class="jumbotron col-sm-12 col-md-8 col-lg-8">
-                    {{ form_start(form, {'attr': {'class':'form-horizontal','novalidate':'novalidate'}}) }}
-                    {{ form_errors(form) }}
+    <div class="container">
+        <h1 id="reserBillet">Achat de billet(s) pour visiter le musée du Louvre <span class="glyphicon glyphicon-shopping-cart hidden-xs" id="tarif"></span></h1>
         <div class="row">
-             <div class="col-sm-10 col-md-3 col-lg-3">
-                    {{ form_label(form.visitType) }}
-                    {{ form_errors(form.visitType) }}
-                    {{ form_widget(form.visitType) }}
+             <section class="jumbotron col-sm-12 col-md-8 col-lg-8">
+                        {{ form_start(form, {'attr': {'class':'form-horizontal','novalidate':'novalidate'}}) }}
+                        {{ form_errors(form) }}
+                 <div class="row">
+                     <div class="col-sm-10 col-md-3 col-lg-3">
+                            {{ form_label(form.visitType) }}
+                            {{ form_errors(form.visitType) }}
+                            {{ form_widget(form.visitType) }}
+                     </div>
+                     <div class="col-sm-10 col-md-3 col-lg-3">
+                             {{ form_label(form.visitDate) }}
+                             {{ form_errors(form.visitDate) }}
+                             {{ form_widget(form.visitDate) }}
+                                Demi-Journée à partir de 14h. <span id="infotype"></span>
+                     </div>
+                     <div class="col-sm-10 col-md-2 col-lg-2">
+                             {{ form_label(form.numberTicketsDesired) }}
+                             {{ form_errors(form.numberTicketsDesired) }}
+                             {{ form_widget(form.numberTicketsDesired) }}
+                           <div class="help-block">
+                                Disponibilité :<span class="new badge" data-badge-caption="places" id="nbPlaces"></span>
+                           </div>
+                     </div>
+                     <div class="col-sm-10 col-md-4 col-lg-4">
+                             {{ form_label(form.customerEmail, 'Email') }}
+                             {{ form_errors(form.customerEmail) }}
+                             {{ form_widget(form.customerEmail) }}
+                     </div>
+                 </div><!-- end row -->
+                 <div class="col-sm-10 col-md-12 col-lg-12">
+                         {{ form_row(form.ticketDescription) }}
+                 </div>
+                 <div >
+                    {{ form_widget(form.Continuer, {'attr': {
+                        'class': 'btn-success'
+                    }}) }}
+                 </div>
+
+                {{ form_end(form) }}
+             </section>
+             <div class="col-md-4 col-lg-4">
+                {% include "CDLouvreBundle:Home:tabPrice.html.twig" %}
+                {% include "CDLouvreBundle:Home:tabSchedule.html.twig" %}
              </div>
+         </div><!-- fin div class row-->
+    </div>
 
-             <div class="col-sm-10 col-md-3 col-lg-3">
-                     {{ form_label(form.visitDate) }}
-                     {{ form_errors(form.visitDate) }}
-                     {{ form_widget(form.visitDate) }}
-                        Demi-Journée à partir de 14h. <span id="infotype"></span>
-             </div>
+           {# Fenetre Modale pour alerter du nombre de place restant #}
+        <div class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" data-backdrop="static" id="myModal">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h3 class="modal-title" id="myModalLabel">Informations Billeterie du Louvre</h3>
+                    </div>
+                    <div class="modal-body">
+                         <h4>Dépassement de capacité d'accueil !</h4>
+                         <p>
+                               Vous avez sélectionné un nombre de places trop important par rapport à notre capacité maximale d'accueil pour cette date de visite.<br>
+                               Merci de bien vouloir :
+                         </p>
+                           <ul>
+                               <li>Soit Sélectionner une date de visite différente</li>
+                               <li>Soit Sélectionner un nombre de places inférieur</li>
+                           </ul>
 
-             <div class="col-sm-10 col-md-2 col-lg-2">
-                     {{ form_label(form.numberTicketsDesired) }}
-                     {{ form_errors(form.numberTicketsDesired) }}
-                     {{ form_widget(form.numberTicketsDesired) }}
-                   <div class="help-block">
-                        Disponibilité :<span class="new badge" data-badge-caption="places" id="nbPlaces"></span>
-                   </div>
-             </div>
-
-             <div class="col-sm-10 col-md-3 col-lg-3">
-                     {{ form_label(form.customerEmail, 'Email') }}
-                     {{ form_errors(form.customerEmail) }}
-                     {{ form_widget(form.customerEmail) }}
-             </div>
-
-            </div><!-- end row -->
-       <div class="col-sm-10 col-md-12 col-lg-12">
-                       {{ form_row(form.ticketDescription) }}
-       </div>
-
-
-
-            <div >
-               {{ form_widget(form.Continuer, {'attr': {
-                    'class': 'btn-success'
-                }}) }}
-            </div>
+                           <p>
+                               <strong>Pour rappel : </strong> Place(s) disponible(s) pour votre date : <strong><span id="maxPlaces"></span></strong>
+                           </p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">Je Modifie</button>
+                    </div>
+                </div><!-- /.modal-content -->
+            </div><!-- /.modal-dialog -->
+        </div><!-- /.modal -->
 
 
-            {{ form_end(form) }}
-   </section>
-   <div class="col-md-4 col-lg-4">
-       <!--<div class=" col-sm-12 col-md-12 col-lg-12">-->
-            {% include "CDLouvreBundle:Home:tabPrice.html.twig" %}
-       <!--</div>-->
-       <!--<div class=" col-sm-12 col-md-12 col-lg-12">-->
-            {% include "CDLouvreBundle:Home:tabSchedule.html.twig" %}
-       <!--</div>-->
-   </div>
-</div><!-- fin div class row-->
-</div>
-
-       {# Fenetre Modale pour alerter du nombre de place restant #}
-    <div class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" data-backdrop="static" id="myModal">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h3 class="modal-title" id="myModalLabel">Informations Billeterie du Louvre</h3>
-                </div>
-                <div class="modal-body">
-                     <h4>Dépassement de capacité d'accueil !</h4>
-                     <p>
-                           Vous avez sélectionné un nombre de places trop important par rapport à notre capacité maximale d'accueil pour cette date de visite.<br>
-                           Merci de bien vouloir :
-                     </p>
-                       <ul>
-                           <li>Soit Sélectionner une date de visite différente</li>
-                           <li>Soit Sélectionner un nombre de places inférieur</li>
-                       </ul>
-
-                       <p>
-                           <strong>Pour rappel : </strong> Place(s) disponible(s) pour votre date : <strong><span id="maxPlaces"></span></strong>
-                       </p>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-danger" data-dismiss="modal">Je Modifie</button>
-                </div>
-            </div><!-- /.modal-content -->
-        </div><!-- /.modal-dialog -->
-    </div><!-- /.modal -->
-
-
-    {# Fenetre Modale pour les types de tarifs sur smartphone #}
-    <div class="modal fade" tabindex="-2" role="dialog" aria-labelledby="infoTarif" aria-hidden="true" data-backdrop="static" id="myInfo">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h3 class="modal-title" id="infoTarif">Informations Billeterie du Louvre</h3>
-                </div>
-                <div class="modal-body">
-                    <h4>Tarifications</h4>
-                    <table id="customers" class="col-md-12">
-                        <caption>Notre grille tarifaire</caption>
-                        <tr>
-                            <th>Tarif</th>
-                            <th>Enfant</th>
-                            <th>Normal</th>
-                            <th>Sénior</th>
-                            <th>Réduit</th>
-                        </tr>
-                        <tr>
-                            <td>Journée</td>
-                            <td>8 Euros</td>
-                            <td>16 Euros</td>
-                            <td>12 Euros</td>
-                            <td>10 Euros</td>
-                        </tr>
-                        <tr>
-                            <td>Demi-Journée</td>
-                            <td>4 Euros</td>
-                            <td>8 Euros</td>
-                            <td>6 Euros</td>
-                            <td>5 Euros</td>
-                        </tr>
-                    </table>
-                    <p>
-                        <strong>*</strong> L’entrée est gratuite pour les enfants de moins de 4 ans.
-                    </p>
-                    <p>
-                        <strong>**</strong> Accordé sous présentation d'une carte de type (étudiant, employé du musée, d’un service du Ministère de la Culture, militaire…).
-                    </p>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-primary" data-dismiss="modal">Retour </button>
-                </div>
-            </div><!-- /.modal-content -->
-        </div><!-- /.modal-dialog -->
-    </div><!-- /.modal -->
+        {# Fenetre Modale pour les types de tarifs sur smartphone #}
+        <div class="modal fade" tabindex="-2" role="dialog" aria-labelledby="infoTarif" aria-hidden="true" data-backdrop="static" id="myInfo">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h3 class="modal-title" id="infoTarif">Informations Billeterie du Louvre</h3>
+                    </div>
+                    <div class="modal-body">
+                        <h4>Tarifications</h4>
+                        <table id="customers" class="col-md-12">
+                            <caption>Notre grille tarifaire</caption>
+                            <tr>
+                                <th>Tarif</th>
+                                <th>Enfant</th>
+                                <th>Normal</th>
+                                <th>Sénior</th>
+                                <th>Réduit</th>
+                            </tr>
+                            <tr>
+                                <td>Journée</td>
+                                <td>8 Euros</td>
+                                <td>16 Euros</td>
+                                <td>12 Euros</td>
+                                <td>10 Euros</td>
+                            </tr>
+                            <tr>
+                                <td>Demi-Journée</td>
+                                <td>4 Euros</td>
+                                <td>8 Euros</td>
+                                <td>6 Euros</td>
+                                <td>5 Euros</td>
+                            </tr>
+                        </table>
+                        <p>
+                            <strong>*</strong> L’entrée est gratuite pour les enfants de moins de 4 ans.
+                        </p>
+                        <p>
+                            <strong>**</strong> Accordé sous présentation d'une carte de type (étudiant, employé du musée, d’un service du Ministère de la Culture, militaire…).
+                        </p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary" data-dismiss="modal">Retour </button>
+                    </div>
+                </div><!-- /.modal-content -->
+            </div><!-- /.modal-dialog -->
+        </div><!-- /.modal -->
 
 {% endblock %}
 
    {% block javascripts %}
-
-
-
        <script src="{{ asset('bootstrap/js/jquery-3.3.1.min.js') }}"></script>
 
        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
                integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
                crossorigin="anonymous">
        </script>
-
-
        <script language="javascript" src="{{ asset('bootstrap/js/bootstrap-datepicker.min.js') }}"></script>
-
        <script src="{{ asset('bootstrap/js/bootstrap.min.js') }}"></script>
        <script src="{{ asset('bootstrap/js/moment-min.js') }}"></script>
        <script src="{{ asset('bootstrap/js/moment-with-locales.js') }}"></script>
+
        <script> !function(a){a.fn.datepicker.dates.fr={days:["dimanche","lundi","mardi","mercredi","jeudi","vendredi",
                    "samedi"],daysShort:["dim.","lun.","mar.","mer.","jeu.","ven.","sam."],daysMin:["d","l","ma","me","j"
                    ,"v","s"],months:["janvier","février","mars","avril","mai","juin","juillet","août","septembre",
@@ -186,9 +163,7 @@
 
        <script type="text/javascript" src="{{ asset('js/functionsdatepicker.js') }}"></script>
        <script type="text/javascript" src="{{ asset('js/functions.js') }}"></script>
-
-
-     {% endblock %}
+   {% endblock %}
 
 
 

@@ -36,7 +36,8 @@ class OrderPaymentController extends Controller
 
 
 		// Créer une charge: cela permettra de facturer la carte de l'utilisateur
-		try {
+		try
+		{
 			$charge = \Stripe\Charge::create(array(
 				"amount" => $amount * 100, // Montant en centimes
 				"currency" => "eur",
@@ -44,7 +45,7 @@ class OrderPaymentController extends Controller
 				"description" => 'Paiement Stripe de : '. $amount . '€ pour la commande de l\'adresse Email : ' . $email
 			));
 
-			// Mise à jour du Montant total de la réservation
+
 			$purchaseOrder = $em->getRepository('CDLouvreBundle:PurchaseOrder')->find($id);
 
 			$purchaseOrder->setOrderValidation(true);
@@ -53,19 +54,28 @@ class OrderPaymentController extends Controller
 
 			return $this->redirectToRoute('louvre_sendMail', array('code' =>$purchaseOrder->getReservationCode()));
 
-		} catch(\Stripe\Error\Card $e) {
+		}
+		catch(\Stripe\Error\Card $e)
+		{
 			$id = $request->request->get('idRes');
 
 			// Si le paiement est refusé , on redirige vers la page paymentDeclined via la méthode paymentDeclined
 			// du controller OrderPaymentController
-			return $this->redirectToRoute('louvre_paymentDeclined',array('id'=> $id/*$purchaseOrder->getId()*/));
+			return $this->redirectToRoute('louvre_paymentDeclined',array('id'=> $id));
 
 		}
 	}
 
+
+	/**
+	 * function qui prend en paramètre le code de la commande, qui récupère les détails de la commande ,avec les
+	 * réservations de tickets associés, grâce au code. La function envoi un email au client et affiche la vue de
+	 * validation de la commande.
+	 * @param $code
+	 * @return \Symfony\Component\HttpFoundation\Response
+	 */
 	public function sendMailAction($code)
 	{
-
 		// On réaffiche l'ensemble de la réservation avec le détail
 		$purchaseOrder = $this->getDoctrine()
 			->getManager()
@@ -80,31 +90,33 @@ class OrderPaymentController extends Controller
 			->setTo($purchaseOrder->getCustomerEmail())
 			->setCharset('utf-8')
 			->setContentType('text/html')
-
 			->attach(\Swift_Attachment::fromPath('images/louvre.jpg')->setDisposition('inline'))
 			->setBody($this->renderView('CDLouvreBundle:Email:email.html.twig', array(
 				'purchaseOrder'   	  =>$purchaseOrder,
 				'ticketsDescription'   =>$ticketsDescription
-
-			)))
-
+		)))
 		;
-		//$cid = $message->embed(Swift_Image::fromPath('images/louvre.jpg'));
 
-		// Envoi du mail
+		// Envoi du mail de confirmation de validation de la commande au client
 		$this->get('mailer')
-			->send($message);
+			 ->send($message);
 
 		// Retourne la vue de validation
 		return $this->render('CDLouvreBundle:OrderPayment:paymentValided.html.twig', array(
 			'purchaseOrder'			 => $purchaseOrder,
 			'ticketsDescription'	 => $ticketsDescription
-			//'cid'					 => $cid
 		));
 	}
 
-
-	public function paymentDeclinedAction($id){
+	/**
+	 * Fonction qui prend en paramètre l'id d'une commande et qui affiche une vue avec le récapitulatif de la commande
+	 * et précise au client que cette commande a été refusé. (vue associée au catch de
+	 * la fonction "paymentStripeAction(Request $request)". La commande refusé est supprimé de la bdd.
+	 * @param $id
+	 * @return \Symfony\Component\HttpFoundation\Response
+	 */
+	public function paymentDeclinedAction($id)
+	{
 
 		$em = $this->getDoctrine()->getManager();
 		$purchaseOrder = $this->getDoctrine()
@@ -112,6 +124,7 @@ class OrderPaymentController extends Controller
 			->getRepository('CDLouvreBundle:PurchaseOrder')
 			->find($id);
 		$ticketsDescription = $purchaseOrder->getTicketDescription();
+
 		// on supprime la commande dont le paiement a été refusé de la bdd
 		$em->remove($purchaseOrder);
 		$em->flush();

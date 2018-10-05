@@ -8,9 +8,12 @@
 namespace CD\LouvreBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+
 class InformationsController extends Controller
 {
 	public function informationsAction(){
+
+		// vue qui renvoie à la page Information du site
 		return $this->render('CDLouvreBundle:Informations:informations.html.twig');
 	}
 }

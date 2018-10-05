@@ -9,11 +9,9 @@ $(document).ready(function () {
         var year   = now.getFullYear();
         var month  =('0'+(now.getMonth()+1)).slice(-2);
         var day    = ('0'+now.getDate()   ).slice(-2);
-        var currentDate = +day+"/"+month+"/"+year;
+        var currentDate = day+"/"+month+"/"+year;
 
         let currentHour = ('0'+now.getHours()  ).slice(-2);
-
-
 
 /*********** on affiche le nombre de places disponibles pour la date de visite choisi **************************/
        $.ajax({
@@ -35,8 +33,9 @@ $(document).ready(function () {
 
         if (visitDate === currentDate)
         {
-            if (currentHour >= 14) {    // si la réservation est pour le jour même et que l'heure en cour est >= 14h,
-                                        // le champs journée est supprimé
+            if (currentHour >= 14)
+            {    // si la réservation est pour le jour même et que l'heure en cour est >= 14h,
+                 // le champs journée est supprimé
 
                 $('#cd_louvrebundle_purchaseorder_visitType option').each(function () {
                     if ($(this).attr("value") === "1")
@@ -48,14 +47,14 @@ $(document).ready(function () {
                 if( $("#cd_louvrebundle_purchaseorder_visitType").length < 2)
                 {
 
-                    $('#cd_louvrebundle_purchaseorder_visitType').append('<option value="1">Journée</option>');// à modifier
+                    $('#cd_louvrebundle_purchaseorder_visitType').append('<option value="1">Journée</option>');
                 }
             }
         }
 
-        if(visitDate !== currentDate){
+        if(visitDate !== currentDate)
+        {
             if( $("#cd_louvrebundle_purchaseorder_visitType > option").length< 2)
-
             {
                $('#cd_louvrebundle_purchaseorder_visitType').append('<option value="1">Journée</option>');
             }
@@ -65,10 +64,10 @@ $(document).ready(function () {
        $("#cd_louvrebundle_purchaseorder_customerEmail").show();
    });
 
-    function afficher(avalaiblePlaces) {
+    function afficher(avalaiblePlaces)
+    {
         $("#nbPlaces").empty();
         $("#maxPlaces").empty();
-        //alert(text(avalaiblePlaces));
 
         if(avalaiblePlaces >=0)
         {
@@ -77,7 +76,8 @@ $(document).ready(function () {
 
             $("#nbPlaces").text(avalaiblePlaces);
             $("#maxPlaces").text(avalaiblePlaces);
-        })}
+            })
+        }
         else
         {
            // $('#cd_louvrebundle_purchaseorder_numberTicketsDesired').val(0);
@@ -87,10 +87,7 @@ $(document).ready(function () {
     }
 
     $(".btn-danger").click(function () {
-       // $('#cd_louvrebundle_purchaseorder_numberTicketsDesired').val(0);
         document.location.href="http://localhost/CDLouvre_p4/web/app_dev.php/"
-
-
     });
 
 
@@ -99,27 +96,17 @@ $(document).ready(function () {
 
     var $container = $('div#cd_louvrebundle_purchaseorder_ticketDescription');
 
- //   if (document.getElementById('cd_louvrebundle_purchaseorder_ticketDescription')) {
-
-        // On définit un compteur unique pour nommer les champs qu'on va ajouter dynamiquement
-  //      var index = $container.find(':input').length;
-
-        // On ajoute un premier champ automatiquement.
-     /*   if (index == 0) {
-            addDescription($container);
-        }*/
- //   }
-
-    /*************** Fonction qui permet d'ajouter un sous formulaire TicketDescriptionType **************************/
+/*************** Fonction qui permet d'ajouter un sous formulaire TicketDescriptionType **************************/
 
     function addDescription($container) {
-        // Dans le contenu de l'attribut « data-prototype », on remplace
-        // - le texte "__name__label__" qu'il contient par le label du champ
-        // - le texte "__name__" qu'il contient par le numéro du champ
+
+        // Dans le contenu de l'attribut « data-prototype », on remplace le texte "__name__label__" par le label du champ
+        // le texte "__name__" par le numéro du champ
         var template = $container.attr('data-prototype')
             .replace(/__name__label__/g, 'Visiteur n°' + (index + 1))
             .replace(/__name__/g, index)
         ;
+
         // On crée un objet jquery qui contient ce template
         var $prototype = $(template);
 
@@ -129,7 +116,7 @@ $(document).ready(function () {
         // On ajoute le prototype modifié à la fin de la balise <div>
         $container.append($prototype);
 
-        // Enfin, on incrémente le compteur pour que le prochain ajout se fasse avec un autre numéro
+        // Enfin, on incrémente le compteur pour que le prochain ajout se fasse avec le numéro suivant
         index++;
     }
 
@@ -156,7 +143,5 @@ $(document).ready(function () {
             }
         }
     });
-
-
 });
 

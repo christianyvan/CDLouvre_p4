@@ -100,13 +100,12 @@ class PurchaseOrder
 		$this->visitType = 0;
 		$this->amountOrder = 0;
 		$this->numberTicketsDesired = 0;
-		$this->reservationCode = $this->generateCode(15);
+		$this->reservationCode = uniqid();
 		$this->orderValidation = 0;
 		$this->ticketDescription = new ArrayCollection();
 
 
 	}
-
 
 
 	/**
@@ -288,17 +287,6 @@ class PurchaseOrder
     }
 
 	/**
-	 * generateCode fonction qui génère un code unique pour une commande donnée
-	 * @param $length
-	 * @return bool|string
-	 */
-	function generateCode($length)
-	{
-		$token ="azertyuiopqsdfghjklmwxcvbnAZERTYUIOPQSDFGHJKLMWXCVBN0123456789";
-		return substr(str_shuffle(str_repeat($token, $length)),0,$length);
-	}
-
-    /**
      * Add ticketDescription
      *
      * @param \CD\LouvreBundle\Entity\TicketDescription $ticketDescription
@@ -352,4 +340,6 @@ class PurchaseOrder
     {
         return $this->visitDate;
     }
+
+
 }

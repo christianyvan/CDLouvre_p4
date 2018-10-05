@@ -3,10 +3,6 @@
 {% block css %}
     <!-- Bootstrap -->
     <link href="{{ asset('bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
-
-
-    <!--<link rel="stylesheet" href="{{ asset('bootstrap/css/bootstrap-theme.min.css') }}">-->
-
     <link rel="stylesheet" href="{{ asset('css/style.css') }}"/>
 {% endblock  %}
 
@@ -15,25 +11,23 @@
     <h4 id="achatBillet">Achat de billet(s) pour le Musée du Louvre <span class="glyphicon glyphicon-info-sign" id="tarif"></span></h4>
     <br>
     <div class="row well">
-
-            <section class="col-md-6">
-                <h4>Votre commande <span class="glyphicon glyphicon-shopping-cart"></span></h4><br>
-                     <ul>
-                         <li><strong>Code de la commmande :</strong> {{ purchaseOrder.reservationCode }}</li>
-                         <li><strong>Date de la commande :</strong> {{ purchaseOrder.orderDate | date('d/m/Y') }}</li>
-                         <li><strong>Email Client :</strong> {{ purchaseOrder.customerEmail }}</li>
-
-                         <li><strong>Type de billet :</strong>
+         <section class="col-md-6">
+              <h4>Votre commande <span class="glyphicon glyphicon-shopping-cart"></span></h4><br>
+              <ul>
+                   <li><strong>Code de la commmande :</strong> {{ purchaseOrder.reservationCode }}</li>
+                   <li><strong>Date de la commande :</strong> {{ purchaseOrder.orderDate | date('d/m/Y') }}</li>
+                   <li><strong>Email Client :</strong> {{ purchaseOrder.customerEmail }}</li>
+                   <li><strong>Type de billet :</strong>
                         {% if purchaseOrder.visitType == 1 %}
                             Journée
                         {% else %}
                             Demi-Journée
                         {% endif %}
-                         </li>
-                        <li><strong>Date de votre visite :</strong> {{ purchaseOrder.visitDate  }}</li>
-                        <li><strong>Nombre de place(s) :</strong> {{ purchaseOrder.numberTicketsDesired }}</li>
-                     </ul>
-            </section>
+                   </li>
+                   <li><strong>Date de votre visite :</strong> {{ purchaseOrder.visitDate  }}</li>
+                   <li><strong>Nombre de place(s) :</strong> {{ purchaseOrder.numberTicketsDesired }}</li>
+              </ul>
+         </section>
 
             <aside class="col-md-6">
                <table class="tab_" >
@@ -76,7 +70,7 @@
       <!-- </div>-->
 
 
-    <div class="container">
+    <!--<div class="container">-->
         <h4>Détails billets :</h4>
         <table class="table table-bordered table-responsive tab_">
             <thead>
@@ -111,9 +105,9 @@
             {% endfor %}
             </tbody>
         </table>
-    </div><!-- end container -->
+    <!--</div>--><!-- end container -->
     <br>
-    <div class="container">
+    <!--<div class="container">-->
         <div>
              <h4><strong>Montant total de votre commande : {{ purchaseOrder.getAmountOrder }}€</strong></h4>
         </div>
@@ -141,7 +135,7 @@
                 <button style="font-weight: bold;" class="btn btn-info"><a href="{{ path('louvre_home') }}">Retour accueil</a></button>
             </div>
         </div><!-- end row -->
-    </div>
+    <!--</div>-->
 </div>
        <br><br>
 {% endblock %}

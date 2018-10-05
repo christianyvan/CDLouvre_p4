@@ -1,18 +1,13 @@
 {% extends '::base.html.twig' %}
 
 {% block body %}
-
     <div class="jumbotron">
         <div class="container bg-danger" id="error404">
-
-
-                <img class="img-responsive" id="img404" src="{{ asset('images/error404.png') }}" alt="Error">
-
-                <div class="col-md-offset-1 col-md-12">
-                    <h1>Whoops...ERREUR 404!!!<br><small>Page non trouvée !!</small></h1>
-                    <a href="{{ path('louvre_home') }}"><button type="button" class="btn btn-primary"><span class="glyphicon glyphicon-play"></span> Retour à la page d'accueil</button></a>
-                </div>
-
+            <img class="img-responsive" id="img404" src="{{ asset('images/error404.png') }}" alt="Error">
+            <div class="col-md-offset-1 col-md-12">
+                 <h1>Whoops...ERREUR 404!!!<br><small>Page non trouvée !!</small></h1>
+                  <a href="{{ path('louvre_home') }}"><button type="button" class="btn btn-primary"><span class="glyphicon glyphicon-play"></span> Retour à la page d'accueil</button></a>
+             </div>
         </div>
     </div>
 {% endblock %}

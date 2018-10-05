@@ -19,7 +19,7 @@ class RecoveryDisponibilityController extends Controller
 
 
 	/**
-	 *
+	 * fonction qui renvoie le nombre de places disponibles pour une date donnée (requète ajax)
 	 * @return int|Response
 	 * @throws \Doctrine\ORM\NoResultException
 	 * @throws \Doctrine\ORM\NonUniqueResultException
@@ -27,8 +27,6 @@ class RecoveryDisponibilityController extends Controller
 	public function numberPlacesAction()
 	{
 		$visitDate = $_GET['visitDate'];
-		//if($request->isXmlHttpRequest()){
-
 		$em = $this->getDoctrine()->getManager();
 		$result = $em->getRepository('CDLouvreBundle:PurchaseOrder')->placesPerDay($visitDate);
 		$places = PurchaseOrder::MAX_PLACES_PER_DAY - $result;
@@ -37,15 +35,14 @@ class RecoveryDisponibilityController extends Controller
 		return $response;
 	}
 
+	/**
+	 * fonction qui récupère la liste des dates qui n'ont plus de places disponibles. Le résultat est retourné a la
+	 * requète ajax, les dates seront désactivées dans le datepicker.
+	 * @return JsonResponse
+	 */
 	public function disponibilityDayAction()
 	{
-
 		$excludedDate = array();
-
-		// Ajout des dates de fermeture dans la variable $excludedDate
-		//array_push($excludedDate, strtotime('2018-05-01'));
-		//array_push($excludedDate, strtotime('2018-11-01'));
-		//array_push($excludedDate, strtotime('2018-12-25'));
 
 		// Traitement des dates dont le nbre de billets MAX est atteint
 		$em = $this->getDoctrine()->getManager();
@@ -56,13 +53,14 @@ class RecoveryDisponibilityController extends Controller
 		// Pour chaque enregistrement de la liste
 		foreach ($datesList as $key => $value)
 		{
-			// Test du Nbre de places total pour chaque date de la liste
+			// Comparaison du Nbre de places total réservées pour chaque date de la liste avec le nombre max de place
+			// disponible par jour
 			if ($value['Places'] == PurchaseOrder::MAX_PLACES_PER_DAY)
 			{
 
 				// Si le nombre de place pour une date est égal au nombre max de place autorisé par jour, on ajoute la date
 				// au tableau des dates qui n'ont plus de places disponibles.
-				array_push($excludedDate,/* strtotime(*/$value['visitDate'])/*)*/;
+				array_push($excludedDate,$value['visitDate']);
 			};
 		}
 		$response = new JsonResponse($excludedDate);

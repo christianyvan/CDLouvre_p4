@@ -1,26 +1,18 @@
 {% extends '::base.html.twig' %}
 
 {% block body %}
-
     <div class="jumbotron">
         <div class="container bg-danger" id="error500">
-
-
             <img class="img-responsive" id="img500" src="{{ asset('images/error500.jpg') }}" alt="Error500">
-
             <div class="col-md-offset-1 col-md-12">
                 <h1>Whoops...ERREUR 500!!!!<br><small>Problème serveur !!</small></h1>
                 <a  href="{{ path('louvre_home') }}"><span class="glyphicon glyphicon-play"></span> Retour à la page d'accueil</a>
             </div>
-
         </div>
     </div>
 {% endblock %}
 
-
 {% block javascripts %}
-
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
 {% endblock %}

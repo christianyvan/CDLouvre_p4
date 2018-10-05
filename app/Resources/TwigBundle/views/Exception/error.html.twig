@@ -3,23 +3,16 @@
 {% block body %}
     <div class="jumbotron">
         <div class="container bg-danger" id="error500">
-
-
             <img class="img-responsive" id="img500" src="{{ asset('images/error.jpg') }}" alt="Error">
-
             <div class="col-md-offset-1 col-md-12">
                 <h1>Whoops...ERREUR !!!<br><small> Une erreur est survenu !!</small></h1>
                 <a href="{{ path('louvre_home') }}"><button type="button" class="btn btn-primary"><span class="glyphicon glyphicon-play"></span> Retour à la page d'accueil</button></a>
             </div>
-
         </div>
     </div>
 {% endblock %}
 
-
 {% block javascripts %}
-
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
 {% endblock %}

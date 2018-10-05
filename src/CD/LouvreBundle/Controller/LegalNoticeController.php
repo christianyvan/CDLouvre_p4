@@ -8,12 +8,13 @@
 
 namespace CD\LouvreBundle\Controller;
 
-
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 class LegalNoticeController extends Controller
 {
 	public function legalNoticeAction(){
+
+		// vue qui renvoie à la page Mentions Légales du site
 		return $this->render('CDLouvreBundle:LegalNotice:legalNotice.html.twig');
 	}
 }
