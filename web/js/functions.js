@@ -87,9 +87,8 @@ $(document).ready(function () {
     }
 
     $(".btn-danger").click(function () {
-        $('#cd_louvrebundle_purchaseorder_numberTicketsDesired').val(0);
-
-
+       // $('#cd_louvrebundle_purchaseorder_numberTicketsDesired').val(0);
+        document.location.href="http://localhost/CDLouvre_p4/web/app_dev.php/"
 
 
     });

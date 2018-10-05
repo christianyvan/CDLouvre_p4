@@ -31,7 +31,7 @@ class PurchaseOrderType extends AbstractType
 			)
 
 			->add('numberTicketsDesired',ChoiceType::class, array(
-				'label'   => 'Billets(max 5)',
+				'label'   => 'Billets',
 				'choices'    =>array(
 						'0' => 0,
 						'1' => 1,

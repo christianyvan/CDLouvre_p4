@@ -35,67 +35,17 @@
     </div>
 
     {% block body %}{% endblock %}
-<!--
-<div class="container-fluid">
-        <footer class="navbar navbar-default navbar-fixed-bottom">
-            <div class="row">
 
-                    <div class="col-md-4 col-sm-0 hidden-xs">
-                        <p class="">© 2018 Site créé par :<a href="mailto:christian.yvan@gmail.com">Christian Yvan</a></p>
-                    </div>
+    <div class="footer table-responsive" style="background-color: black">
+            <table class="table">
+                    <tr>
+                        <th style="padding-left: 4em;">© 2018 Site créé par : <a href="mailto:christian.yvan@gmail.com">Christian Yvan</a></th>
+                        <th><a href="http://www.instagram.com/museelouvre">Instagram  </a><img src="{{ asset('images/instagram.png') }}" alt="instagram"></th>
+                        <th> <a href="https://www.facebook.com/museedulouvre">Facebook  </a><img src="{{ asset('images/facebook.png') }}" class="rs" alt="facebook"></th>
+                        <th><a href="http://twitter.com/MuseeLouvre">Twitter  </a><img src="{{ asset('images/twitter.png') }}"  alt="twitter"></th>
+                    </tr>
+            </table>
 
-                    <div class="col-md-2 col-sm-3 rs">
-                         <a href="http://www.instagram.com/museelouvre"><img src="{#{{ asset('images/instagram.png') }}#}" class="rs" alt="instagram"></a>
-                    </div>
-
-                    <div class="col-md-2 col-sm-3 rs ">
-                        <a href="https://www.facebook.com/museedulouvre"><img src="{#{{ asset('images/facebook.png') }}#}" class="rs" alt="instagram"></a>
-                    </div>
-
-                    <div class="col-md-2 col-sm-3 rs">
-                          <a href="http://twitter.com/MuseeLouvre"><img src="{#{{ asset('images/twitter.png') }}#}" class="rs" alt="instagram"></a>
-                    </div>
-
-                    <div class="col-md-2 col-sm-3 rs">
-                        <a href="https://www.youtube.com/watch?v=7wXwwGXUMgE"><img src="{#{{ asset('images/youtube.png') }}#}" class="rs" alt="instagram"></a>
-                    </div>
-            </div>
-        </footer>
-</div>-->
-
-    <div id="footer">
-        <div class="container-fluid" style="background-color: lightgrey">
-            <div class="row">
-                <ul class="list-unstyled">
-                    <li class="col-md-3 col-sm-4 col-xs-6" id="foot-name">
-                       <span>© 2018 Site créé par :</span><a href="mailto:christian.yvan@gmail.com">Christian Yvan</a>
-
-                    </li>
-                    <li class="col-md-3 col-sm-4 col-xs-6">
-                        <a href="http://www.instagram.com/museelouvre"><img style="border-radius: 5px" src="{{ asset('images/instagram.png') }}" class="rs" alt="instagram"></a>
-                    </li>
-                    <li class="col-md-3 col-sm-4 col-xs-6">
-                        <a href="https://www.facebook.com/museedulouvre"><img src="{{ asset('images/facebook.png') }}" class="rs" alt="facebook"></a>
-                    </li>
-                    <li class="col-md-3 col-sm-4 col-xs-6">
-                        <a href="http://twitter.com/MuseeLouvre"><img src="{{ asset('images/twitter.png') }}" class="rs" alt="twitter"></a>
-                    </li>
-                   <!-- <li class="col-md-3 col-sm-4 col-xs-6">
-                        <a href="404.html">Login</a>
-                    </li>-->
-                    <!--<li class="col-md-3 col-sm-4 col-xs-6">
-                        <a href="404.html">Press</a>
-                    </li>
-                    <li class="col-md-3 col-sm-4 col-xs-6">
-                        <a href="404.html">Contact</a>
-                    </li>
-                    <li class="col-md-3 col-sm-4 col-xs-6">
-                        <a href="404.html">Impressum</a>
-                    </li>-->
-                </ul>
-            </div><!--/row-->
-
-        </div><!--/container-->
     </div>
 
         {% block javascripts %}{% endblock %}

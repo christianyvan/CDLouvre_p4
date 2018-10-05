@@ -34,7 +34,7 @@ class PurchaseOrder
 
 	/**
 	 * @var string
-	 * @Assert\Blank()
+	 *
 	 * @ORM\Column(name="visitDate", type="string")
 	 */
     private $visitDate;
